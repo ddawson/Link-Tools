@@ -1,0 +1,49 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "version": "0.1",
+  "author": "__MSG_authorName__",
+  "description": "__MSG_extensionDescription__",
+  "icons": {
+    "48": "linktools.svg",
+    "96": "linktools.svg"
+  },
+  "homepage_url": "https://addons.mozilla.org/addon/link-tools/",
+  "default_locale": "en",
+  "applications": {
+    "gecko": {
+      "id": "linktools@daniel.dawson",
+      "strict_min_version": "60.0b"
+    }
+  },
+
+  "permissions": [
+    "<all_urls>",
+    "activeTab",
+    "clipboardWrite",
+    "contextMenus",
+    "storage"
+  ],
+  "optional_permissions": [
+    "downloads"
+  ],
+  "incognito": "spanning",
+  "options_ui": {
+    "page": "pages/options.html"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "page_action": {
+    "browser_style": true,
+    "default_icon": "icon.svg",
+    "default_popup": "pages/pa-popup.html",
+    "default_title": "__MSG_extensionName__",
+    "show_matches": ["<all_urls>"]
+  },
+  "browser_action": {
+    "default_icon": "icon.svg",
+    "browser_style": true,
+    "default_popup": "pages/options.html"
+  }
+}

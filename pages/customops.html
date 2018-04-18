@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--
+    Link Tools: Configurable copy and visit operations for links in Firefox
+    Copyright (C) 2018  Daniel Dawson <danielcdawson@gmail.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../linktools.svg">
+    <link rel="stylesheet" href="customops.css">
+  </head>
+
+  <body>
+    <header>
+      <h1 id="heading-main"></h1>
+      <p id="descr-main"></p>
+    </header>
+
+    <section id="main-section">
+      <!--<section id="embedded-links-section">
+        <h2 id="heading-embedded-links"></h2>
+        <p id="descr-embedded-links"></p>
+
+        <div class="formrow">
+          <textarea class="wide-input" id="embedded-links-pat"
+                    rows="4" spellcheck="false"></textarea>
+        </div>
+      </section>-->
+
+      <section id="types-section">
+        <!--<h2 id="heading-link-types"></h2>
+        <p id="descr-link-types"></p>-->
+        
+        <section id="select-section">
+          <div class="formrow">
+            <button id="ops-import-btn"></button>
+            <input id="ops-import" class="hidden" type="file"
+                   accept="application/json">
+            <button id="ops-export-btn"></button>
+          </div>
+
+          <div class="formrow">
+            <select id="types-sel" size="7" multiple>
+              <optgroup id="builtin-group"></optgroup>
+              <optgroup id="custom-group"></optgroup>
+            </select>
+          </div>
+
+          <div class="formrow">
+            <button id="btn-rem" disabled></button>
+            <button id="btn-new"></button>
+          </div>
+        </section>
+
+        <section id="opts-section">
+          <table id="form-table">
+            <colgroup>
+              <col id="col-lbl" class="lbl-col">
+              <col id="col-ctrl" class="wide-col">
+            </colgroup>
+
+            <tr class="formrow">
+              <td><label id="opgroup-name-lbl" for="opgroup-name"></label>
+              <td><input class="wide-input" id="opgroup-name"
+                         spellcheck="false">
+            </tr>
+
+            <tr class="formrow">
+              <td><label id="opgroup-pat-lbl" for="opgroup-pat"></label>
+              <td><textarea class="wide-input" id="opgroup-pat"
+                            rows="4" spellcheck="false"></textarea>
+            </tr>
+
+            <tr class="formrow">
+              <td><label id="opgroup-thumb-lbl" for="opgroup-thumb"></label>
+              <td><input class="wide-input" id="opgroup-thumb"
+                         spellcheck="false">
+            </tr>
+          </table>
+
+          <section id="copyops-section" class="ops-section">
+            <h3 id="heading-copyops"></h3>
+            <p id="descr-copyops"></p>
+
+            <div class="formrow">
+              <table id="opgroup-copyops-tbl">
+                <colgroup>
+                  <col class="narrow-col">
+                  <col class="wide-col">
+                  <col class="checkbox-col">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th id="copyops-column-label">
+                    <th id="copyops-column-subst">
+                    <th id="copyops-column-decode" class="checkbox-th">
+                  </tr>
+                </thead>
+                <tbody id="copyops-tbody"></tbody>
+              </table>
+            </div>
+
+            <div class="formrow">
+              <button id="copyops-addbtn"></button>
+            </div>
+          </section>
+
+          <section id="visitops-section" class="ops-section">
+            <h3 id="heading-visitops"></h3>
+            <p id="descr-visitops"></p>
+
+            <div class="formrow">
+              <table id="opgroup-visitops-tbl">
+                <colgroup>
+                  <col class="narrow-col">
+                  <col class="wide-col">
+                  <col class="checkbox-col">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th id="visitops-column-label">
+                    <th id="visitops-column-subst">
+                    <th id="visitops-column-decode" class="checkbox-th">
+                  </tr>
+                </thead>
+                <tbody id="visitops-tbody"></tbody>
+              </table>
+            </div>
+
+            <div class="formrow">
+              <button id="visitops-addbtn"></button>
+            </div>
+          </section>
+
+          <div class="formrow">
+            <button id="ops-changebtn" disabled></button>
+            <button id="ops-clonebtn"></button>
+          </div>
+        </section>
+      </section>
+    </section>
+
+    <script src="customops.js"></script>
+  </body>
+</html>

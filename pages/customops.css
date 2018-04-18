@@ -1,0 +1,96 @@
+/*
+    Link Tools: Configurable copy and visit operations for links in Firefox
+    Copyright (C) 2018  Daniel Dawson <danielcdawson@gmail.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  font-size: 200%;
+}
+
+h1::before {
+  float: left;
+  content: " ";
+  background-image: url("../linktools.svg");
+  background-size: 48px 48px;
+  width: 48px;
+  height: 48px;
+  margin-right: 16px;
+}
+
+h2 {
+  font-size: 150%;
+}
+
+#select-section {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#opts-section {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.ops-section {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+h3 {
+  /*margin-top: 0;
+  margin-bottom: 0;*/
+  font-size: 120%;
+}
+
+table {
+  width: 100%;
+}
+
+.narrow-col {
+  width: 10%;
+}
+
+.wide-col {
+  width: 100%;
+}
+
+.checkbox-col, .checkbox-th {
+  max-width: 5em;
+}
+
+table th {
+  text-align: left;
+}
+
+table:dir(rtl) th {
+  text-align: right;
+}
+
+.wide-input {
+  width: 95%;
+}
+
+.opdel-btn {
+  background-color: red;
+  color: white;
+}

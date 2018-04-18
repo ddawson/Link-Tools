@@ -1,0 +1,118 @@
+{
+  "embeddedLinkPatterns": [
+    "^https?:\\/\\/www\\.google\\.com\\/url\\?(?:.*&)?url=([^&]+)(?:&.*)?$"
+  ],
+
+  "types": [
+    {
+      "name": "__MSG_googleSearchLink__",
+      "patterns": [
+        "^https?:\\/\\/www\\.google\\.com\\/search\\?(?:.*&)?q=([^?&]+)(?:&.*)?$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_google_copySearchLink__",
+          "subst": "https://www.google.com/search?q=$1"
+        },
+        {
+          "label": "__MSG_google_copySearchQuery__",
+          "subst": "$1",
+          "decode": true
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_google_visitSearch__",
+          "subst": "https://www.google.com/search?q=$1"
+        }
+      ]
+    },
+
+    {
+      "name": "__MSG_youtubePlaylistedVideo__",
+      "patterns": [
+        "^https?:\\/\\/www\\.youtube\\.com\\/watch\\?(?:.*&)?list=((?:\\w|-)+)\\b.*$",
+        "^https?:\\/\\/m\\.youtube\\.com\\/watch\\?(?:.*&)?list=((?:\\w|-)+)\\b.*$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_youtube_copyPlaylistLink__",
+          "subst": "https://www.youtube.com/playlist?list=$1"
+        },
+        {
+          "label": "__MSG_youtube_copyMobilePlaylistLink__",
+          "subst": "https://m.youtube.com/playlist?list=$1"
+        },
+        {
+          "label": "__MSG_youtube_copyPlaylistID__",
+          "subst": "$1"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_youtube_visitPlaylistPage__",
+          "subst": "https://www.youtube.com/playlist?list=$1"
+        },
+        {
+          "label": "__MSG_youtube_visitMobilePlaylistPage__",
+          "subst": "https://m.youtube.com/playlist?list=$1"
+        }
+      ]
+    },
+
+    {
+      "name": "__MSG_youtubeVideo__",
+      "patterns": [
+        "^https?:\\/\\/www\\.youtube\\.com\\/watch\\?(?:.*&)?v=((?:\\w|-){11})\\b.*$",
+        "^https?:\\/\\/m\\.youtube\\.com\\/watch\\?(?:.*&)?v=((?:\\w|-){11})\\b.*$",
+        "^https?:\\/\\/youtu\\.be\\/((?:\\w|-){11})\\b.*$"
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/$1/default.jpg",
+      "copyOperations": [
+        {
+          "label": "__MSG_youtube_copyLongLink__",
+          "subst": "https://www.youtube.com/watch?v=$1"
+        },
+        {
+          "label": "__MSG_youtube_copyMobileLink__",
+          "subst": "https://m.youtube.com/watch?v=$1"
+        },
+        {
+          "label": "__MSG_youtube_copyShortLink__",
+          "subst": "https://youtu.be/$1"
+        },
+        {
+          "label": "__MSG_youtube_copyVID__",
+          "subst": "$1"
+        }
+      ]
+    },
+
+    {
+      "name": "__MSG_youtubePlaylist__",
+      "patterns": [
+        "^https:\\/\\/www\\.youtube\\.com\\/playlist\\?(?:.*&)?list=((?:\\w|-)+)\\b.*$",
+        "^https:\\/\\/m\\.youtube\\.com\\/playlist\\?(?:.*&)?list=((?:\\w|-)+)\\b.*$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_youtube_copyPlaylistID__",
+	  "subst": "$1"
+        }
+      ]
+    },
+
+    {
+      "name": "__MSG_redditSubredditTopicPostLink__",
+      "patterns": [
+        "^https:\\/\\/www\\.reddit\\.com\\/r\\/"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_reddit_copyNPLink__",
+          "subst": "https://np.reddit.com/r/"
+        }
+      ]
+    }
+  ]
+}

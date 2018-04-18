@@ -1,0 +1,233 @@
+{
+  "extensionName": {
+    "message": "Link Tools",
+    "description": "Name of the extension"
+  },
+
+  "authorName": {
+    "message": "Daniel Dawson",
+    "description": "Name of the author"
+  },
+
+  "extensionDescription": {
+    "message": "Utility providing many operations on links and page URLs",
+    "description": "Description of the extension"
+  },
+
+  "showThumbnails": {
+    "message": "Show link thumbnails on mouseover"
+  },
+
+  "editCustomOps": {
+    "message": "Edit custom URL operations"
+  },
+
+  "customOpsTitle": {
+    "message": "Link Tools: custom operations"
+  },
+
+  "customOps_description": {
+    "message": "Here you may view the predefined link types, and define your own. The export function uses only the types you select from the list (which is a multiple-selection list), or all custom types if you select none. The \"decode parameter\" option treats the result as a query parameter and decodes it accordingly (useful to recover form inputs)."
+  },
+
+  "linkTypes": {
+    "message": "Link types"
+  },
+
+  "linkTypes_description": {
+    "message": "These define the types of links that are recognized, and the operations available on them."
+  },
+
+  "import": {
+    "message": "Import"
+  },
+
+  "fileReadFailed": {
+    "message": "The file could not be read."
+  },
+
+  "invalidImport": {
+    "message": "The import file is not valid."
+  },
+
+  "export": {
+    "message": "Export"
+  },
+
+  "downloadsPermissionFailed": {
+    "message": "Failed to get permission, cancelling export."
+  },
+
+  "exportFailed": {
+    "message": "Failed to export."
+  },
+
+  "builtinTypes": {
+    "message": "Built-in types"
+  },
+
+  "customTypes": {
+    "message": "Custom types"
+  },
+
+  "remove": {
+    "message": "Remove"
+  },
+
+  "new": {
+    "message": "New"
+  },
+
+  "customops-name-lbl": {
+    "message": "Name: "
+  },
+
+  "customops-pat-lbl": {
+    "message": "Patterns: "
+  },
+
+  "regularExpressions": {
+    "message": "Regular expressions, one per line"
+  },
+
+  "customops-thumb-lbl": {
+    "message": "Thumbnail: "
+  },
+
+  "optional-replacedByMatches": {
+    "message": "(Optional) $$1, $$2, … replaced by matches in patterns"
+  },
+
+  "heading-copyops": {
+    "message": "Copy operations"
+  },
+
+  "descr-copyops": {
+    "message": "These will copy something into the clipboard."
+  },
+
+  "column-label": {
+    "message": "Label"
+  },
+
+  "column-subst": {
+    "message": "Substitution"
+  },
+
+  "column-decode": {
+    "message": "Decode parameter"
+  },
+
+  "replacedByMatches": {
+    "message": "$$1, $$2, … replaced by matches in pattern"
+  },
+
+  "add": {
+    "message": "Add"
+  },
+  
+  "heading-visitops": {
+    "message": "Visit operations"
+  },
+
+  "descr-visitops": {
+    "message": "These will take you to some address."
+  },
+
+  "applyChanges": {
+    "message": "Apply changes"
+  },
+
+  "addAsNewType": {
+    "message": "Add as new type"
+  },
+
+  "noOpsAvail": {
+    "message": "No operations available"
+  },
+  
+  "mustHaveName": {
+    "message": "You must enter a name for this type."
+  },
+
+  "mustHavePat": {
+    "message": "You must enter at least one pattern for this type."
+  },
+
+  "mustHaveOps": {
+    "message": "You must enter at least one copy operation or at least one visit operation."
+  },
+
+
+  "googleSearchLink": {
+    "message": "Google search link"
+  },
+
+  "google_copySearchLink": {
+    "message": "Copy Google search link (no parameters)"
+  },
+
+  "google_copySearchQuery": {
+    "message": "Copy Google search query"
+  },
+
+  "google_visitSearch": {
+    "message": "Visit Google search"
+  },
+
+  "youtubePlaylistedVideo": {
+    "message": "YouTube playlisted video"
+  },
+
+  "youtube_copyPlaylistLink": {
+    "message": "Copy YouTube playlist link"
+  },
+
+  "youtube_copyMobilePlaylistLink": {
+    "message": "Copy YouTube mobile playlist link"
+  },
+
+  "youtube_copyPlaylistID": {
+    "message": "Copy YouTube playlist ID"
+  },
+
+  "youtube_visitPlaylistPage": {
+    "message": "Visit YouTube playlist page"
+  },
+
+  "youtube_visitMobilePlaylistPage": {
+    "message": "Visit YouTube playlist page"
+  },
+
+  "youtubeVideo": {
+    "message": "YouTube video"
+  },
+
+  "youtube_copyLongLink": {
+    "message": "Copy YouTube long video link (no parameters)"
+  },
+
+  "youtube_copyMobileLink": {
+    "message": "Copy YouTube mobile video link (no parameters)"
+  },
+
+  "youtube_copyShortLink": {
+    "message": "Copy YouTube short video link"
+  },
+
+  "youtube_copyVID": {
+    "message": "Copy YouTube video ID"
+  },
+
+  "youtubePlaylist": {
+    "message": "YouTube playlist"
+  },
+
+  "redditSubredditTopicPostLink": {
+    "message": "Reddit subreddit/topic/post link"
+  },
+
+  "reddit_copyNPLink": {
+    "message": "Copy Reddit no participation (NP) link"
+  }
+}
