@@ -144,7 +144,7 @@ $("ops-import").addEventListener(
 
           outArray.push(outType);
         }
-      } catch {
+      } catch (e) {
         alert(_("invalidImport"));
       }
 
@@ -200,7 +200,7 @@ $("ops-export-btn").addEventListener(
       await browser.downloads.download(
         { url, filename: "linktools-custom.json",
           conflictAction: "overwrite" });
-    } catch {
+    } catch (e) {
       alert(_("exportFailed"));
     }
 

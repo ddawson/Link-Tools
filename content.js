@@ -97,7 +97,7 @@ function setThumbnailsState (newValue) {
 
     try {
       addMouseover();
-    } catch {
+    } catch (e) {
       document.addEventListener("DOMContentLoaded", addMouseover, false);
     }
   } else if (newValue == false && showThumbnails == true) {
@@ -106,7 +106,7 @@ function setThumbnailsState (newValue) {
     try {
       document.body.removeEventListener("mouseover", show_thumbnail, false);
       document.body.removeEventListener("mouseout", hide_thumbnail, false);
-    } catch {}
+    } catch (e) {}
   }
 }
 
