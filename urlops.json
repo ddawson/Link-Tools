@@ -1,6 +1,11 @@
 {
   "embeddedLinkPatterns": [
-    "^https?:\\/\\/www\\.google\\.com\\/url\\?(?:.*&)?url=([^&]+)(?:&.*)?$"
+    "^https?:\\/\\/www\\.google\\.com\\/url\\?(?:.*&)?url=([^&]+)(?:&.*)?$",
+    "^https?:\\/\\/outgoing\\.prod\\.mozaws\\.net\\/[^\\/]+\\/[^\\/]+\\/(.*)$"
+  ],
+
+  "embeddedLinkPatterns_nodecode": [
+    "^https?:\\/\\/steamcommunity\\.com\\/linkfilter\\/\\?url=(.*)$"
   ],
 
   "types": [

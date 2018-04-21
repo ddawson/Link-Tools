@@ -20,7 +20,7 @@
 
 const _ = name => browser.i18n.getMessage(name);
 
-let elinkPats = [], builtinUrlops = [], customUrlops = [];
+let elinkPats = [], elinkPats_nd = [], builtinUrlops = [], customUrlops = [];
 
 function makeRE (spec) {
   let patternRE = [];
@@ -59,6 +59,9 @@ function procUrlops (o) {
   for (let patStr of o.embeddedLinkPatterns)
     elinkPats.push(new RegExp(patStr));
 
+  for (let patStr of o.embeddedLinkPatterns_nodecode)
+    elinkPats_nd.push(new RegExp(patStr));
+
   procTypes(o.types, builtinUrlops);
 }
 
@@ -83,6 +86,12 @@ function checkPatterns (aUrl, aFindAllMatches) {
     let match = aUrl.match(p);
     if (match)
       urls.push(decodeURIComponent(match[1]));
+  }
+
+  for (let p of elinkPats_nd) {
+    let match = aUrl.match(p);
+    if (match)
+      urls.push(match[1]);
   }
 
   let ops = [];
