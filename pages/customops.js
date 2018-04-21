@@ -19,7 +19,6 @@
 "use strict";
 
 const $ = id => document.getElementById(id);
-const mkTxt = str => document.createTextNode(str);
 const setTxt = (el, str) => el.textContent = str;
 const _ = (id, ...parms) => browser.i18n.getMessage(id, ...parms);
 
@@ -30,6 +29,16 @@ const title = _("customOpsTitle");
 document.title = title;
 setTxt($("heading-main"), title);
 setTxt($("descr-main"), _("customOps_description"));
+{
+  let halves = _("customOps_askForContribs", "$1").split("$1");
+  let p = $("ask-for-contribs");
+  p.appendChild(document.createTextNode(halves[0]));
+  let link = document.createElement("a");
+  link.href = "https://addons.mozilla.org/addon/link-tools/";
+  setTxt(link, _("customOps_askForContribs_linkText"));
+  p.appendChild(link);
+  p.appendChild(document.createTextNode(halves[1]));
+}
 
 //setTxt($("heading-embedded-links"), _("embeddedLinks"));
 //setTxt($("descr-embedded-links"), _("embeddedLinks_description"));

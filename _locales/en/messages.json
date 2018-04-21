@@ -30,6 +30,21 @@
     "message": "Here you may view the predefined link types, and define your own. The export function uses only the types you select from the list (which is a multiple-selection list), or all custom types if you select none. The \"decode parameters\" option treats all substitutions as query parameters and decodes them accordingly (useful to recover form inputs)."
   },
 
+  "customOps_askForContribs": {
+    "message": "Contributions to the built-in set, as well as additional embedded link types, are welcome. Please see $link$ for details.",
+    "placeholders": {
+      "link": {
+        "content": "$1"
+      }
+    },
+    "description": "This will contain a link. Just use the placeholder wherever the link needs to be, and see customOps_askForContribs_linkText to set the text of the link itself."
+  },
+
+  "customOps_askForContribs_linkText": {
+    "message": "this addon's listing page",
+    "description": "Text of link in customOps_askForContribs"
+  },
+
   "linkTypes": {
     "message": "Link types"
   },
