@@ -229,5 +229,13 @@
 
   "reddit_copyNPLink": {
     "message": "Copy Reddit no participation (NP) link"
+  },
+
+  "mozilla_localeSpecificLink": {
+    "message": "Mozilla locale-specific link"
+  },
+
+  "mozilla_copyLinkNoLocale": {
+    "message": "Copy Mozilla link (no locale)"
   }
 }
