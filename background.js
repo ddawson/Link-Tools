@@ -189,13 +189,37 @@ browser.contextMenus.onHidden.addListener(() => {
   browser.contextMenus.update("linktools-menu", {enabled: false});
 });
 
+function replaceURL_decode (aUrl, aPattern, aSubst) {
+  let match = aUrl.match(aPattern);
+  let sstr = aSubst, re = /^(?:[^$]|\$[^$1-9]|\${2})*\$(?=[1-9])/,
+      list = [];
+
+  while (sstr) {
+    let m = sstr.match(re);
+    if (m) {
+      let s = m[0], l = s.length, n = Number(sstr[l]);
+      list.push(s.slice(0, l-1),
+                n < match.length ?
+                decodeURIComponent(match[n]).replace(/\+/g, " ") : "$" + n);
+      sstr = sstr.slice(l+1);
+    } else {
+      list.push(sstr);
+      sstr = "";
+    }
+  }
+
+  let newSubst = list.join("");
+  return aUrl.replace(aPattern, newSubst);
+}
+
 browser.contextMenus.onClicked.addListener((info, tab) => {
   let id = info.menuItemId;
 
   if (id in menuMap) {
     let mi = menuMap[id];
-    let res = mi.url.replace(mi.pattern, mi.subst);
-    if (mi.decode) res = decodeURIComponent(res).replace(/\+/g, " ");
+    let res = mi.decode ?
+        replaceURL_decode(mi.url, mi.pattern, mi.subst) :
+        mi.url.replace(mi.pattern, mi.subst);
 
     browser.tabs.sendMessage(
       tab.id, {msgType: mi.type, url: res});

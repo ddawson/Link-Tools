@@ -114,10 +114,12 @@ let port = browser.runtime.connect();
 
 port.onMessage.addListener(msg => {
   switch (msg.msgType) {
-    case "options-change":
+  case "options-change":
+    if ("showThumbnails" in msg.changes) {
       let newValue = msg.changes.showThumbnails.newValue;
       setThumbnailsState(newValue);
-      break;
+    }
+    break;
   }
 });
 

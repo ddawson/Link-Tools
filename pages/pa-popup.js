@@ -20,13 +20,36 @@
 
 let savedTabId, savedOps;
 
+function replaceURL_decode (aUrl, aPattern, aSubst) {
+  let match = aUrl.match(aPattern);
+  let sstr = aSubst, re = /^(?:[^$]|\$[^$1-9]|\${2})*\$(?=[1-9])/,
+      list = [];
+
+  while (sstr) {
+    let m = sstr.match(re);
+    if (m) {
+      let s = m[0], l = s.length, n = Number(sstr[l]);
+      list.push(s.slice(0, l-1),
+                n < match.length ?
+                decodeURIComponent(match[n]).replace(/\+/g, " ") : "$" + n);
+      sstr = sstr.slice(l+1);
+    } else {
+      list.push(sstr);
+      sstr = "";
+    }
+  }
+
+  let newSubst = list.join("");
+  return aUrl.replace(aPattern, newSubst);
+}
+
 function handle_click (e) {
   if (e.button == 2) return;
 
   let op = savedOps[e.target.value];
-  let res = op.url.replace(op.matchedPattern, op.subst);
-  if ("decode" in op && op.decode)
-    res = decodeURIComponent(res).replace(/\+/g, " ");
+  let res = "decode" in op && op.decode ?
+      replaceURL_decode(op.url, op.matchedPattern, op.subst) :
+      op.url.replace(op.matchedPattern, op.subst);
 
   if (op.type == "copy") {
     let copyBox = document.createElement("input");

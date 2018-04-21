@@ -27,7 +27,7 @@
   },
 
   "customOps_description": {
-    "message": "Here you may view the predefined link types, and define your own. The export function uses only the types you select from the list (which is a multiple-selection list), or all custom types if you select none. The \"decode parameter\" option treats the result as a query parameter and decodes it accordingly (useful to recover form inputs)."
+    "message": "Here you may view the predefined link types, and define your own. The export function uses only the types you select from the list (which is a multiple-selection list), or all custom types if you select none. The \"decode parameters\" option treats all substitutions as query parameters and decodes them accordingly (useful to recover form inputs)."
   },
 
   "linkTypes": {
@@ -115,7 +115,7 @@
   },
 
   "column-decode": {
-    "message": "Decode parameter"
+    "message": "Decode parameters"
   },
 
   "replacedByMatches": {
@@ -141,10 +141,6 @@
   "addAsNewType": {
     "message": "Add as new type"
   },
-
-  "noOpsAvail": {
-    "message": "No operations available"
-  },
   
   "mustHaveName": {
     "message": "You must enter a name for this type."
@@ -156,6 +152,10 @@
 
   "mustHaveOps": {
     "message": "You must enter at least one copy operation or at least one visit operation."
+  },
+
+  "noOpsAvail": {
+    "message": "No operations available"
   },
 
 
