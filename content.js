@@ -19,8 +19,7 @@
 "use strict";
 
 const bidi_dir = browser.i18n.getMessage("@@bidi_dir");
-
-console.log(`CONTENT SCRIPT on ${window.location.href}`);
+const POPUP_DELAY = 700;
 
 browser.runtime.onMessage.addListener(({msgType, url}) => {
   if (msgType == "copy") {
@@ -51,6 +50,7 @@ function show_thumbnail ({ target: el }) {
       async () => {
         let thumbnailUrl = await browser.runtime.sendMessage(
           { msgType: "get-thumbnail-url", url: el.href });
+        if (!thumbnailUrl) return;
         thumb = document.createElement("img");
         thumb.style.position = "absolute";
         let { left: scrX, top: scrY } =
@@ -69,7 +69,7 @@ function show_thumbnail ({ target: el }) {
         thumb.style.backgroundColor = "white";
         thumb.src = thumbnailUrl;
         document.body.appendChild(thumb);
-      }, 500);
+      }, POPUP_DELAY);
   }
 }
 
@@ -110,20 +110,34 @@ function setThumbnailsState (newValue) {
   }
 }
 
-let port = browser.runtime.connect();
-
-port.onMessage.addListener(msg => {
-  switch (msg.msgType) {
-  case "options-change":
-    if ("showThumbnails" in msg.changes) {
-      let newValue = msg.changes.showThumbnails.newValue;
-      setThumbnailsState(newValue);
-    }
-    break;
+(function init () {
+  function _retry () {
+    // Probably injected on existing tab; message manager not ready yet?
+    setTimeout(init, 200);
   }
-});
 
-browser.runtime.sendMessage({ msgType: "get-options" }).then(opts => {
-  if ("showThumbnails" in opts)
-    setThumbnailsState(opts.showThumbnails);
-});
+  let port;
+
+  if (!(port = browser.runtime.connect())) {
+    _retry();
+    return;
+  }
+
+  port.onMessage.addListener(msg => {
+    switch (msg.msgType) {
+    case "options-change":
+      if ("showThumbnails" in msg.changes) {
+        let newValue = msg.changes.showThumbnails.newValue;
+        setThumbnailsState(newValue);
+      }
+      break;
+    }
+  });
+
+  browser.runtime.sendMessage({ msgType: "get-options" }).then(opts => {
+    if ("showThumbnails" in opts)
+      setThumbnailsState(opts.showThumbnails);
+  }).catch(() => {
+    _retry();
+  });
+})();

@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
-  "version": "0.2",
+  "version": "0.3",
   "author": "__MSG_authorName__",
   "description": "__MSG_extensionDescription__",
   "icons": {
@@ -45,5 +45,12 @@
     "default_icon": "icon.svg",
     "browser_style": true,
     "default_popup": "pages/options.html"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
 }

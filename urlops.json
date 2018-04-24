@@ -1,6 +1,7 @@
 {
   "embeddedLinkPatterns": [
     "^https?:\\/\\/www\\.google\\.com\\/url\\?(?:.*&)?url=([^&]+)(?:&.*)?$",
+    "^https?:\\/\\/www\\.youtube\\.com\\/redirect\\?(?:.*&)?q=([^&]+)(?:&.*)?$",
     "^https?:\\/\\/outgoing\\.prod\\.mozaws\\.net\\/[^\\/]+\\/[^\\/]+\\/(.*)$"
   ],
 

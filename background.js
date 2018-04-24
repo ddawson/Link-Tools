@@ -282,11 +282,7 @@ browser.runtime.onMessage.addListener(msg => {
     break;
 
   case "get-thumbnail-url":
-    return new Promise((resolve, reject) => {
-      let res = getThumbnailUrl(msg.url);
-      if (!res) reject();
-      resolve(res);
-    });
+    return new Promise(resolve => { resolve(getThumbnailUrl(msg.url)); });
     break;
   }
 });
@@ -307,10 +303,4 @@ browser.runtime.onConnect.addListener(port => {
 browser.storage.onChanged.addListener(changes => {
   for (let port of msgPorts)
     port.postMessage({ msgType: "options-change", changes });
-});
-
-browser.contentScripts.register({
-  matches: ["<all_urls>"],
-  js: [{file: "content.js"}],
-  runAt: "document_start"
 });
