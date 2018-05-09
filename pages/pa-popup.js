@@ -65,7 +65,7 @@ function handle_click (e) {
       msgType: "pa-visit",
       tabId: savedTabId,
       url: res,
-      newTab: e.button == 1
+      newTab: op.newTab || e.button == 1
     });
   }
   window.close();

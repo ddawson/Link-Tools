@@ -173,6 +173,11 @@
     "message": "No operations available"
   },
 
+  "newTab": {
+    "message": " (new tab)",
+    "description": "Appended to visit operations to form new visit operations that open a new tab instead of sending the current tab to the address."
+  },
+
 
   "googleSearchLink": {
     "message": "Google search link"
@@ -211,7 +216,7 @@
   },
 
   "youtube_visitMobilePlaylistPage": {
-    "message": "Visit YouTube playlist page"
+    "message": "Visit YouTube playlist page (mobile)"
   },
 
   "youtubeVideo": {

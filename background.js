@@ -111,22 +111,36 @@ function checkPatterns (aUrl, aFindAllMatches) {
               ops.push({
                 type: "copy",
                 url,
+                newTab: false,
                 matchedPattern: p,
                 label: op.label,
                 subst: op.subst,
                 decode: "decode" in op && op.decode
               });
 
-          if ("visitOperations" in spec)
+          if ("visitOperations" in spec) {
             for (let op of spec.visitOperations)
               ops.push({
                 type: "visit",
                 url,
+                newTab: false,
                 matchedPattern: p,
                 label: op.label,
                 subst: op.subst,
                 decode: "decode" in op && op.decode
               });
+
+            for (let op of spec.visitOperations)
+              ops.push({
+                type: "visit",
+                url,
+                newTab: true,
+                matchedPattern: p,
+                label: op.label + browser.i18n.getMessage("newTab"),
+                subst: op.subst,
+                decode: "decode" in op && op.decode
+              });
+          }
         }
       }
 
@@ -174,6 +188,7 @@ browser.contextMenus.onShown.addListener((info, tab) => {
     menuMap[id] = {
       type: op.type,
       url: op.url,
+      newTab: op.newTab,
       pattern: op.matchedPattern,
       subst: op.subst,
       decode: op.decode
@@ -222,7 +237,7 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
         mi.url.replace(mi.pattern, mi.subst);
 
     browser.tabs.sendMessage(
-      tab.id, {msgType: mi.type, url: res});
+      tab.id, {msgType: mi.type, url: res, newTab: mi.newTab});
   } else
     console.error(
       `Got context menu click for ${id}, which is not registered.`);
