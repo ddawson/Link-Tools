@@ -21,7 +21,7 @@
 const bidi_dir = browser.i18n.getMessage("@@bidi_dir");
 const POPUP_DELAY = 700;
 
-browser.runtime.onMessage.addListener(({msgType, url}) => {
+browser.runtime.onMessage.addListener(({msgType, url, newTab}) => {
   if (msgType == "copy") {
     let copyBox = document.createElement("input");
     copyBox.type = "text";
