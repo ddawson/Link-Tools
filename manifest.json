@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
-  "version": "0.5",
+  "version": "0.6",
   "author": "__MSG_authorName__",
   "description": "__MSG_extensionDescription__",
   "icons": {
@@ -33,7 +33,7 @@
     "page": "pages/options.html"
   },
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["background.js", "background-we.js"]
   },
   "page_action": {
     "browser_style": true,
@@ -50,7 +50,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"],
+      "js": ["content.js", "content-we.js"],
       "run_at": "document_start"
     }
   ]

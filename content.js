@@ -18,11 +18,11 @@
 
 "use strict";
 
-const bidi_dir = browser.i18n.getMessage("@@bidi_dir");
 const POPUP_DELAY = 700;
 
-browser.runtime.onMessage.addListener(({msgType, url, newTab}) => {
-  if (msgType == "copy") {
+function handleMessage ({msgType, url, newTab}) {
+  switch (msgType) {
+  case "copy":
     let copyBox = document.createElement("input");
     copyBox.type = "text";
     copyBox.style.display = "block";
@@ -35,11 +35,13 @@ browser.runtime.onMessage.addListener(({msgType, url, newTab}) => {
     copyBox.select();
     document.execCommand("copy");
     document.body.removeChild(copyBox);
-  }
-  else if (msgType == "visit") {
+    break;
+
+  case "visit":
     location = url;
+    break
   }
-});
+}
 
 let timer = null;
 let thumb = null;
@@ -90,15 +92,15 @@ function setThumbnailsState (newValue) {
   if (newValue == true && showThumbnails == false) {
     showThumbnails = true;
 
-    function addMouseover () {
+    function _addMouseover () {
       document.body.addEventListener("mouseover", show_thumbnail, false);
       document.body.addEventListener("mouseout", hide_thumbnail, false);
     }
 
     try {
-      addMouseover();
+      _addMouseover();
     } catch (e) {
-      document.addEventListener("DOMContentLoaded", addMouseover, false);
+      document.addEventListener("DOMContentLoaded", _addMouseover, false);
     }
   } else if (newValue == false && showThumbnails == true) {
     showThumbnails = false;
@@ -109,35 +111,3 @@ function setThumbnailsState (newValue) {
     } catch (e) {}
   }
 }
-
-(function init () {
-  function _retry () {
-    // Probably injected on existing tab; message manager not ready yet?
-    setTimeout(init, 200);
-  }
-
-  let port;
-
-  if (!(port = browser.runtime.connect())) {
-    _retry();
-    return;
-  }
-
-  port.onMessage.addListener(msg => {
-    switch (msg.msgType) {
-    case "options-change":
-      if ("showThumbnails" in msg.changes) {
-        let newValue = msg.changes.showThumbnails.newValue;
-        setThumbnailsState(newValue);
-      }
-      break;
-    }
-  });
-
-  browser.runtime.sendMessage({ msgType: "get-options" }).then(opts => {
-    if ("showThumbnails" in opts)
-      setThumbnailsState(opts.showThumbnails);
-  }).catch(() => {
-    _retry();
-  });
-})();

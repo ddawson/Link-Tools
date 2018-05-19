@@ -20,56 +20,56 @@
 
 const $ = id => document.getElementById(id);
 const setTxt = (el, str) => el.textContent = str;
-const _ = (id, ...parms) => browser.i18n.getMessage(id, ...parms);
 
-let port = browser.runtime.connect({ name: "customops" });
+document.addEventListener(
+  "DOMContentLoaded",
+  function _dclHandler () {
+    const title = _("customOpsTitle");
+    document.title = title;
+    setTxt($("heading-main"), title);
+    setTxt($("descr-main"), _("customOps_description"));
+    let halves = _("customOps_askForContribs", "$1").split("$1");
+    let p = $("ask-for-contribs");
+    p.appendChild(document.createTextNode(halves[0]));
+    let link = document.createElement("a");
+    link.href = "https://addons.mozilla.org/addon/link-tools/";
+    setTxt(link, _("customOps_askForContribs_linkText"));
+    p.appendChild(link);
+    p.appendChild(document.createTextNode(halves[1]));
 
-document.documentElement.lang = _("@@ui_locale");
-const title = _("customOpsTitle");
-document.title = title;
-setTxt($("heading-main"), title);
-setTxt($("descr-main"), _("customOps_description"));
-{
-  let halves = _("customOps_askForContribs", "$1").split("$1");
-  let p = $("ask-for-contribs");
-  p.appendChild(document.createTextNode(halves[0]));
-  let link = document.createElement("a");
-  link.href = "https://addons.mozilla.org/addon/link-tools/";
-  setTxt(link, _("customOps_askForContribs_linkText"));
-  p.appendChild(link);
-  p.appendChild(document.createTextNode(halves[1]));
-}
+    //setTxt($("heading-embedded-links"), _("embeddedLinks"));
+    //setTxt($("descr-embedded-links"), _("embeddedLinks_description"));
+    //$("embedded-links-pat").placeholder = _("regularExpressions");
+    //setTxt($("heading-link-types"), _("linkTypes"));
+    //setTxt($("descr-link-types"), _("linkTypes_description"));
+    setTxt($("ops-import-btn"), _("import"));
+    setTxt($("ops-export-btn"), _("export"));
+    setTxt($("btn-rem"), _("remove"));
+    setTxt($("btn-new"), _("new"));
+    setTxt($("opgroup-name-lbl"), _("customops-name-lbl"));
+    setTxt($("opgroup-pat-lbl"), _("customops-pat-lbl"));
+    $("opgroup-pat").placeholder = _("regularExpressions");
+    setTxt($("opgroup-thumb-lbl"), _("customops-thumb-lbl"));
+    $("opgroup-thumb").placeholder = _("optional-replacedByMatches");
+    setTxt($("heading-copyops"), _("heading-copyops"));
+    setTxt($("descr-copyops"), _("descr-copyops"));
+    setTxt($("copyops-column-label"), _("column-label"));
+    setTxt($("copyops-column-subst"), _("column-subst"));
+    setTxt($("copyops-column-decode"), _("column-decode"));
+    setTxt($("copyops-addbtn"), _("add"));
+    setTxt($("heading-visitops"), _("heading-visitops"));
+    setTxt($("descr-visitops"), _("descr-visitops"));
+    setTxt($("visitops-column-label"), _("column-label"));
+    setTxt($("visitops-column-subst"), _("column-subst"));
+    setTxt($("visitops-column-decode"), _("column-decode"));
+    setTxt($("visitops-addbtn"), _("add"));
+    setTxt($("ops-changebtn"), _("applyChanges"));
+    setTxt($("ops-clonebtn"), _("addAsNewType"));
+    document.removeEventListener("DOMContentLoaded", _dclHandler, false);
+  },
+  false);
 
-//setTxt($("heading-embedded-links"), _("embeddedLinks"));
-//setTxt($("descr-embedded-links"), _("embeddedLinks_description"));
-//$("embedded-links-pat").placeholder = _("regularExpressions");
-//setTxt($("heading-link-types"), _("linkTypes"));
-//setTxt($("descr-link-types"), _("linkTypes_description"));
-setTxt($("ops-import-btn"), _("import"));
-setTxt($("ops-export-btn"), _("export"));
-setTxt($("btn-rem"), _("remove"));
-setTxt($("btn-new"), _("new"));
-setTxt($("opgroup-name-lbl"), _("customops-name-lbl"));
-setTxt($("opgroup-pat-lbl"), _("customops-pat-lbl"));
-$("opgroup-pat").placeholder = _("regularExpressions");
-setTxt($("opgroup-thumb-lbl"), _("customops-thumb-lbl"));
-$("opgroup-thumb").placeholder = _("optional-replacedByMatches");
-setTxt($("heading-copyops"), _("heading-copyops"));
-setTxt($("descr-copyops"), _("descr-copyops"));
-setTxt($("copyops-column-label"), _("column-label"));
-setTxt($("copyops-column-subst"), _("column-subst"));
-setTxt($("copyops-column-decode"), _("column-decode"));
-setTxt($("copyops-addbtn"), _("add"));
-setTxt($("heading-visitops"), _("heading-visitops"));
-setTxt($("descr-visitops"), _("descr-visitops"));
-setTxt($("visitops-column-label"), _("column-label"));
-setTxt($("visitops-column-subst"), _("column-subst"));
-setTxt($("visitops-column-decode"), _("column-decode"));
-setTxt($("visitops-addbtn"), _("add"));
-setTxt($("ops-changebtn"), _("applyChanges"));
-setTxt($("ops-clonebtn"), _("addAsNewType"));
-
-let builtinElinks, customElinks, builtinUrlops, customUrlops;
+var builtinElinks, customElinks, builtinUrlops, customUrlops;
 
 function initData () {
   let elinksPat = $("embedded-links-pat");
@@ -92,17 +92,6 @@ function initData () {
   for (let i = 0; i < customUrlops.length; i++)
     customGroup.appendChild(new Option(customUrlops[i].name, `cu-${i}`));
 }
-
-browser.runtime.sendMessage({ msgType: "get-urlops" }).
-  then(([builtin, custom]) => {
-    for (let type of builtin)
-      if ("patternRE" in type) delete type.patternRE;
-    builtinUrlops = builtin;
-    for (let type of custom)
-      if ("patternRE" in type) delete type.patternRE;
-    customUrlops = custom;
-    initData();
-  });
 
 $("ops-import-btn").addEventListener(
   "click", () => $("ops-import").click(), false);
@@ -166,11 +155,7 @@ $("ops-import").addEventListener(
           customUrlops[idx] = type;
       }
       customUrlops.push(...appendList);
-
-      browser.runtime.sendMessage({
-        msgType: "set-customops",
-        customOps: customUrlops
-      }).then(() => history.go(0));
+      setCustomOps_thenReload();
     };
 
     fr.readAsText($("ops-import").files[0]);
@@ -180,11 +165,7 @@ $("ops-import").addEventListener(
 $("ops-export-btn").addEventListener(
   "click",
   async () => {
-    let res = await browser.permissions.request({permissions: ["downloads"]});
-    if (!res) {
-      alert(_("downloadsPermissionFailed"));
-      return;
-    }
+    if (!getDownloadPermission()) return;
 
     let sel = $("types-sel").selectedOptions;
     let exportList;
@@ -205,31 +186,33 @@ $("ops-export-btn").addEventListener(
         [JSON.stringify({version: 1, customOps: exportList})],
         {type: "application/json"}));
 
-    try {
-      await browser.downloads.download(
-        { url, filename: "linktools-custom.json",
-          conflictAction: "overwrite" });
-    } catch (e) {
-      alert(_("exportFailed"));
-    }
-
-    browser.permissions.remove({permissions: ["downloads"]});
+    doDownload(url);
+    dropDownloadPermission();
   },
   false);
 
+function enableRem () {
+  let ts = $("types-sel");
+  if (ts.selectedIndex >= 0 && ts.selectedOptions[0].value.startsWith("cu-"))
+    $("btn-rem").disabled = false;
+  else
+    $("btn-rem").disabled = true;
+}
+
 function enableChanges () {
   let ts = $("types-sel");
-  if (ts.selectedIndex >= 0 && ts.selectedOptions[0].value.startsWith("cu-")) {
-    $("btn-rem").disabled = false;
+  if (ts.selectedOptions.length == 1
+      && ts.selectedOptions[0].value.startsWith("cu-"))
     $("ops-changebtn").disabled = false;
-  } else {
-    $("btn-rem").disabled = true;
+  else
     $("ops-changebtn").disabled = true;
-  }
+}
+
+function disableRem () {
+  $("btn-rem").disabled = true;
 }
 
 function disableChanges () {
-  $("btn-rem").disabled = true;
   $("ops-changebtn").disabled = true;
 }
 
@@ -239,7 +222,8 @@ function wipeTable (aTbody) {
 }
 
 function wipeEditor () {
-  enableChanges();
+  enableRem();
+  disableChanges();
 
   for (let id of ["opgroup-name", "opgroup-pat", "opgroup-thumb"])
     $(id).value = "";
@@ -258,11 +242,15 @@ $("types-sel").addEventListener(
       let isCustom = val.startsWith("cu-");
       let idx = Number(val.slice(3));
       let type = isCustom ? customUrlops[idx] : builtinUrlops[idx];
-      enableChanges();
+      enableRem();
+      disableChanges();
 
       $("opgroup-name").value = type.name;
+      $("opgroup-name").addEventListener("input", enableChanges, false);
       $("opgroup-pat").value = type.patterns.join("\n");
+      $("opgroup-pat").addEventListener("input", enableChanges, false);
       $("opgroup-thumb").value = "thumbnail" in type ? type.thumbnail : "";
+      $("opgroup-thumb").addEventListener("input", enableChanges, false);
 
       function _fillOpsList (aParent, aOps, aPrefix) {
         for (let op of aOps) {
@@ -270,7 +258,9 @@ $("types-sel").addEventListener(
           let cell = document.createElement("td");
           let inp = document.createElement("input");
           inp.type = "text";
+          inp.spellcheck = false;
           inp.value = op.label;
+          inp.addEventListener("input", enableChanges, false);
           cell.appendChild(inp);
           row.appendChild(cell);
 
@@ -279,8 +269,10 @@ $("types-sel").addEventListener(
           inp = document.createElement("input");
           inp.className = "wide-input";
           inp.type = "text";
+          inp.spellcheck = false;
           inp.value = op.subst;
           inp.placeholder = _("replacedByMatches");
+          inp.addEventListener("input", enableChanges, false);
           cell.appendChild(inp);
           row.appendChild(cell);
 
@@ -288,6 +280,7 @@ $("types-sel").addEventListener(
           inp = document.createElement("input");
           inp.type = "checkbox";
           inp.checked = "decode" in op && op.decode;
+          inp.addEventListener("input", enableChanges, false);
           cell.appendChild(inp);
           row.appendChild(cell);
 
@@ -317,9 +310,10 @@ $("types-sel").addEventListener(
         _fillOpsList(tbody, type.visitOperations, "v");
 
       if (isCustom)
-        enableChanges();
+        enableRem();
       else
-        disableChanges();
+        disableRem();
+      disableChanges();
     } else
       wipeEditor();
   },
@@ -348,8 +342,7 @@ $("btn-rem").addEventListener(
       cg.removeChild(opt);
     }
 
-    browser.runtime.sendMessage(
-      { msgType: "set-customops", customOps: customUrlops });
+    setCustomOps();
 
     if (cg.hasChildNodes()) {
       let start = cg.firstChild.index;
@@ -380,6 +373,7 @@ function removeRow (e) {
 
   for (let i = 0; i < tbody.children.length; i++)
     tbody.children[i].children[3].firstChild.value = `${prefix}-${i}`;
+  enableChanges();
 }
 
 function addRow (aTbody, aPrefix) {
@@ -388,6 +382,7 @@ function addRow (aTbody, aPrefix) {
   let inp = document.createElement("input");
   inp.type = "text";
   inp.spellcheck = false;
+  inp.addEventListener("input", enableChanges, false);
   cell.appendChild(inp);
   row.appendChild(cell);
 
@@ -398,12 +393,14 @@ function addRow (aTbody, aPrefix) {
   inp2.type = "text";
   inp2.placeholder = _("replacedByMatches");
   inp2.spellcheck = false;
+  inp2.addEventListener("input", enableChanges, false);
   cell.appendChild(inp2);
   row.appendChild(cell);
 
   cell = document.createElement("td");
   inp2 = document.createElement("input");
   inp2.type = "checkbox";
+  inp2.addEventListener("input", enableChanges, false);
   cell.appendChild(inp2);
   row.appendChild(cell);
 
@@ -495,8 +492,8 @@ $("ops-changebtn").addEventListener(
     let idx = Number(val.slice(3));
     opt.firstChild.textContent = type.name;
     customUrlops[idx] = type;
-    browser.runtime.sendMessage(
-      { msgType: "set-customops", customOps: customUrlops });
+    setCustomOps();
+    disableChanges();
   },
   false);
 
@@ -510,7 +507,7 @@ $("ops-clonebtn").addEventListener(
     ts.selectedIndex = opt.index;
     customUrlops.push(type);
     ts.dispatchEvent(new Event("change"));
-    browser.runtime.sendMessage(
-      { msgType: "set-customops", customOps: customUrlops });
+    setCustomOps();
+    disableChanges();
   },
   false);
