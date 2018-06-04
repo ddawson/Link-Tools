@@ -28,32 +28,21 @@
     <header>
       <h1 id="heading-main"></h1>
       <p id="descr-main"></p>
-      <p id="ask-for-contribs"></p>
     </header>
 
     <section id="main-section">
-      <!--<section id="embedded-links-section">
-        <h2 id="heading-embedded-links"></h2>
-        <p id="descr-embedded-links"></p>
-
-        <div class="formrow">
-          <textarea class="wide-input" id="embedded-links-pat"
-                    rows="4" spellcheck="false"></textarea>
-        </div>
-      </section>-->
+      <div class="formrow">
+        <button id="ops-import-btn"></button>
+        <input id="ops-import" class="hidden" type="file"
+               accept="application/json">
+        <button id="ops-export-btn"></button>
+      </div>
 
       <section id="types-section">
-        <!--<h2 id="heading-link-types"></h2>
-        <p id="descr-link-types"></p>-->
+        <h2 id="heading-link-types"></h2>
+        <p id="descr-link-types"></p>
         
         <section id="select-section">
-          <div class="formrow">
-            <button id="ops-import-btn"></button>
-            <input id="ops-import" class="hidden" type="file"
-                   accept="application/json">
-            <button id="ops-export-btn"></button>
-          </div>
-
           <div class="formrow">
             <select id="types-sel" size="7" multiple>
               <optgroup id="builtin-group"></optgroup>
@@ -151,6 +140,61 @@
             <button id="ops-changebtn" disabled></button>
             <button id="ops-clonebtn"></button>
           </div>
+        </section>
+      </section>
+
+      <section id="embedded-links-section">
+        <h2 id="heading-embedded-links"></h2>
+        <p id="descr-embedded-links"></p>
+
+        <section id="elinks-builtin-section">
+          <h3 id="heading-embedded-links-builtin"></h3>
+          <table>
+            <colgroup>
+              <col id="col-lbl" class="lbl-col">
+              <col id="col-ctrl" class="wide-col">
+            </colgroup>
+
+            <tr class="formrow">
+              <td><label id="elinks-builtin-reg-label"
+                         for="elinks-builtin-reg-pat"></label>
+              <td>
+                <textarea class="wide-input" id="elinks-builtin-reg-pat"
+                          readonly rows="4"></textarea>
+            </tr>
+            <tr class="formrow">
+              <td><label id="elinks-builtin-nodecode-label"
+                         for="elinks-builtin-nodecode-pat"></label>
+              <td>
+                <textarea class="wide-input" id="elinks-builtin-nodecode-pat"
+                          readonly rows="4"></textarea>
+            </tr>
+          </table>
+        </section>
+
+        <section id="elinks-custom-section">
+          <h3 id="heading-embedded-links-custom"></h3>
+          <table>
+            <colgroup>
+              <col id="col-lbl" class="lbl-col">
+              <col id="col-ctrl" class="wide-col">
+            </colgroup>
+
+            <tr class="formrow">
+              <td><label id="elinks-custom-reg-label"
+                         for="elinks-custom-reg-pat"></label>
+              <td>
+                <textarea class="wide-input" id="elinks-custom-reg-pat"
+                          spellcheck="false" rows="4"></textarea>
+            </tr>
+            <tr class="formrow">
+              <td><label id="elinks-custom-nodecode-label"
+                         for="elinks-custom-nodecode-pat"></label>
+              <td>
+                <textarea class="wide-input" id="elinks-custom-nodecode-pat"
+                          spellcheck="false" rows="4"></textarea>
+            </tr>
+          </table>
         </section>
       </section>
     </section>

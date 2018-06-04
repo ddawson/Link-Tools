@@ -27,20 +27,16 @@
   },
 
   "customOps_description": {
-    "message": "Here you may view the predefined link types, and define your own. The export function uses only the types you select from the list (which is a multiple-selection list), or all custom types if you select none. The \"decode parameters\" option treats all substitutions as query parameters and decodes them accordingly (useful to recover form inputs)."
-  },
-
-  "customOps_askForContribs": {
-    "message": "Contributions to the built-in set, as well as additional embedded link types, are welcome. Please see $link$ for details.",
+    "message": "Here you may view the predefined embedded link patterns and link types, and define your own. Contributions to either set are welcome. Please see $link$ for details.",
     "placeholders": {
       "link": {
         "content": "$1"
       }
     },
-    "description": "This will contain a link. Just use the placeholder wherever the link needs to be, and see customOps_askForContribs_linkText to set the text of the link itself."
+    "description": "This will contain a link. Just use the placeholder wherever the link needs to be, and see customOps_description_linkText to set the text of the link itself."
   },
 
-  "customOps_askForContribs_linkText": {
+  "customOps_description_linkText": {
     "message": "this addon's listing page",
     "description": "Text of link in customOps_askForContribs"
   },
@@ -50,7 +46,7 @@
   },
 
   "linkTypes_description": {
-    "message": "These define the types of links that are recognized, and the operations available on them."
+    "message": "These define the types of links that are recognized, and the operations available on them. The export function uses only the types you select from the list (which is a multiple-selection list), or all custom types if you select none. The \"decode parameters\" option treats all substitutions as query parameters and decodes them accordingly (useful to recover form inputs)."
   },
 
   "import": {
@@ -169,6 +165,30 @@
     "message": "You must enter at least one copy operation or at least one visit operation."
   },
 
+  "embeddedLinks": {
+    "message": "Embedded links"
+  },
+
+  "embeddedLinks_description": {
+    "message": "Here you can see the built-in patterns for recognizing embedded links, and add your own. \"Regular\" patterns are for encoded links (e.g. \"https://www.google.com/\" becomes \"https%3A%2F%2Fwww.google.com%2F\", which must be decoded again), while \"no-decode\" patterns are for links that appear as-is."
+  },
+
+  "embeddedLinks_builtin": {
+    "message": "Built-in"
+  },
+
+  "embeddedLinks_reg": {
+    "message": "Regular:"
+  },
+
+  "embeddedLinks_nodecode": {
+    "message": "No-decode:"
+  },
+
+  "embeddedLinks_custom": {
+    "message": "Custom"
+  },
+
   "noOpsAvail": {
     "message": "No operations available"
   },
@@ -239,6 +259,30 @@
     "message": "Copy YouTube video ID"
   },
 
+  "youtube_copySmallThumbnail": {
+    "message": "Copy YouTube video small thumbnail link"
+  },
+
+  "youtube_copyMedThumbnail": {
+    "message": "Copy YouTube video medium thumbnail link"
+  },
+
+  "youtube_copyLargeThumbnail": {
+    "message": "Copy YouTube video large thumbnail link"
+  },
+
+  "youtube_visitSmallThumbnail": {
+    "message": "Visit YouTube video small thumbnail"
+  },
+
+  "youtube_visitMedThumbnail": {
+    "message": "Visit YouTube video medium thumbnail"
+  },
+
+  "youtube_visitLargeThumbnail": {
+    "message": "Visit YouTube video large thumbnail"
+  },
+  
   "youtubePlaylist": {
     "message": "YouTube playlist"
   },
@@ -257,5 +301,49 @@
 
   "mozilla_copyLinkNoLocale": {
     "message": "Copy Mozilla link (no locale)"
+  },
+
+  "steamLink": {
+    "message": "Steam link"
+  },
+
+  "steam_copyStoreLink": {
+    "message": "Copy Steam Store link"
+  },
+
+  "steam_copyCapsuleThumbnail": {
+    "message": "Copy Steam store capsule thumbnail link"
+  },
+
+  "steam_copyMedThumbnail": {
+    "message": "Copy Steam store medium thumbnail link"
+  },
+
+  "steam_copyLargeThumbnail": {
+    "message": "Copy Steam store large thumbnail link"
+  },
+
+  "steam_copyCommunityLink": {
+    "message": "Copy Steam Community link"
+  },
+
+  "steam_visitStoreLink": {
+    "message": "Visit Steam Store link"
+  },
+
+  "steam_visitCapsuleThumbnail": {
+    "message": "Visit Steam store capsule thumbnail"
+  },
+
+  "steam_visitMedThumbnail": {
+    "message": "Visit Steam store medium thumbnail"
+  },
+
+  "steam_visitLargeThumbnail": {
+    "message": "Visit Steam store large thumbnail"
+  },
+
+  "steam_visitCommunityLink": {
+    "message": "Visit Steam Community section"
   }
 }

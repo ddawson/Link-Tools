@@ -23,7 +23,12 @@ const _ = name => browser.i18n.getMessage(name);
 fetch("urlops.json").then(resp => resp.json()).then(o => procUrlops(o));
 
 browser.storage.local.get("customOps").then(o => {
+  if ("embeddedLinkPatterns" in o)
+    procElinks(o.embeddedLinkPatterns, elinkCustomPats);
+  if ("embeddedLinkPatterns_nodecode" in o)
+    procElinks(o.embeddedLinkPatterns_nodecode, elinkCustomPats_nd);
   if ("customOps" in o) procTypes(o.customOps, customUrlops);
+  if ("types" in o) procTypes(o.types, customUrlops);
 });
 
 browser.contextMenus.create({
@@ -103,7 +108,7 @@ browser.runtime.onMessage.addListener(msg => {
 
   case "write-options":
     let { properties } = msg;
-    properties.version = 1;
+    properties.version = 2;
     browser.storage.local.set(properties);
     break;
 
@@ -115,14 +120,25 @@ browser.runtime.onMessage.addListener(msg => {
     break;
 
   case "get-urlops":
-    return new Promise(resolve => resolve([builtinUrlops, customUrlops]));
+    return new Promise(resolve => resolve(
+      [elinkPats.map(v => v.source), elinkPats_nd.map(v => v.source),
+       elinkCustomPats.map(v => v.source),
+       elinkCustomPats_nd.map(v => v.source), builtinUrlops, customUrlops]));
     break;
 
   case "set-customops":
-    let { customOps } = msg;
-    browser.storage.local.set({ version: 1, customOps });
-    for (let o of customOps) makeRE(o);
-    customUrlops = customOps;
+    let { embeddedLinkPatterns, embeddedLinkPatterns_nodecode, types } = msg;
+    browser.storage.local.set({
+      version: 2,
+      embeddedLinkPatterns,
+      embeddedLinkPatterns_nodecode,
+      types
+    });
+    browser.storage.local.remove("customOps");
+    for (let o of types) makeRE(o);
+    elinkCustomPats = embeddedLinkPatterns.map(v => new RegExp(v));
+    elinkCustomPats_nd = embeddedLinkPatterns_nodecode.map(v => new RegExp(v));
+    customUrlops = types;
     break;
 
   case "get-ops":

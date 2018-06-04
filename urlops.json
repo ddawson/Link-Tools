@@ -90,6 +90,32 @@
         {
           "label": "__MSG_youtube_copyVID__",
           "subst": "$1"
+        },
+        {
+          "label": "__MSG_youtube_copySmallThumbnail__",
+          "subst": "https://i.ytimg.com/vi/$1/default.jpg"
+        },
+        {
+          "label": "__MSG_youtube_copyMedThumbnail__",
+          "subst": "https://i.ytimg.com/vi/$1/hqdefault.jpg"
+        },
+        {
+          "label": "__MSG_youtube_copyLargeThumbnail__",
+          "subst": "https://i.ytimg.com/vi/$1/maxresdefault.jpg"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_youtube_visitSmallThumbnail__",
+          "subst": "https://i.ytimg.com/vi/$1/default.jpg"
+        },
+        {
+          "label": "__MSG_youtube_visitMedThumbnail__",
+          "subst": "https://i.ytimg.com/vi/$1/hqdefault.jpg"
+        },
+        {
+          "label": "__MSG_youtube_visitLargeThumbnail__",
+          "subst": "https://i.ytimg.com/vi/$1/maxresdefault.jpg"
         }
       ]
     },
@@ -130,6 +156,59 @@
         {
           "label": "__MSG_mozilla_copyLinkNoLocale__",
           "subst": "https://$1.mozilla.org/"
+        }
+      ]
+    },
+
+    {
+      "name": "__MSG_steamLink__",
+      "patterns": [
+        "^https?:\\/\\/store\\.steampowered\\.com\\/app\\/([0-9]+).*$",
+        "^https?:\\/\\/steamcommunity\\.com\\/app\\/([0-9]+).*$"
+      ],
+      "thumbnail": "https://steamcdn-a.akamaihd.net/steam/apps/$1/capsule_184x69.jpg",
+      "copyOperations": [
+        {
+          "label": "__MSG_steam_copyStoreLink__",
+          "subst": "https://store.steampowered.com/app/$1"
+        },
+        {
+          "label": "__MSG_steam_copyCapsuleThumbnail__",
+          "subst": "https://steamcdn-a.akamaihd.net/steam/apps/$1/capsule_184x69.jpg"
+        },
+        {
+          "label": "__MSG_steam_copyMedThumbnail__",
+          "subst": "https://steamcdn-a.akamaihd.net/steam/apps/$1/header_292x136.jpg"
+        },
+        {
+          "label": "__MSG_steam_copyLargeThumbnail__",
+          "subst": "https://steamcdn-a.akamaihd.net/steam/apps/$1/header.jpg"
+        },
+        {
+          "label": "__MSG_steam_copyCommunityLink__",
+          "subst": "https://steamcommunity.com/app/$1"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_steam_visitStoreLink__",
+          "subst": "https://store.steampowered.com/app/$1"
+        },
+        {
+          "label": "__MSG_steam_visitCapsuleThumbnail__",
+          "subst": "https://steamcdn-a.akamaihd.net/steam/apps/$1/capsule_184x69.jpg"
+        },
+        {
+          "label": "__MSG_steam_visitMedThumbnail__",
+          "subst": "https://steamcdn-a.akamaihd.net/steam/apps/$1/header_292x136.jpg"
+        },
+        {
+          "label": "__MSG_steam_visitLargeThumbnail__",
+          "subst": "https://steamcdn-a.akamaihd.net/steam/apps/$1/header.jpg"
+        },
+        {
+          "label": "__MSG_steam_visitCommunityLink__",
+          "subst": "https://steamcommunity.com/app/$1"
         }
       ]
     }

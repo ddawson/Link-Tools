@@ -27,23 +27,19 @@ document.addEventListener(
     const title = _("customOpsTitle");
     document.title = title;
     setTxt($("heading-main"), title);
-    setTxt($("descr-main"), _("customOps_description"));
-    let halves = _("customOps_askForContribs", "$1").split("$1");
-    let p = $("ask-for-contribs");
+    let halves = _("customOps_description", "$1").split("$1");
+    let p = $("descr-main");
     p.appendChild(document.createTextNode(halves[0]));
     let link = document.createElement("a");
     link.href = "https://addons.mozilla.org/addon/link-tools/";
-    setTxt(link, _("customOps_askForContribs_linkText"));
+    setTxt(link, _("customOps_description_linkText"));
     p.appendChild(link);
     p.appendChild(document.createTextNode(halves[1]));
 
-    //setTxt($("heading-embedded-links"), _("embeddedLinks"));
-    //setTxt($("descr-embedded-links"), _("embeddedLinks_description"));
-    //$("embedded-links-pat").placeholder = _("regularExpressions");
-    //setTxt($("heading-link-types"), _("linkTypes"));
-    //setTxt($("descr-link-types"), _("linkTypes_description"));
     setTxt($("ops-import-btn"), _("import"));
     setTxt($("ops-export-btn"), _("export"));
+    setTxt($("heading-link-types"), _("linkTypes"));
+    setTxt($("descr-link-types"), _("linkTypes_description"));
     setTxt($("btn-rem"), _("remove"));
     setTxt($("btn-new"), _("new"));
     setTxt($("opgroup-name-lbl"), _("customops-name-lbl"));
@@ -65,15 +61,29 @@ document.addEventListener(
     setTxt($("visitops-addbtn"), _("add"));
     setTxt($("ops-changebtn"), _("applyChanges"));
     setTxt($("ops-clonebtn"), _("addAsNewType"));
+    setTxt($("heading-embedded-links"), _("embeddedLinks"));
+    setTxt($("descr-embedded-links"), _("embeddedLinks_description"));
+    setTxt($("heading-embedded-links-builtin"), _("embeddedLinks_builtin"));
+    setTxt($("elinks-builtin-reg-label"), _("embeddedLinks_reg"));
+    setTxt($("elinks-builtin-nodecode-label"), _("embeddedLinks_nodecode"));
+    setTxt($("heading-embedded-links-custom"), _("embeddedLinks_custom"));
+    setTxt($("elinks-custom-reg-label"), _("embeddedLinks_reg"));
+    setTxt($("elinks-custom-nodecode-label"), _("embeddedLinks_nodecode"));
+    $("elinks-custom-reg-pat").placeholder = _("regularExpressions");
+    $("elinks-custom-nodecode-pat").placeholder = _("regularExpressions");
     document.removeEventListener("DOMContentLoaded", _dclHandler, false);
   },
   false);
 
-var builtinElinks, customElinks, builtinUrlops, customUrlops;
+var builtinElinks, builtinElinksNodecode, customElinks, customElinksNodecode,
+    builtinUrlops, customUrlops;
 
 function initData () {
-  let elinksPat = $("embedded-links-pat");
-  
+  $("elinks-builtin-reg-pat").value = builtinElinks.join("\n");
+  $("elinks-builtin-nodecode-pat").value = builtinElinksNodecode.join("\n");
+  $("elinks-custom-reg-pat").value = customElinks.join("\n");
+  $("elinks-custom-nodecode-pat").value = customElinksNodecode.join("\n");
+
   let builtinGroup = $("builtin-group");
   builtinGroup.label = _("builtinTypes");
 
@@ -103,15 +113,22 @@ $("ops-import").addEventListener(
     fr.onerror = () => alert(_("fileReadFailed"));
 
     fr.onload = () => {
-      let o, outArray = [];
+      let o, customElinkPats = [], customElinkPats_nd = [], outArray = [];
 
       try {
         o = JSON.parse(fr.result);
-        if (o.version != 1)
+        let types;
+        if (o.version == 1)
+          types = o.customOps;
+        else if (o.version == 2) {
+          customElinkPats = o.embeddedLinks;
+          customElinkPats_nd = o.embeddedLinks_nodecode;
+          types = o.types;
+        } else
           throw new Error;
 
-        for (let i = 0; i < o.customOps.length; i++) {
-          let type = o.customOps[i];
+        for (let i = 0; i < types.length; i++) {
+          let type = types[i];
 
           if (typeof type.name != "string" || typeof type.thumbnail != "string")
             throw new Error;
@@ -147,6 +164,22 @@ $("ops-import").addEventListener(
       }
 
       let appendList = [];
+      for (let pat of customElinkPats) {
+        let idx = customElinks.indexOf(pat);
+        if (idx == -1)
+          appendList.push(pat);
+      }
+      customElinks.push(...appendList);
+
+      appendList = [];
+      for (let pat of customElinkPats_nd) {
+        let idx = customElinksNodecode.indexOf(pat);
+        if (idx == -1)
+          appendList.push(pat);
+      }
+      customElinksNodecode.push(...appendList);
+
+      appendList = [];
       for (let type of outArray) {
         let idx = customUrlops.findIndex(ct => ct.name == type.name);
         if (idx == -1)
@@ -155,6 +188,7 @@ $("ops-import").addEventListener(
           customUrlops[idx] = type;
       }
       customUrlops.push(...appendList);
+
       setCustomOps_thenReload();
     };
 
@@ -165,7 +199,7 @@ $("ops-import").addEventListener(
 $("ops-export-btn").addEventListener(
   "click",
   async () => {
-    if (!getDownloadPermission()) return;
+    if (!(await getDownloadPermission())) return;
 
     let sel = $("types-sel").selectedOptions;
     let exportList;
@@ -183,7 +217,9 @@ $("ops-export-btn").addEventListener(
 
     let url = URL.createObjectURL(
       new Blob(
-        [JSON.stringify({version: 1, customOps: exportList})],
+        [JSON.stringify({version: 2, embeddedLinks: customElinks,
+                         embeddedLinks_nodecode: customElinksNodecode,
+                         types: exportList})],
         {type: "application/json"}));
 
     doDownload(url);
@@ -231,6 +267,19 @@ function wipeEditor () {
   wipeTable($("copyops-tbody"));
   wipeTable($("visitops-tbody"));
 }
+
+function elinksChanged () {
+  customElinks = $("elinks-custom-reg-pat").value.split("\n") || [];
+  if (customElinks.length == 1 && customElinks[0] == "") customElinks = [];
+  customElinksNodecode = $("elinks-custom-nodecode-pat").value.split("\n");
+  if (customElinksNodecode.length == 1 && customElinksNodecode[0] == "")
+    customElinksNodecode = [];
+  setCustomOps();
+}
+
+$("elinks-custom-reg-pat").addEventListener("change", elinksChanged, false);
+$("elinks-custom-nodecode-pat").addEventListener(
+  "change", elinksChanged, false);
 
 $("types-sel").addEventListener(
   "change",

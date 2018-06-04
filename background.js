@@ -18,7 +18,9 @@
 
 "use strict";
 
-let elinkPats = [], elinkPats_nd = [], builtinUrlops = [], customUrlops = [];
+var elinkPats = [], elinkPats_nd = [],
+    elinkCustomPats = [], elinkCustomPats_nd = [],
+    builtinUrlops = [], customUrlops = [];
 
 function makeRE (spec) {
   let patternRE = [];
@@ -53,13 +55,14 @@ function procTypes (o, list) {
   }
 }
 
+function procElinks (o, list) {
+  for (let patStr of o)
+    list.push(new RegExp(patStr));
+}
+
 function procUrlops (o) {
-  for (let patStr of o.embeddedLinkPatterns)
-    elinkPats.push(new RegExp(patStr));
-
-  for (let patStr of o.embeddedLinkPatterns_nodecode)
-    elinkPats_nd.push(new RegExp(patStr));
-
+  procElinks(o.embeddedLinkPatterns, elinkPats);
+  procElinks(o.embeddedLinkPatterns_nodecode, elinkPats_nd);
   procTypes(o.types, builtinUrlops);
 }
 
@@ -74,6 +77,18 @@ function checkPatterns (aUrl, aFindAllMatches) {
   }
 
   for (let p of elinkPats_nd) {
+    let match = aUrl.match(p);
+    if (match)
+      urls.push(match[1]);
+  }
+
+  for (let p of elinkCustomPats) {
+    let match = aUrl.match(p);
+    if (match)
+      urls.push(decodeURIComponent(match[1]));
+  }
+
+  for (let p of elinkCustomPats_nd) {
     let match = aUrl.match(p);
     if (match)
       urls.push(match[1]);

@@ -25,7 +25,13 @@ let port = browser.runtime.connect({ name: "customops" });
 document.documentElement.lang = _("@@ui_locale");
 
 browser.runtime.sendMessage({ msgType: "get-urlops" }).
-  then(([builtin, custom]) => {
+  then(([elinks_builtin, elinks_builtin_nodecode,
+         elinks_custom, elinks_custom_nodecode, builtin, custom]) => {
+    builtinElinks = elinks_builtin;
+    builtinElinksNodecode = elinks_builtin_nodecode;
+    customElinks = elinks_custom;
+    customElinksNodecode = elinks_custom_nodecode;
+
     for (let type of builtin)
       if ("patternRE" in type) delete type.patternRE;
     builtinUrlops = builtin;
@@ -38,7 +44,9 @@ browser.runtime.sendMessage({ msgType: "get-urlops" }).
 function setCustomOps () {
   return browser.runtime.sendMessage({
     msgType: "set-customops",
-    customOps: customUrlops
+    embeddedLinkPatterns: customElinks,
+    embeddedLinkPatterns_nodecode: customElinksNodecode,
+    types: customUrlops
   });
 }
 
