@@ -37,8 +37,8 @@
     {
       "name": "__MSG_youtubePlaylistedVideo__",
       "patterns": [
-        "^https?:\\/\\/www\\.youtube\\.com\\/watch\\?(?:.*&)?list=((?:\\w|-)+)\\b.*$",
-        "^https?:\\/\\/m\\.youtube\\.com\\/watch\\?(?:.*&)?list=((?:\\w|-)+)\\b.*$"
+        "^https?:\\/\\/www\\.youtube\\.com\\/watch\\?(?:.*&)?list=([^&]+)(?:&.*)?$",
+        "^https?:\\/\\/m\\.youtube\\.com\\/watch\\?(?:.*&)?list=([^&]+)(?:&.*)?$"
       ],
       "copyOperations": [
         {
@@ -123,8 +123,8 @@
     {
       "name": "__MSG_youtubePlaylist__",
       "patterns": [
-        "^https?:\\/\\/www\\.youtube\\.com\\/playlist\\?(?:.*&)?list=((?:\\w|-)+)\\b.*$",
-        "^https?:\\/\\/m\\.youtube\\.com\\/playlist\\?(?:.*&)?list=((?:\\w|-)+)\\b.*$"
+        "^https?:\\/\\/www\\.youtube\\.com\\/playlist\\?(?:.*&)?list=([^&]+)(?:&.*)?$",
+        "^https?:\\/\\/m\\.youtube\\.com\\/playlist\\?(?:.*&)?list=([^&]+)(?:&.*)?$"
       ],
       "copyOperations": [
         {
