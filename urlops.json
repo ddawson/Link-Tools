@@ -135,6 +135,152 @@
     },
 
     {
+      "name": "__MSG_youtubeUser__",
+      "patterns": [
+        "^https?:\\/\\/www\\.youtube\\.com\\/(?:c|(?:user))\\/([^/]+)(?:\\/.*)?$",
+        "^https?:\\/\\/m\\.youtube\\.com\\/(?:c|(?:user))\\/([^/]+)(?:\\/.*)?$",
+        "^https?:\\/\\/www\\.youtube\\.com\\/(?!c|(?:user)|(?:channel)|(?:feed)|(?:premium)|(?:account)|(?:reporthistory)|(?:yt)|t|(?:intl)|(?:testtube)(?:\\/|$))([^/]+)(?:\\/.*)?$",
+        "^https?:\\/\\/m\\.youtube\\.com\\/(?!c|(?:user)|(?:channel)|(?:feed)|(?:premium)|(?:account)|(?:reporthistory)|(?:yt)|t|(?:intl)|(?:testtube)(?:\\/|$))([^/]+)(?:\\/.*)?$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_youtube_copyUsersChannelHomePageLink__",
+	  "subst": "https://www.youtube.com/user/$1"
+	},
+        {
+          "label": "__MSG_youtube_copyUsersChannelVideosPageLink__",
+          "subst": "https://www.youtube.com/user/$1/videos"
+        },
+        {
+          "label": "__MSG_youtube_copyUsersChannelPlaylistsPageLink__",
+          "subst": "https://www.youtube.com/user/$1/playlists"
+        },
+        {
+          "label": "__MSG_youtube_copyUsersChannelCommunityPageLink__",
+          "subst": "https://www.youtube.com/user/$1/community"
+        },
+        {
+          "label": "__MSG_youtube_copyUsersChannelChannelsPageLink__",
+          "subst": "https://www.youtube.com/user/$1/channels"
+        },
+        {
+          "label": "__MSG_youtube_copyUsersChannelDiscussionPageLink__",
+          "subst": "https://www.youtube.com/user/$1/discussion"
+        },
+        {
+          "label": "__MSG_youtube_copyUsersChannelAboutPageLink__",
+          "subst": "https://www.youtube.com/user/$1/about"
+        },
+        {
+          "label": "__MSG_youtube_copyUsersChannelName__",
+          "subst": "$1"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_youtube_visitUsersChannelHomePage__",
+	  "subst": "https://www.youtube.com/user/$1"
+	},
+        {
+          "label": "__MSG_youtube_visitUsersChannelVideosPage__",
+          "subst": "https://www.youtube.com/user/$1/videos"
+        },
+        {
+          "label": "__MSG_youtube_visitUsersChannelPlaylistsPage__",
+          "subst": "https://www.youtube.com/user/$1/playlists"
+        },
+        {
+          "label": "__MSG_youtube_visitUsersChannelCommunityPage__",
+          "subst": "https://www.youtube.com/user/$1/community"
+        },
+        {
+          "label": "__MSG_youtube_visitUsersChannelChannelsPage__",
+          "subst": "https://www.youtube.com/user/$1/channels"
+        },
+        {
+          "label": "__MSG_youtube_visitUsersChannelDiscussionPage__",
+          "subst": "https://www.youtube.com/user/$1/discussion"
+        },
+        {
+          "label": "__MSG_youtube_visitUsersChannelAboutPage__",
+          "subst": "https://www.youtube.com/user/$1/about"
+        }
+      ]
+    },
+
+    {
+      "name": "__MSG_youtubeChannel__",
+      "patterns": [
+        "^https?:\\/\\/www\\.youtube\\.com\\/channel\\/([^\\/]+)(?:\\/.*)?$",
+        "^https?:\\/\\/m\\.youtube\\.com\\/channel\\/([^\\/]+)(?:\\/.*)?$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_youtube_copyChannelHomePageLink__",
+	  "subst": "https://www.youtube.com/channel/$1"
+	},
+        {
+          "label": "__MSG_youtube_copyChannelVideosPageLink__",
+          "subst": "https://www.youtube.com/channel/$1/videos"
+        },
+        {
+          "label": "__MSG_youtube_copyChannelPlaylistsPageLink__",
+          "subst": "https://www.youtube.com/channel/$1/playlists"
+        },
+        {
+          "label": "__MSG_youtube_copyChannelCommunityPageLink__",
+          "subst": "https://www.youtube.com/channel/$1/community"
+        },
+        {
+          "label": "__MSG_youtube_copyChannelChannelsPageLink__",
+          "subst": "https://www.youtube.com/channel/$1/channels"
+        },
+        {
+          "label": "__MSG_youtube_copyChannelDiscussionPageLink__",
+          "subst": "https://www.youtube.com/channel/$1/discussion"
+        },
+        {
+          "label": "__MSG_youtube_copyChannelAboutPageLink__",
+          "subst": "https://www.youtube.com/channel/$1/about"
+        },
+        {
+          "label": "__MSG_youtube_copyChannelID__",
+          "subst": "$1"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_youtube_visitChannelHomePage__",
+	  "subst": "https://www.youtube.com/channel/$1"
+	},
+        {
+          "label": "__MSG_youtube_visitChannelVideosPage__",
+          "subst": "https://www.youtube.com/channel/$1/videos"
+        },
+        {
+          "label": "__MSG_youtube_visitChannelPlaylistsPage__",
+          "subst": "https://www.youtube.com/channel/$1/playlists"
+        },
+        {
+          "label": "__MSG_youtube_visitChannelCommunityPage__",
+          "subst": "https://www.youtube.com/channel/$1/community"
+        },
+        {
+          "label": "__MSG_youtube_visitChannelChannelsPage__",
+          "subst": "https://www.youtube.com/channel/$1/channels"
+        },
+        {
+          "label": "__MSG_youtube_visitChannelDiscussionPage__",
+          "subst": "https://www.youtube.com/channel/$1/discussion"
+        },
+        {
+          "label": "__MSG_youtube_visitChannelAboutPage__",
+          "subst": "https://www.youtube.com/channel/$1/about"
+        }
+      ]
+    },
+
+    {
       "name": "__MSG_redditSubredditTopicPostLink__",
       "patterns": [
         "^https:\\/\\/www\\.reddit\\.com\\/r\\/"

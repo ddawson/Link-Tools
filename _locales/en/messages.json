@@ -287,6 +287,134 @@
     "message": "YouTube playlist"
   },
 
+  "youtubeUser": {
+    "message": "YouTube user"
+  },
+
+  "youtube_copyUsersChannelHomePageLink": {
+    "message": "Copy YouTube channel Home page link (by name)"
+  },
+
+  "youtube_copyUsersChannelVideosPageLink": {
+    "message": "Copy YouTube channel Videos page link (by name)"
+  },
+
+  "youtube_copyUsersChannelPlaylistsPageLink": {
+    "message": "Copy YouTube channel Playlists page link (by name)"
+  },
+
+  "youtube_copyUsersChannelCommunityPageLink": {
+    "message": "Copy YouTube channel Community page link (by name)"
+  },
+
+  "youtube_copyUsersChannelChannelsPageLink": {
+    "message": "Copy YouTube channel Channels page link (by name)"
+  },
+
+  "youtube_copyUsersChannelDiscussionPageLink": {
+    "message": "Copy YouTube channel Discussion page link (by name)"
+  },
+
+  "youtube_copyUsersChannelAboutPageLink": {
+    "message": "Copy YouTube channel About page link (by name)"
+  },
+
+  "youtube_copyUsersChannelName": {
+    "message": "Copy YouTube channel name"
+  },
+
+  "youtube_visitUsersChannelHomePage": {
+    "message": "Visit YouTube channel Home page (by name)"
+  },
+
+  "youtube_visitUsersChannelVideosPage": {
+    "message": "Visit YouTube channel Videos page (by name)"
+  },
+
+  "youtube_visitUsersChannelPlaylistsPage": {
+    "message": "Visit YouTube channel Playlists page (by name)"
+  },
+
+  "youtube_visitUsersChannelCommunityPage": {
+    "message": "Visit YouTube channel Community page (by name)"
+  },
+
+  "youtube_visitUsersChannelChannelsPage": {
+    "message": "Visit YouTube channel Channels page (by name)"
+  },
+
+  "youtube_visitUsersChannelDiscussionPage": {
+    "message": "Visit YouTube channel Discussion page (by name)"
+  },
+
+  "youtube_visitUsersChannelAboutPage": {
+    "message": "Visit YouTube channel About page (by name)"
+  },
+
+  "youtubeChannel": {
+    "message": "YouTube channel"
+  },
+
+  "youtube_copyChannelHomePageLink": {
+    "message": "Copy YouTube channel Home page link (by channel ID)"
+  },
+
+  "youtube_copyChannelVideosPageLink": {
+    "message": "Copy YouTube channel Videos page link (by channel ID)"
+  },
+
+  "youtube_copyChannelPlaylistsPageLink": {
+    "message": "Copy YouTube channel Playlists page link (by channel ID)"
+  },
+
+  "youtube_copyChannelCommunityPageLink": {
+    "message": "Copy YouTube channel Community page link (by channel ID)"
+  },
+
+  "youtube_copyChannelChannelsPageLink": {
+    "message": "Copy YouTube channel Channels page link (by channel ID)"
+  },
+
+  "youtube_copyChannelDiscussionPageLink": {
+    "message": "Copy YouTube channel Discussion page link (by channel ID)"
+  },
+
+  "youtube_copyChannelAboutPageLink": {
+    "message": "Copy YouTube channel About page link (by channel ID)"
+  },
+
+  "youtube_copyChannelID": {
+    "message": "Copy YouTube channel ID"
+  },
+
+  "youtube_visitChannelHomePage": {
+    "message": "Visit YouTube channel Home page (by channel ID)"
+  },
+
+  "youtube_visitChannelVideosPage": {
+    "message": "Visit YouTube channel Videos page (by channel ID)"
+  },
+
+  "youtube_visitChannelPlaylistsPage": {
+    "message": "Visit YouTube channel Playlists page (by channel ID)"
+  },
+
+  "youtube_visitChannelCommunityPage": {
+    "message": "Visit YouTube channel Community page (by channel ID)"
+  },
+
+  "youtube_visitChannelChannelsPage": {
+    "message": "Visit YouTube channel Channels page (by channel ID)"
+  },
+
+  "youtube_visitChannelDiscussionPage": {
+    "message": "Visit YouTube channel Discussion page (by channel ID)"
+  },
+
+  "youtube_visitChannelAboutPage": {
+    "message": "Visit YouTube channel About page (by channel ID)"
+  },
+
   "redditSubredditTopicPostLink": {
     "message": "Reddit subreddit/topic/post link"
   },
