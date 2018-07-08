@@ -47,7 +47,10 @@ let timer = null;
 let thumb = null;
 
 function show_thumbnail ({ target: el }) {
-  if ("href" in el) {
+  // Move up tree to look for element that is a link.
+  for (; el && !("href" in el); el = el.parentElement);
+
+  if (el) {
     timer = window.setTimeout(
       async () => {
         let thumbnailUrl = await browser.runtime.sendMessage(
