@@ -128,8 +128,26 @@
       ],
       "copyOperations": [
         {
+          "label": "__MSG_youtube_copyPlaylistLink__",
+          "subst": "https://www.youtube.com/playlist?list=$1"
+        },
+        {
+          "label": "__MSG_youtube_copyMobilePlaylistLink__",
+          "subst": "https://m.youtube.com/playlist?list=$1"
+        },
+        {
           "label": "__MSG_youtube_copyPlaylistID__",
 	  "subst": "$1"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_youtube_visitPlaylistPage__",
+          "subst": "https://www.youtube.com/playlist?list=$1"
+        },
+        {
+          "label": "__MSG_youtube_visitMobilePlaylistPage__",
+          "subst": "https://m.youtube.com/playlist?list=$1"
         }
       ]
     },
