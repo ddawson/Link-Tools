@@ -157,8 +157,8 @@
       "patterns": [
         "^https?:\\/\\/www\\.youtube\\.com\\/(?:c|(?:user))\\/([^/]+)(?:\\/.*)?$",
         "^https?:\\/\\/m\\.youtube\\.com\\/(?:c|(?:user))\\/([^/]+)(?:\\/.*)?$",
-        "^https?:\\/\\/www\\.youtube\\.com\\/(?!(?:watch)|(?:playlist)|c|(?:user)|(?:channel)|(?:feed)|(?:premium)|(?:account)|(?:reporthistory)|(?:yt)|t|(?:intl)|(?:testtube)(?:\\/|$))([^/]+)(?:\\/.*)?$",
-        "^https?:\\/\\/m\\.youtube\\.com\\/(?!(?:watch)|(?:playlist)|c|(?:user)|(?:channel)|(?:feed)|(?:premium)|(?:account)|(?:reporthistory)|(?:yt)|t|(?:intl)|(?:testtube)(?:\\/|$))([^/]+)(?:\\/.*)?$"
+        "^https?:\\/\\/www\\.youtube\\.com\\/(?!(?:watch)|(?:playlist)|c|(?:user)|(?:channel)|(?:feed)|(?:premium)|(?:account)|(?:reporthistory)|(?:yt)|t|(?:intl)|(?:testtube)|(?:redirect)(?:\\/|$))([^/]+)(?:\\/.*)?$",
+        "^https?:\\/\\/m\\.youtube\\.com\\/(?!(?:watch)|(?:playlist)|c|(?:user)|(?:channel)|(?:feed)|(?:premium)|(?:account)|(?:reporthistory)|(?:yt)|t|(?:intl)|(?:testtube)|(?:redirect)(?:\\/|$))([^/]+)(?:\\/.*)?$"
       ],
       "copyOperations": [
         {

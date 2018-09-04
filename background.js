@@ -68,33 +68,55 @@ function procUrlops (o) {
 
 function checkPatterns (aUrl, aFindAllMatches) {
   let union = builtinUrlops.concat(customUrlops);
+  let ops = [];
   let urls = [aUrl];
+
+  function addEmbedCopyOp (aUrl) {
+    ops.push({
+      type: "copy",
+      url: aUrl,
+      newTab: false,
+      matchedPattern: "",
+      label: browser.i18n.getMessage("copyEmbeddedLink").
+        replace("%u", aUrl.substr(0, 25)) + "…",
+      subst: "",
+      decode: false
+    });
+  }
 
   for (let p of elinkPats) {
     let match = aUrl.match(p);
-    if (match)
-      urls.push(decodeURIComponent(match[1]));
+    if (match) {
+      let decoded = decodeURIComponent(match[1]);
+      addEmbedCopyOp(decoded);
+      urls.push(decoded);
+    }
   }
 
   for (let p of elinkPats_nd) {
     let match = aUrl.match(p);
-    if (match)
+    if (match) {
+      addEmbedCopyOp(match[1]);
       urls.push(match[1]);
+    }
   }
 
   for (let p of elinkCustomPats) {
     let match = aUrl.match(p);
-    if (match)
-      urls.push(decodeURIComponent(match[1]));
+    if (match) {
+      let decoded = decodeURIComponent(match[1]);
+      addEmbedCopyOp(decoded);
+      urls.push(decoded);
+    }
   }
 
   for (let p of elinkCustomPats_nd) {
     let match = aUrl.match(p);
-    if (match)
+    if (match) {
+      addEmbedCopyOp(match[1]);
       urls.push(match[1]);
+    }
   }
-
-  let ops = [];
 
   for (let i = 0; i < union.length; i++) {
     let spec = union[i];

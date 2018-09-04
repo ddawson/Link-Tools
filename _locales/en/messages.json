@@ -46,7 +46,7 @@
   },
 
   "linkTypes_description": {
-    "message": "These define the types of links that are recognized, and the operations available on them. The export function uses only the types you select from the list (which is a multiple-selection list), or all custom types if you select none. The \"decode parameters\" option treats all substitutions as query parameters and decodes them accordingly (useful to recover form inputs)."
+    "message": "These define the types of links that are recognized, and the operations available on them. The export function uses only the types you select from the list (use Ctrl and Shift keys to select more than one), or all custom types if you select none. The \"decode parameters\" option treats all substitutions as query parameters and decodes them accordingly (useful to recover form inputs)."
   },
 
   "import": {
@@ -193,11 +193,14 @@
     "message": "No operations available"
   },
 
+  "copyEmbeddedLink": {
+    "message": "Copy embedded link: %u"
+  },
+
   "newTab": {
     "message": " (new tab)",
     "description": "Appended to visit operations to form new visit operations that open a new tab instead of sending the current tab to the address."
   },
-
 
   "googleSearchLink": {
     "message": "Google search link"
