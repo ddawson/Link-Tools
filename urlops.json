@@ -375,6 +375,126 @@
           "subst": "https://steamcommunity.com/app/$1"
         }
       ]
+    },
+
+    {
+      "name": "__MSG_dtubevideo__",
+      "patterns": [
+        "^https?:\\/\\/d\\.tube\\/(?:#!\\/)?v\\/([^/]+)\\/([0-9a-z]+)$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_dtubevideo_copyvideoid__",
+          "subst": "$1/$2"
+        }
+      ]
+    },
+
+    {
+      "name": "__MSG_steemituser__",
+      "patterns": [
+        "^https?:\\/\\/steemit\\.com\\/@([^/]+)(?:\\/.*)?$",
+        "^https?:\\/\\/steemd\\.com\\/@([^/]+)(?:\\/.*)?$",
+        "^https?:\\/\\/steemdb\\.com\\/@([^/]+)(?:\\/.*)?$",
+        "^https?:\\/\\/d\\.tube\\/(?:#!\\/)?c\\/([^/]+)\\/?$",
+        "^https?:\\/\\/d\\.tube\\/(?:#!\\/)?v\\/([^/]+)(?:\\/.*)$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_steemituser_copyname__",
+          "subst": "@$1"
+        },
+        {
+          "label": "__MSG_steemituser_copyblog__",
+          "subst": "https://steemit.com/@$1"
+        },
+        {
+          "label": "__MSG_steemituser_copycomments__",
+          "subst": "https://steemit.com/@$1/comments"
+        },
+        {
+          "label": "__MSG_steemituser_copyreplies__",
+          "subst": "https://steemit.com/@$1/recent-replies"
+        },
+        {
+          "label": "__MSG_steemituser_copycurationrewards__",
+          "subst": "https://steemit.com/@$1/curation-rewards"
+        },
+        {
+          "label": "__MSG_steemituser_copyauthorrewards__",
+          "subst": "https://steemit.com/@$1/author-rewards"
+        },
+        {
+          "label": "__MSG_steemituser_copywallet__",
+          "subst": "https://steemit.com/@$1/transfers"
+        },
+        {
+          "label": "__MSG_steemituser_copyfeed__",
+          "subst": "https://steemit.com/@$1/feed"
+        },
+        {
+          "label": "__MSG_steemituser_copyfollowers__",
+          "subst": "https://steemit.com/@$1/followers"
+        },
+        {
+          "label": "__MSG_steemituser_copyfollowing__",
+          "subst": "https://steemit.com/@$1/followed"
+        },
+        {
+          "label": "__MSG_steemituser_copysteemd__",
+          "subst": "https://steemd.com/@$1"
+        },
+        {
+          "label": "__MSG_steemituser_copysteemdb__",
+          "subst": "https://steemdb.com/@$1"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_steemituser_visitblog__",
+          "subst": "https://steemit.com/@$1"
+        },
+        {
+          "label": "__MSG_steemituser_visitcomments__",
+          "subst": "https://steemit.com/@$1/comments"
+        },
+        {
+          "label": "__MSG_steemituser_visitreplies__",
+          "subst": "https://steemit.com/@$1/recent-replies"
+        },
+        {
+          "label": "__MSG_steemituser_visitcurationrewards__",
+          "subst": "https://steemit.com/@$1/curation-rewards"
+        },
+        {
+          "label": "__MSG_steemituser_visitauthorrewards__",
+          "subst": "https://steemit.com/@$1/author-rewards"
+        },
+        {
+          "label": "__MSG_steemituser_visitwallet__",
+          "subst": "https://steemit.com/@$1/transfers"
+        },
+        {
+          "label": "__MSG_steemituser_visitfeed__",
+          "subst": "https://steemit.com/@$1/feed"
+        },
+        {
+          "label": "__MSG_steemituser_visitfollowers__",
+          "subst": "https://steemit.com/@$1/followers"
+        },
+        {
+          "label": "__MSG_steemituser_visitfollowing__",
+          "subst": "https://steemit.com/@$1/followed"
+        },
+        {
+          "label": "__MSG_steemituser_visitsteemd__",
+          "subst": "https://steemd.com/@$1"
+        },
+        {
+          "label": "__MSG_steemituser_visitsteemdb__",
+          "subst": "https://steemdb.com/@$1"
+        }
+      ]
     }
   ]
 }

@@ -459,7 +459,7 @@
   },
 
   "steam_visitStoreLink": {
-    "message": "Visit Steam Store link"
+    "message": "Visit Steam Store page"
   },
 
   "steam_visitCapsuleThumbnail": {
@@ -476,5 +476,109 @@
 
   "steam_visitCommunityLink": {
     "message": "Visit Steam Community section"
+  },
+
+  "dtubevideo": {
+    "message": "D.Tube video"
+  },
+
+  "dtubevideo_copyvideoid": {
+    "message": "Copy D.Tube video ID"
+  },
+
+  "steemituser": {
+    "message": "Steemit user"
+  },
+
+  "steemituser_copyname": {
+    "message": "Copy Steemit user name"
+  },
+
+  "steemituser_copyblog": {
+    "message": "Copy Steemit user blog link"
+  },
+
+  "steemituser_copycomments": {
+    "message": "Copy Steemit user comments link"
+  },
+
+  "steemituser_copyreplies": {
+    "message": "Copy Steemit user replies link"
+  },
+
+  "steemituser_copycurationrewards": {
+    "message": "Copy Steemit user curation rewards link"
+  },
+
+  "steemituser_copyauthorrewards": {
+    "message": "Copy Steemit user author rewards link"
+  },
+
+  "steemituser_copywallet": {
+    "message": "Copy Steemit user wallet link"
+  },
+
+  "steemituser_copyfeed": {
+    "message": "Copy Steemit user feed link"
+  },
+
+  "steemituser_copyfollowers": {
+    "message": "Copy Steemit user followers link"
+  },
+
+  "steemituser_copyfollowing": {
+    "message": "Copy Steemit user following link"
+  },
+
+  "steemituser_copysteemd": {
+    "message": "Copy Steemit user steemd link"
+  },
+
+  "steemituser_copysteemdb": {
+    "message": "Copy Steemit user steemdb link"
+  },
+
+  "steemituser_visitblog": {
+    "message": "Visit Steemit user blog page"
+  },
+
+  "steemituser_visitcomments": {
+    "message": "Visit Steemit user comments page"
+  },
+
+  "steemituser_visitreplies": {
+    "message": "Visit Steemit user replies page"
+  },
+
+  "steemituser_visitcurationrewards": {
+    "message": "Visit Steemit user curation rewards page"
+  },
+
+  "steemituser_visitauthorrewards": {
+    "message": "Visit Steemit user author rewards page"
+  },
+
+  "steemituser_visitwallet": {
+    "message": "Visit Steemit user wallet page"
+  },
+
+  "steemituser_visitfeed": {
+    "message": "Visit Steemit user feed page"
+  },
+
+  "steemituser_visitfollowers": {
+    "message": "Visit Steemit user followers page"
+  },
+
+  "steemituser_visitfollowing": {
+    "message": "Visit Steemit user following page"
+  },
+
+  "steemituser_visitsteemd": {
+    "message": "Visit Steemit user on steemd"
+  },
+
+  "steemituser_visitsteemdb": {
+    "message": "Visit Steemit user on steemdb"
   }
 }
