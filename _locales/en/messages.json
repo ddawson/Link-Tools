@@ -458,6 +458,10 @@
     "message": "Copy Steam Community link"
   },
 
+  "steam_copySteamDBLink": {
+    "message": "Copy SteamDB link"
+  },
+
   "steam_visitStoreLink": {
     "message": "Visit Steam Store page"
   },
@@ -476,6 +480,10 @@
 
   "steam_visitCommunityLink": {
     "message": "Visit Steam Community section"
+  },
+
+  "steam_visitSteamDB": {
+    "message": "Visit SteamDB entry"
   },
 
   "dtubevideo": {

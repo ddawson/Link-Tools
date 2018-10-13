@@ -351,6 +351,10 @@
         {
           "label": "__MSG_steam_copyCommunityLink__",
           "subst": "https://steamcommunity.com/app/$1"
+        },
+        {
+          "label": "__MSG_steam_copySteamDBLink__",
+          "subst": "https://steamdb.info/app/$1"
         }
       ],
       "visitOperations": [
@@ -373,6 +377,10 @@
         {
           "label": "__MSG_steam_visitCommunityLink__",
           "subst": "https://steamcommunity.com/app/$1"
+        },
+        {
+          "label": "__MSG_steam_visitSteamDB__",
+          "subst": "https://steamdb.info/app/$1"
         }
       ]
     },
