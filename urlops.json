@@ -325,62 +325,503 @@
     },
 
     {
-      "name": "__MSG_steamLink__",
+      "name": "__MSG_steamGameLink__",
       "patterns": [
         "^https?:\\/\\/store\\.steampowered\\.com\\/app\\/([0-9]+).*$",
-        "^https?:\\/\\/steamcommunity\\.com\\/app\\/([0-9]+).*$"
+        "^https?:\\/\\/steamcommunity\\.com\\/(?:(?:app)|(?:stats))\\/([0-9]+).*$",
+        "^https?:\\/\\/steamcommunity\\.com\\/(?:(?:id)|(?:profiles))\\/(?:[^/]+)\\/(?:(?:stats)|(?:recommended))\\/([0-9]+).*$",
+        "^https?:\\/\\/steamcommunity\\.com\\/.*(?:\\?|&)appid=([0-9]+).*$",
+        "^https?:\\/\\/steamdb\\.info\\/app\\/([0-9]+).*$",
+        "^https?:\\/\\/pcgamingwiki\\.com\\/api\\/appid\\.php?(?:.*&)?appid=([0-9]+).*$"
       ],
       "thumbnail": "https://steamcdn-a.akamaihd.net/steam/apps/$1/capsule_184x69.jpg",
       "copyOperations": [
         {
-          "label": "__MSG_steam_copyStoreLink__",
+          "label": "__MSG_steamGame_copyStore__",
           "subst": "https://store.steampowered.com/app/$1"
         },
         {
-          "label": "__MSG_steam_copyCapsuleThumbnail__",
+          "label": "__MSG_steamGame_copyCapsuleThumbnail__",
           "subst": "https://steamcdn-a.akamaihd.net/steam/apps/$1/capsule_184x69.jpg"
         },
         {
-          "label": "__MSG_steam_copyMedThumbnail__",
+          "label": "__MSG_steamGame_copyMedThumbnail__",
           "subst": "https://steamcdn-a.akamaihd.net/steam/apps/$1/header_292x136.jpg"
         },
         {
-          "label": "__MSG_steam_copyLargeThumbnail__",
+          "label": "__MSG_steamGame_copyLargeThumbnail__",
           "subst": "https://steamcdn-a.akamaihd.net/steam/apps/$1/header.jpg"
         },
         {
-          "label": "__MSG_steam_copyCommunityLink__",
+          "label": "__MSG_steamGame_copyCommunityHub__",
           "subst": "https://steamcommunity.com/app/$1"
         },
         {
-          "label": "__MSG_steam_copySteamDBLink__",
+          "label": "__MSG_steamGame_copySteamDB__",
           "subst": "https://steamdb.info/app/$1"
+        },
+        {
+          "label": "__MSG_steamGame_copyPCGamingWiki__",
+          "subst": "https://pcgamingwiki.com/api/appid.php?appid=$1"
         }
       ],
       "visitOperations": [
         {
-          "label": "__MSG_steam_visitStoreLink__",
+          "label": "__MSG_steamGame_visitStore__",
           "subst": "https://store.steampowered.com/app/$1"
         },
         {
-          "label": "__MSG_steam_visitCapsuleThumbnail__",
+          "label": "__MSG_steamGame_visitCapsuleThumbnail__",
           "subst": "https://steamcdn-a.akamaihd.net/steam/apps/$1/capsule_184x69.jpg"
         },
         {
-          "label": "__MSG_steam_visitMedThumbnail__",
+          "label": "__MSG_steamGame_visitMedThumbnail__",
           "subst": "https://steamcdn-a.akamaihd.net/steam/apps/$1/header_292x136.jpg"
         },
         {
-          "label": "__MSG_steam_visitLargeThumbnail__",
+          "label": "__MSG_steamGame_visitLargeThumbnail__",
           "subst": "https://steamcdn-a.akamaihd.net/steam/apps/$1/header.jpg"
         },
         {
-          "label": "__MSG_steam_visitCommunityLink__",
+          "label": "__MSG_steamGame_visitCommunity__",
           "subst": "https://steamcommunity.com/app/$1"
         },
         {
-          "label": "__MSG_steam_visitSteamDB__",
+          "label": "__MSG_steamGame_visitSteamDB__",
           "subst": "https://steamdb.info/app/$1"
+        },
+        {
+          "label": "__MSG_steamGame_visitPCGamingWiki__",
+          "subst": "https://pcgamingwiki.com/api/appid.php?appid=$1"
+        }
+      ]
+    },
+
+    {
+      "name": "__MSG_steamDeveloperLink__",
+      "patterns": [
+        "^https?:\\/\\/(?:.*\\.)?steampowered\\.com\\/((?:developer)|(?:publisher)|(?:franchise))\\/([^/]+).*$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_steamDeveloper_copyName__",
+          "subst": "$2"
+        },
+        {
+          "label": "__MSG_steamDeveloper_copyMainPage__",
+          "subst": "https://store.steampowered.com/$1/$2"
+        },
+        {
+          "label": "__MSG_steamDeveloper_copyLists__",
+          "subst": "https://store.steampowered.com/$1/$2/lists/"
+        },
+        {
+          "label": "__MSG_steamDeveloper_copyBrowse__",
+          "subst": "https://store.steampowered.com/$1/$2/#browse"
+        },
+        {
+          "label": "__MSG_steamDeveloper_copyAbout__",
+          "subst": "https://store.steampowered.com/$1/$2/about/"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_steamDeveloper_visitMainPage__",
+          "subst": "https://store.steampowered.com/$1/$2"
+        },
+        {
+          "label": "__MSG_steamDeveloper_visitLists__",
+          "subst": "https://store.steampowered.com/$1/$2/lists/"
+        },
+        {
+          "label": "__MSG_steamDeveloper_visitBrowse__",
+          "subst": "https://store.steampowered.com/$1/$2/#browse"
+        },
+        {
+          "label": "__MSG_steamDeveloper_visitAbout__",
+          "subst": "https://store.steampowered.com/$1/$2/about/"
+        }
+      ]
+    },
+
+    {
+      "name": "__MSG_steamUsernameLink__",
+      "patterns": [
+        "^https?:\\/\\/steamcommunity\\.com\\/id\\/([^/]+)(?:\\/.*)?$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_steamMember_copyUsername__",
+          "subst": "$1"
+        },
+        {
+          "label": "__MSG_steamMember_copyMainPage__",
+          "subst": "https://steamcommunity.com/id/$1"
+        },
+        {
+          "label": "__MSG_steamMember_copyGames__",
+          "subst": "https://steamcommunity.com/id/$1/games/"
+        },
+        {
+          "label": "__MSG_steamMember_copyAllGames__",
+          "subst": "https://steamcommunity.com/id/$1/games/?tab=all"
+        },
+        {
+          "label": "__MSG_steamMember_copyFollowedGames__",
+          "subst": "https://steamcommunity.com/id/$1/followedgames/"
+        },
+        {
+          "label": "__MSG_steamMember_copyGamesWishlist__",
+          "subst": "https://steamcommunity.com/id/$1/wishlist/"
+        },
+        {
+          "label": "__MSG_steamMember_copyGamesReviews__",
+          "subst": "https://steamcommunity.com/id/$1/reviews/"
+        },
+        {
+          "label": "__MSG_steamMember_copyInventory__",
+          "subst": "https://steamcommunity.com/id/$1/inventory/"
+        },
+        {
+          "label": "__MSG_steamMember_copyScreenshots__",
+          "subst": "https://steamcommunity.com/id/$1/screenshots/"
+        },
+        {
+          "label": "__MSG_steamMember_copyFavoriteScreenshots__",
+          "subst": "https://steamcommunity.com/id/$1/screenshots/?browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_copyArtwork__",
+          "subst": "https://steamcommunity.com/id/$1/images/"
+        },
+        {
+          "label": "__MSG_steamMember_copyFavoriteArtwork__",
+          "subst": "https://steamcommunity.com/id/$1/images/?browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_copyVideos__",
+          "subst": "https://steamcommunity.com/id/$1/videos/"
+        },
+        {
+          "label": "__MSG_steamMember_copyFavoriteVideos__",
+          "subst": "https://steamcommunity.com/id/$1/videos/?browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_copyWorkshopItems__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/"
+        },
+        {
+          "label": "__MSG_steamMember_copyFavoriteWorkshopItems__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_copyMerchandise__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/?section=merchandise"
+        },
+        {
+          "label": "__MSG_steamMember_copyFavoriteMerchandise__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/?section=merchandise&browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_copyCollections__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/?section=collections"
+        },
+        {
+          "label": "__MSG_steamMember_copyFavoriteCollections__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/?section=collections&browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_copyGuides__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/?section=guides"
+        },
+        {
+          "label": "__MSG_steamMember_copyFavoriteGuides__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/?section=guides&browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_copyGroups__",
+          "subst": "https://steamcommunity.com/id/$1/groups/"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_steamMember_visitMainPage__",
+          "subst": "https://steamcommunity.com/id/$1"
+        },
+        {
+          "label": "__MSG_steamMember_visitGames__",
+          "subst": "https://steamcommunity.com/id/$1/games/"
+        },
+        {
+          "label": "__MSG_steamMember_visitAllGames__",
+          "subst": "https://steamcommunity.com/id/$1/games/?tab=all"
+        },
+        {
+          "label": "__MSG_steamMember_visitFollowedGames__",
+          "subst": "https://steamcommunity.com/id/$1/followedgames/"
+        },
+        {
+          "label": "__MSG_steamMember_visitGamesWishlist__",
+          "subst": "https://steamcommunity.com/id/$1/wishlist/"
+        },
+        {
+          "label": "__MSG_steamMember_visitGamesReviews__",
+          "subst": "https://steamcommunity.com/id/$1/reviews/"
+        },
+        {
+          "label": "__MSG_steamMember_visitInventory__",
+          "subst": "https://steamcommunity.com/id/$1/inventory/"
+        },
+        {
+          "label": "__MSG_steamMember_visitScreenshots__",
+          "subst": "https://steamcommunity.com/id/$1/screenshots/"
+        },
+        {
+          "label": "__MSG_steamMember_visitFavoriteScreenshots__",
+          "subst": "https://steamcommunity.com/id/$1/screenshots/?browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_visitArtwork__",
+          "subst": "https://steamcommunity.com/id/$1/images/"
+        },
+        {
+          "label": "__MSG_steamMember_visitFavoriteArtwork__",
+          "subst": "https://steamcommunity.com/id/$1/images/?browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_visitVideos__",
+          "subst": "https://steamcommunity.com/id/$1/videos/"
+        },
+        {
+          "label": "__MSG_steamMember_visitFavoriteVideos__",
+          "subst": "https://steamcommunity.com/id/$1/videos/?browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_visitWorkshopItems__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/"
+        },
+        {
+          "label": "__MSG_steamMember_visitFavoriteWorkshopItems__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_visitMerchandise__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/?section=merchandise"
+        },
+        {
+          "label": "__MSG_steamMember_visitFavoriteMerchandise__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/?section=merchandise&browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_visitCollections__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/?section=collections"
+        },
+        {
+          "label": "__MSG_steamMember_visitFavoriteCollections__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/?section=collections&browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_visitGuides__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/?section=guides"
+        },
+        {
+          "label": "__MSG_steamMember_visitFavoriteGuides__",
+          "subst": "https://steamcommunity.com/id/$1/myworkshopfiles/?section=guides&browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_visitGroups__",
+          "subst": "https://steamcommunity.com/id/$1/groups/"
+        }
+      ]
+    },
+
+    {
+      "name": "__MSG_steamProfileIDLink__",
+      "patterns": [
+        "^https?:\\/\\/steamcommunity\\.com\\/profiles\\/([^/]+)(?:\\/.*)?$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_steamMember_copyProfileID__",
+          "subst": "$1"
+        },
+        {
+          "label": "__MSG_steamMember_copyMainPage__",
+          "subst": "https://steamcommunity.com/profiles/$1"
+        },
+        {
+          "label": "__MSG_steamMember_copyGames__",
+          "subst": "https://steamcommunity.com/profiles/$1/games/"
+        },
+        {
+          "label": "__MSG_steamMember_copyAllGames__",
+          "subst": "https://steamcommunity.com/profiles/$1/games/?tab=all"
+        },
+        {
+          "label": "__MSG_steamMember_copyFollowedGames__",
+          "subst": "https://steamcommunity.com/profiles/$1/followedgames/"
+        },
+        {
+          "label": "__MSG_steamMember_copyGamesWishlist__",
+          "subst": "https://steamcommunity.com/profiles/$1/wishlist/"
+        },
+        {
+          "label": "__MSG_steamMember_copyGamesReviews__",
+          "subst": "https://steamcommunity.com/profiles/$1/reviews/"
+        },
+        {
+          "label": "__MSG_steamMember_copyInventory__",
+          "subst": "https://steamcommunity.com/profiles/$1/inventory/"
+        },
+        {
+          "label": "__MSG_steamMember_copyScreenshots__",
+          "subst": "https://steamcommunity.com/profiles/$1/screenshots/"
+        },
+        {
+          "label": "__MSG_steamMember_copyFavoriteScreenshots__",
+          "subst": "https://steamcommunity.com/profiles/$1/screenshots/?browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_copyArtwork__",
+          "subst": "https://steamcommunity.com/profiles/$1/images/"
+        },
+        {
+          "label": "__MSG_steamMember_copyFavoriteArtwork__",
+          "subst": "https://steamcommunity.com/profiles/$1/images/?browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_copyVideos__",
+          "subst": "https://steamcommunity.com/profiles/$1/videos/"
+        },
+        {
+          "label": "__MSG_steamMember_copyFavoriteVideos__",
+          "subst": "https://steamcommunity.com/profiles/$1/videos/?browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_copyWorkshopItems__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/"
+        },
+        {
+          "label": "__MSG_steamMember_copyFavoriteWorkshopItems__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_copyMerchandise__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/?section=merchandise"
+        },
+        {
+          "label": "__MSG_steamMember_copyFavoriteMerchandise__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/?section=merchandise&browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_copyCollections__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/?section=collections"
+        },
+        {
+          "label": "__MSG_steamMember_copyFavoriteCollections__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/?section=collections&browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_copyGuides__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/?section=guides"
+        },
+        {
+          "label": "__MSG_steamMember_copyFavoriteGuides__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/?section=guides&browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_copyGroups__",
+          "subst": "https://steamcommunity.com/profiles/$1/groups/"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_steamMember_visitMainPage__",
+          "subst": "https://steamcommunity.com/profiles/$1"
+        },
+        {
+          "label": "__MSG_steamMember_visitGames__",
+          "subst": "https://steamcommunity.com/profiles/$1/games/"
+        },
+        {
+          "label": "__MSG_steamMember_visitAllGames__",
+          "subst": "https://steamcommunity.com/profiles/$1/games/?tab=all"
+        },
+        {
+          "label": "__MSG_steamMember_visitFollowedGames__",
+          "subst": "https://steamcommunity.com/profiles/$1/followedgames/"
+        },
+        {
+          "label": "__MSG_steamMember_visitGamesWishlist__",
+          "subst": "https://steamcommunity.com/profiles/$1/wishlist/"
+        },
+        {
+          "label": "__MSG_steamMember_visitGamesReviews__",
+          "subst": "https://steamcommunity.com/profiles/$1/reviews/"
+        },
+        {
+          "label": "__MSG_steamMember_visitInventory__",
+          "subst": "https://steamcommunity.com/profiles/$1/inventory/"
+        },
+        {
+          "label": "__MSG_steamMember_visitScreenshots__",
+          "subst": "https://steamcommunity.com/profiles/$1/screenshots/"
+        },
+        {
+          "label": "__MSG_steamMember_visitFavoriteScreenshots__",
+          "subst": "https://steamcommunity.com/profiles/$1/screenshots/?browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_visitArtwork__",
+          "subst": "https://steamcommunity.com/profiles/$1/images/"
+        },
+        {
+          "label": "__MSG_steamMember_visitFavoriteArtwork__",
+          "subst": "https://steamcommunity.com/profiles/$1/images/?browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_visitVideos__",
+          "subst": "https://steamcommunity.com/profiles/$1/videos/"
+        },
+        {
+          "label": "__MSG_steamMember_visitFavoriteVideos__",
+          "subst": "https://steamcommunity.com/profiles/$1/videos/?browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_visitWorkshopItems__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/"
+        },
+        {
+          "label": "__MSG_steamMember_visitFavoriteWorkshopItems__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_visitMerchandise__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/?section=merchandise"
+        },
+        {
+          "label": "__MSG_steamMember_visitFavoriteMerchandise__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/?section=merchandise&browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_visitCollections__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/?section=collections"
+        },
+        {
+          "label": "__MSG_steamMember_visitFavoriteCollections__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/?section=collections&browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_visitGuides__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/?section=guides"
+        },
+        {
+          "label": "__MSG_steamMember_visitFavoriteGuides__",
+          "subst": "https://steamcommunity.com/profiles/$1/myworkshopfiles/?section=guides&browsefilter=myfavorites"
+        },
+        {
+          "label": "__MSG_steamMember_visitGroups__",
+          "subst": "https://steamcommunity.com/profiles/$1/groups/"
         }
       ]
     },

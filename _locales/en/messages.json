@@ -434,56 +434,296 @@
     "message": "Copy Mozilla link (no locale)"
   },
 
-  "steamLink": {
-    "message": "Steam link"
+  "steamGameLink": {
+    "message": "Steam game link"
   },
 
-  "steam_copyStoreLink": {
+  "steamGame_copyStore": {
     "message": "Copy Steam Store link"
   },
 
-  "steam_copyCapsuleThumbnail": {
-    "message": "Copy Steam store capsule thumbnail link"
+  "steamGame_copyCapsuleThumbnail": {
+    "message": "Copy Steam Store capsule thumbnail link"
   },
 
-  "steam_copyMedThumbnail": {
-    "message": "Copy Steam store medium thumbnail link"
+  "steamGame_copyMedThumbnail": {
+    "message": "Copy Steam Store medium thumbnail link"
   },
 
-  "steam_copyLargeThumbnail": {
-    "message": "Copy Steam store large thumbnail link"
+  "steamGame_copyLargeThumbnail": {
+    "message": "Copy Steam Store large thumbnail link"
   },
 
-  "steam_copyCommunityLink": {
-    "message": "Copy Steam Community link"
+  "steamGame_copyCommunityHub": {
+    "message": "Copy Steam Community hub link"
   },
 
-  "steam_copySteamDBLink": {
+  "steamGame_copySteamDB": {
     "message": "Copy SteamDB link"
   },
 
-  "steam_visitStoreLink": {
+  "steamGame_copyPCGamingWiki": {
+    "message": "Copy PCGamingWiki link"
+  },
+
+  "steamGame_visitStore": {
     "message": "Visit Steam Store page"
   },
 
-  "steam_visitCapsuleThumbnail": {
+  "steamGame_visitCapsuleThumbnail": {
     "message": "Visit Steam store capsule thumbnail"
   },
 
-  "steam_visitMedThumbnail": {
+  "steamGame_visitMedThumbnail": {
     "message": "Visit Steam store medium thumbnail"
   },
 
-  "steam_visitLargeThumbnail": {
+  "steamGame_visitLargeThumbnail": {
     "message": "Visit Steam store large thumbnail"
   },
 
-  "steam_visitCommunityLink": {
-    "message": "Visit Steam Community section"
+  "steamGame_visitCommunity": {
+    "message": "Visit Steam Community hub"
   },
 
-  "steam_visitSteamDB": {
+  "steamGame_visitSteamDB": {
     "message": "Visit SteamDB entry"
+  },
+
+  "steamGame_visitPCGamingWiki": {
+    "message": "Visit PCGamingWiki entry"
+  },
+
+  "steamDeveloperLink": {
+    "message": "Steam developer link"
+  },
+
+  "steamDeveloper_copyName": {
+    "message": "Copy Steam developer name"
+  },
+
+  "steamDeveloper_copyMainPage": {
+    "message": "Copy Steam developer main page link"
+  },
+
+  "steamDeveloper_copyLists": {
+    "message": "Copy Steam developer lists link"
+  },
+
+  "steamDeveloper_copyBrowse": {
+    "message": "Copy Steam developer browse link"
+  },
+
+  "steamDeveloper_copyAbout": {
+    "message": "Copy Steam developer about link"
+  },
+
+  "steamDeveloper_visitMainPage": {
+    "message": "Visit Steam developer main page page"
+  },
+
+  "steamDeveloper_visitLists": {
+    "message": "Visit Steam developer lists page"
+  },
+
+  "steamDeveloper_visitBrowse": {
+    "message": "Visit Steam developer browse page"
+  },
+
+  "steamDeveloper_visitAbout": {
+    "message": "Visit Steam developer about page"
+  },
+
+  "steamUsernameLink": {
+    "message": "Steam username link"
+  },
+
+  "steamMember_copyUsername": {
+    "message": "Copy Steam member username"
+  },
+
+  "steamMember_copyMainPage": {
+    "message": "Copy Steam member main page link"
+  },
+
+  "steamMember_copyGames": {
+    "message": "Copy Steam member games link"
+  },
+
+  "steamMember_copyAllGames": {
+    "message": "Copy Steam member all games link"
+  },
+
+  "steamMember_copyFollowedGames": {
+    "message": "Copy Steam member followed games link"
+  },
+
+  "steamMember_copyGamesWishlist": {
+    "message": "Copy Steam member games wishlist link"
+  },
+
+  "steamMember_copyGamesReviews": {
+    "message": "Copy Steam member games reviews link"
+  },
+
+  "steamMember_copyInventory": {
+    "message": "Copy Steam member inventory link"
+  },
+
+  "steamMember_copyScreenshots": {
+    "message": "Copy Steam member screenshots link"
+  },
+
+  "steamMember_copyFavoriteScreenshots": {
+    "message": "Copy Steam member favorite screenshots link"
+  },
+
+  "steamMember_copyArtwork": {
+    "message": "Copy Steam member artwork link"
+  },
+
+  "steamMember_copyFavoriteArtwork": {
+    "message": "Copy Steam member favorite artwork link"
+  },
+
+  "steamMember_copyVideos": {
+    "message": "Copy Steam member videos link"
+  },
+
+  "steamMember_copyFavoriteVideos": {
+    "message": "Copy Steam member favorite videos link"
+  },
+
+  "steamMember_copyWorkshopItems": {
+    "message": "Copy Steam member workshop items link"
+  },
+
+  "steamMember_copyFavoriteWorkshopItems": {
+    "message": "Copy Steam member favorite workshop items link"
+  },
+
+  "steamMember_copyMerchandise": {
+    "message": "Copy Steam member merchandise link"
+  },
+
+  "steamMember_copyFavoriteMerchandise": {
+    "message": "Copy Steam member favorite merchandise link"
+  },
+
+  "steamMember_copyCollections": {
+    "message": "Copy Steam member collections link"
+  },
+
+  "steamMember_copyFavoriteCollections": {
+    "message": "Copy Steam member favorite collections link"
+  },
+
+  "steamMember_copyGuides": {
+    "message": "Copy Steam member guides link"
+  },
+
+  "steamMember_copyFavoriteGuides": {
+    "message": "Copy Steam member favorite guides link"
+  },
+
+  "steamMember_copyGroups": {
+    "message": "Copy Steam member groups link"
+  },
+
+  "steamMember_visitMainPage": {
+    "message": "Visit Steam member main page page"
+  },
+
+  "steamMember_visitGames": {
+    "message": "Visit Steam member games page"
+  },
+
+  "steamMember_visitAllGames": {
+    "message": "Visit Steam member all games page"
+  },
+
+  "steamMember_visitFollowedGames": {
+    "message": "Visit Steam member followed games page"
+  },
+
+  "steamMember_visitGamesWishlist": {
+    "message": "Visit Steam member games wishlist page"
+  },
+
+  "steamMember_visitGamesReviews": {
+    "message": "Visit Steam member games reviews page"
+  },
+
+  "steamMember_visitInventory": {
+    "message": "Visit Steam member inventory page"
+  },
+
+  "steamMember_visitScreenshots": {
+    "message": "Visit Steam member screenshots page"
+  },
+
+  "steamMember_visitFavoriteScreenshots": {
+    "message": "Visit Steam member favorite screenshots page"
+  },
+
+  "steamMember_visitArtwork": {
+    "message": "Visit Steam member artwork page"
+  },
+
+  "steamMember_visitFavoriteArtwork": {
+    "message": "Visit Steam member favorite artwork page"
+  },
+
+  "steamMember_visitVideos": {
+    "message": "Visit Steam member videos page"
+  },
+
+  "steamMember_visitFavoriteVideos": {
+    "message": "Visit Steam member favorite videos page"
+  },
+
+  "steamMember_visitWorkshopItems": {
+    "message": "Visit Steam member workshop items page"
+  },
+
+  "steamMember_visitFavoriteWorkshopItems": {
+    "message": "Visit Steam member favorite workshop items page"
+  },
+
+  "steamMember_visitMerchandise": {
+    "message": "Visit Steam member merchandise page"
+  },
+
+  "steamMember_visitFavoriteMerchandise": {
+    "message": "Visit Steam member favorite merchandise page"
+  },
+
+  "steamMember_visitCollections": {
+    "message": "Visit Steam member collections page"
+  },
+
+  "steamMember_visitFavoriteCollections": {
+    "message": "Visit Steam member favorite collections page"
+  },
+
+  "steamMember_visitGuides": {
+    "message": "Visit Steam member guides page"
+  },
+
+  "steamMember_visitFavoriteGuides": {
+    "message": "Visit Steam member favorite guides page"
+  },
+
+  "steamMember_visitGroups": {
+    "message": "Visit Steam member groups page"
+  },
+
+  "steamProfileIDLink": {
+    "message": "Steam profile ID link"
+  },
+
+  "steamMember_copyProfileID": {
+    "message": "Copy Steam member profile ID"
   },
 
   "dtubevideo": {
