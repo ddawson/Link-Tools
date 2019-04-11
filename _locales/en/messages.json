@@ -206,7 +206,7 @@
     "message": "Google search link"
   },
 
-  "google_copySearchLink": {
+  "google_copySearch": {
     "message": "Copy Google search link (no parameters)"
   },
 
@@ -214,8 +214,80 @@
     "message": "Copy Google search query"
   },
 
+  "google_copyMapsSearch": {
+    "message": "Copy Google Maps search"
+  },
+
+  "google_copyImageSearch": {
+    "message": "Copy Google Image search"
+  },
+
+  "google_copyNewsSearch": {
+    "message": "Copy Google News search"
+  },
+
+  "google_copyShoppingSearch": {
+    "message": "Copy Google Shopping search"
+  },
+
+  "google_copyVideosSearch": {
+    "message": "Copy Google Videos search"
+  },
+
+  "google_copyBooksSearch": {
+    "message": "Copy Google Books search"
+  },
+
+  "google_copyFlightsSearch": {
+    "message": "Copy Google Flights search"
+  },
+
+  "google_copyFinanceSearch": {
+    "message": "Copy Google Finance search"
+  },
+
+  "google_copyPersonalSearch": {
+    "message": "Copy Google Personal search"
+  },
+
   "google_visitSearch": {
     "message": "Visit Google search"
+  },
+
+  "google_visitMapsSearch": {
+    "message": "Visit Google Maps search"
+  },
+
+  "google_visitImageSearch": {
+    "message": "Visit Google Image search"
+  },
+
+  "google_visitNewsSearch": {
+    "message": "Visit Google News search"
+  },
+
+  "google_visitShoppingSearch": {
+    "message": "Visit Google Shopping search"
+  },
+
+  "google_visitVideosSearch": {
+    "message": "Visit Google Videos search"
+  },
+
+  "google_visitBooksSearch": {
+    "message": "Visit Google Books search"
+  },
+
+  "google_visitFlightsSearch": {
+    "message": "Visit Google Flights search"
+  },
+
+  "google_visitFinanceSearch": {
+    "message": "Visit Google Finance search"
+  },
+
+  "google_visitPersonalSearch": {
+    "message": "Visit Google Personal search"
   },
 
   "youtubePlaylistedVideo": {
@@ -726,107 +798,271 @@
     "message": "Copy Steam member profile ID"
   },
 
-  "dtubevideo": {
+  "dTubeVideo": {
     "message": "D.Tube video"
   },
 
-  "dtubevideo_copyvideoid": {
+  "dTubeVideo_copyVideoID": {
     "message": "Copy D.Tube video ID"
   },
 
-  "steemituser": {
+  "steemitUser": {
     "message": "Steemit user"
   },
 
-  "steemituser_copyname": {
+  "steemitUser_copyName": {
     "message": "Copy Steemit user name"
   },
 
-  "steemituser_copyblog": {
+  "steemitUser_copyBlog": {
     "message": "Copy Steemit user blog link"
   },
 
-  "steemituser_copycomments": {
+  "steemitUser_copyComments": {
     "message": "Copy Steemit user comments link"
   },
 
-  "steemituser_copyreplies": {
+  "steemitUser_copyReplies": {
     "message": "Copy Steemit user replies link"
   },
 
-  "steemituser_copycurationrewards": {
+  "steemitUser_copyCurationRewards": {
     "message": "Copy Steemit user curation rewards link"
   },
 
-  "steemituser_copyauthorrewards": {
+  "steemitUser_copyAuthorRewards": {
     "message": "Copy Steemit user author rewards link"
   },
 
-  "steemituser_copywallet": {
+  "steemitUser_copyWallet": {
     "message": "Copy Steemit user wallet link"
   },
 
-  "steemituser_copyfeed": {
+  "steemitUser_copyFeed": {
     "message": "Copy Steemit user feed link"
   },
 
-  "steemituser_copyfollowers": {
+  "steemitUser_copyFollowers": {
     "message": "Copy Steemit user followers link"
   },
 
-  "steemituser_copyfollowing": {
+  "steemitUser_copyFollowing": {
     "message": "Copy Steemit user following link"
   },
 
-  "steemituser_copysteemd": {
+  "steemitUser_copySteemd": {
     "message": "Copy Steemit user steemd link"
   },
 
-  "steemituser_copysteemdb": {
+  "steemitUser_copySteemDb": {
     "message": "Copy Steemit user steemdb link"
   },
 
-  "steemituser_visitblog": {
+  "steemitUser_visitBlog": {
     "message": "Visit Steemit user blog page"
   },
 
-  "steemituser_visitcomments": {
+  "steemitUser_visitComments": {
     "message": "Visit Steemit user comments page"
   },
 
-  "steemituser_visitreplies": {
+  "steemitUser_visitReplies": {
     "message": "Visit Steemit user replies page"
   },
 
-  "steemituser_visitcurationrewards": {
+  "steemitUser_visitCurationRewards": {
     "message": "Visit Steemit user curation rewards page"
   },
 
-  "steemituser_visitauthorrewards": {
+  "steemitUser_visitAuthorRewards": {
     "message": "Visit Steemit user author rewards page"
   },
 
-  "steemituser_visitwallet": {
+  "steemitUser_visitWallet": {
     "message": "Visit Steemit user wallet page"
   },
 
-  "steemituser_visitfeed": {
+  "steemitUser_visitFeed": {
     "message": "Visit Steemit user feed page"
   },
 
-  "steemituser_visitfollowers": {
+  "steemitUser_visitFollowers": {
     "message": "Visit Steemit user followers page"
   },
 
-  "steemituser_visitfollowing": {
+  "steemitUser_visitFollowing": {
     "message": "Visit Steemit user following page"
   },
 
-  "steemituser_visitsteemd": {
+  "steemitUser_visitSteemd": {
     "message": "Visit Steemit user on steemd"
   },
 
-  "steemituser_visitsteemdb": {
+  "steemitUser_visitSteemDb": {
     "message": "Visit Steemit user on steemdb"
+  },
+
+  "webArchiveLink": {
+    "message": "Web Archive link"
+  },
+
+  "webArchive_copyCalendar": {
+    "message": "Copy Web Archive calendar link"
+  },
+
+  "webArchive_visitCalendar": {
+    "message": "Visit Web Archive calendar page"
+  },
+
+  "duckDuckGoSearchLink": {
+    "message": "DuckDuckGo search link"
+  },
+
+  "duckDuckGo_copySearch": {
+    "message": "Copy DuckDuckGo search link (no parameters)"
+  },
+
+  "duckDuckGo_copySearchQuery": {
+    "message": "Copy DuckDuckGo search query"
+  },
+
+  "duckDuckGo_copyImagesWebSearch": {
+    "message": "Copy DuckDuckGo images+Web search link"
+  },
+
+  "duckDuckGo_copyImagesSearch": {
+    "message": "Copy DuckDuckGo images search link"
+  },
+
+  "duckDuckGo_copyVideosWebSearch": {
+    "message": "Copy DuckDuckGo videos+Web search link"
+  },
+
+  "duckDuckGo_copyVideosSearch": {
+    "message": "Copy DuckDuckGo videos search link"
+  },
+
+  "duckDuckGo_copyNewsWebSearch": {
+    "message": "Copy DuckDuckGo news+Web search link"
+  },
+
+  "duckDuckGo_copyNewsSearch": {
+    "message": "Copy DuckDuckGo news search link"
+  },
+
+  "duckDuckGo_visitSearch": {
+    "message": "Visit DuckDuckGo search (no parameters)"
+  },
+
+  "duckDuckGo_visitImagesWebSearch": {
+    "message": "Visit DuckDuckGo images+Web search"
+  },
+
+  "duckDuckGo_visitImagesSearch": {
+    "message": "Visit DuckDuckGo images search"
+  },
+
+  "duckDuckGo_visitVideosWebSearch": {
+    "message": "Visit DuckDuckGo videos+Web search"
+  },
+
+  "duckDuckGo_visitVideosSearch": {
+    "message": "Visit DuckDuckGo videos search"
+  },
+
+  "duckDuckGo_visitNewsWebSearch": {
+    "message": "Visit DuckDuckGo news+Web search"
+  },
+
+  "duckDuckGo_visitNewsSearch": {
+    "message": "Visit DuckDuckGo news search"
+  },
+
+  "bingSearchLink": {
+    "message": "Bing search link"
+  },
+
+  "bing_copySearch": {
+    "message": "Copy Bing search link (no parameters)"
+  },
+
+  "bing_copySearchQuery": {
+    "message": "Copy Bing search query"
+  },
+
+  "bing_copyImagesSearch": {
+    "message": "Copy Bing images search link"
+  },
+
+  "bing_copyVideosSearch": {
+    "message": "Copy Bing videos search link"
+  },
+
+  "bing_copyMapsSearch": {
+    "message": "Copy Bing maps search link"
+  },
+
+  "bing_copyNewsSearch": {
+    "message": "Copy Bing news search link"
+  },
+
+  "bing_copyShoppingSearch": {
+    "message": "Copy Bing shopping search link"
+  },
+
+  "bing_visitSearch": {
+    "message": "Visit Bing search (no parameters)"
+  },
+
+  "bing_visitImagesSearch": {
+    "message": "Visit Bing images search"
+  },
+
+  "bing_visitVideosSearch": {
+    "message": "Visit Bing videos search"
+  },
+
+  "bing_visitMapsSearch": {
+    "message": "Visit Bing maps search"
+  },
+
+  "bing_visitNewsSearch": {
+    "message": "Visit Bing news search"
+  },
+
+  "bing_visitShoppingSearch": {
+    "message": "Visit Bing shopping search"
+  },
+
+  "startpageSearch": {
+    "message": "Startpage search link"
+  },
+
+  "startpage_copySearch": {
+    "message": "Copy Startpage search link"
+  },
+
+  "startpage_copySearchQuery": {
+    "message": "Copy Startpage search query"
+  },
+
+  "startpage_copyImagesSearch": {
+    "message": "Copy Startpage images search"
+  },
+
+  "startpage_copyVideosSearch": {
+    "message": "Copy Startpage videos search"
+  },
+
+  "startpage_visitSearch": {
+    "message": "Visit Startpage search link"
+  },
+
+  "startpage_visitImagesSearch": {
+    "message": "Visit Startpage images search"
+  },
+
+  "startpage_visitVideosSearch": {
+    "message": "Visit Startpage videos search"
   }
 }

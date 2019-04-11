@@ -1,6 +1,6 @@
 /*
     Link Tools: Configurable copy and visit operations for links in Firefox
-    Copyright (C) 2018  Daniel Dawson <danielcdawson@gmail.com>
+    Copyright (C) 2019  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -102,7 +102,7 @@ function setThumbnailsState (newValue) {
 
     try {
       _addMouseover();
-    } catch (e) {
+    } catch {
       document.addEventListener("DOMContentLoaded", _addMouseover, false);
     }
   } else if (newValue == false && showThumbnails == true) {
@@ -111,6 +111,6 @@ function setThumbnailsState (newValue) {
     try {
       document.body.removeEventListener("mouseover", show_thumbnail, false);
       document.body.removeEventListener("mouseout", hide_thumbnail, false);
-    } catch (e) {}
+    } catch {}
   }
 }

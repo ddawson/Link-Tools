@@ -6,30 +6,104 @@
   ],
 
   "embeddedLinkPatterns_nodecode": [
-    "^https?:\\/\\/steamcommunity\\.com\\/linkfilter\\/\\?url=(.*)$"
+    "^https?:\\/\\/steamcommunity\\.com\\/linkfilter\\/\\?url=(.*)$",
+    "^https?:\\/\\/web\\.archive\\.org\\/web\\/[^/]*\\/(.*)$"
   ],
 
   "types": [
     {
       "name": "__MSG_googleSearchLink__",
       "patterns": [
-        "^https?:\\/\\/www\\.google\\.com\\/search\\?(?:.*&)?q=([^?&]+)(?:&.*)?$"
+        "^https?:\\/\\/www\\.google\\.com\\/(?:(?:search)|(?:flights))\\?(?:.*&)?q=([^?&]+)(?:&.*)?$",
+        "^https?:\\/\\/maps\\.google\\.com\\/maps\\?(?:.*&)?q=([^?&]+)(?:&.*)?$"
       ],
       "copyOperations": [
         {
-          "label": "__MSG_google_copySearchLink__",
+          "label": "__MSG_google_copySearch__",
           "subst": "https://www.google.com/search?q=$1"
         },
         {
           "label": "__MSG_google_copySearchQuery__",
           "subst": "$1",
           "decode": true
+        },
+        {
+          "label": "__MSG_google_copyMapsSearch__",
+          "subst": "https://maps.google.com/maps?q=$1"
+        },
+        {
+          "label": "__MSG_google_copyImageSearch__",
+          "subst": "https://www.google.com/search?q=$1&tbm=isch"
+        },
+        {
+          "label": "__MSG_google_copyNewsSearch__",
+          "subst": "https://www.google.com/search?q=$1&tbm=nws"
+        },
+        {
+          "label": "__MSG_google_copyShoppingSearch__",
+          "subst": "https://www.google.com/search?q=$1&tbm=shop"
+        },
+        {
+          "label": "__MSG_google_copyVideosSearch__",
+          "subst": "https://www.google.com/search?q=$1&tbm=vid"
+        },
+        {
+          "label": "__MSG_google_copyBooksSearch__",
+          "subst": "https://www.google.com/search?q=$1&tbm=bks"
+        },
+        {
+          "label": "__MSG_google_copyFlightsSearch__",
+          "subst": "https://www.google.com/flights?q=$1&tbm=flm"
+        },
+        {
+          "label": "__MSG_google_copyFinanceSearch__",
+          "subst": "https://www.google.com/search?q=$1&tbm=fin"
+        },
+        {
+          "label": "__MSG_google_copyPersonalSearch__",
+          "subst": "https://www.google.com/search?q=$1&tbm=pers"
         }
       ],
       "visitOperations": [
         {
           "label": "__MSG_google_visitSearch__",
           "subst": "https://www.google.com/search?q=$1"
+        },
+        {
+          "label": "__MSG_google_visitMapsSearch__",
+          "subst": "https://maps.google.com/maps?q=$1"
+        },
+        {
+          "label": "__MSG_google_visitImageSearch__",
+          "subst": "https://www.google.com/search?q=$1&tbm=isch"
+        },
+        {
+          "label": "__MSG_google_visitNewsSearch__",
+          "subst": "https://www.google.com/search?q=$1&tbm=nws"
+        },
+        {
+          "label": "__MSG_google_visitShoppingSearch__",
+          "subst": "https://www.google.com/search?q=$1&tbm=shop"
+        },
+        {
+          "label": "__MSG_google_visitVideosSearch__",
+          "subst": "https://www.google.com/search?q=$1&tbm=vid"
+        },
+        {
+          "label": "__MSG_google_visitBooksSearch__",
+          "subst": "https://www.google.com/search?q=$1&tbm=bks"
+        },
+        {
+          "label": "__MSG_google_visitFlightsSearch__",
+          "subst": "https://www.google.com/flights?q=$1&tbm=flm"
+        },
+        {
+          "label": "__MSG_google_visitFinanceSearch__",
+          "subst": "https://www.google.com/search?q=$1&tbm=fin"
+        },
+        {
+          "label": "__MSG_google_visitPersonalSearch__",
+          "subst": "https://www.google.com/search?q=$1&tbm=pers"
         }
       ]
     },
@@ -827,20 +901,20 @@
     },
 
     {
-      "name": "__MSG_dtubevideo__",
+      "name": "__MSG_dTubeVideo__",
       "patterns": [
         "^https?:\\/\\/d\\.tube\\/(?:#!\\/)?v\\/([^/]+)\\/([0-9a-z]+)$"
       ],
       "copyOperations": [
         {
-          "label": "__MSG_dtubevideo_copyvideoid__",
+          "label": "__MSG_dTubeVideo_copyVideoID__",
           "subst": "$1/$2"
         }
       ]
     },
 
     {
-      "name": "__MSG_steemituser__",
+      "name": "__MSG_steemitUser__",
       "patterns": [
         "^https?:\\/\\/steemit\\.com\\/@([^/]+)(?:\\/.*)?$",
         "^https?:\\/\\/steemd\\.com\\/@([^/]+)(?:\\/.*)?$",
@@ -850,98 +924,293 @@
       ],
       "copyOperations": [
         {
-          "label": "__MSG_steemituser_copyname__",
+          "label": "__MSG_steemitUser_copyName__",
           "subst": "@$1"
         },
         {
-          "label": "__MSG_steemituser_copyblog__",
+          "label": "__MSG_steemitUser_copyBlog__",
           "subst": "https://steemit.com/@$1"
         },
         {
-          "label": "__MSG_steemituser_copycomments__",
+          "label": "__MSG_steemitUser_copyComments__",
           "subst": "https://steemit.com/@$1/comments"
         },
         {
-          "label": "__MSG_steemituser_copyreplies__",
+          "label": "__MSG_steemitUser_copyReplies__",
           "subst": "https://steemit.com/@$1/recent-replies"
         },
         {
-          "label": "__MSG_steemituser_copycurationrewards__",
+          "label": "__MSG_steemitUser_copyCurationRewards__",
           "subst": "https://steemit.com/@$1/curation-rewards"
         },
         {
-          "label": "__MSG_steemituser_copyauthorrewards__",
+          "label": "__MSG_steemitUser_copyAuthorRewards__",
           "subst": "https://steemit.com/@$1/author-rewards"
         },
         {
-          "label": "__MSG_steemituser_copywallet__",
+          "label": "__MSG_steemitUser_copyWallet__",
           "subst": "https://steemit.com/@$1/transfers"
         },
         {
-          "label": "__MSG_steemituser_copyfeed__",
+          "label": "__MSG_steemitUser_copyFeed__",
           "subst": "https://steemit.com/@$1/feed"
         },
         {
-          "label": "__MSG_steemituser_copyfollowers__",
+          "label": "__MSG_steemitUser_copyFollowers__",
           "subst": "https://steemit.com/@$1/followers"
         },
         {
-          "label": "__MSG_steemituser_copyfollowing__",
+          "label": "__MSG_steemitUser_copyFollowing__",
           "subst": "https://steemit.com/@$1/followed"
         },
         {
-          "label": "__MSG_steemituser_copysteemd__",
+          "label": "__MSG_steemitUser_copySteemd__",
           "subst": "https://steemd.com/@$1"
         },
         {
-          "label": "__MSG_steemituser_copysteemdb__",
+          "label": "__MSG_steemitUser_copySteemDb__",
           "subst": "https://steemdb.com/@$1"
         }
       ],
       "visitOperations": [
         {
-          "label": "__MSG_steemituser_visitblog__",
+          "label": "__MSG_steemitUser_visitBlog__",
           "subst": "https://steemit.com/@$1"
         },
         {
-          "label": "__MSG_steemituser_visitcomments__",
+          "label": "__MSG_steemitUser_visitComments__",
           "subst": "https://steemit.com/@$1/comments"
         },
         {
-          "label": "__MSG_steemituser_visitreplies__",
+          "label": "__MSG_steemitUser_visitReplies__",
           "subst": "https://steemit.com/@$1/recent-replies"
         },
         {
-          "label": "__MSG_steemituser_visitcurationrewards__",
+          "label": "__MSG_steemitUser_visitCurationRewards__",
           "subst": "https://steemit.com/@$1/curation-rewards"
         },
         {
-          "label": "__MSG_steemituser_visitauthorrewards__",
+          "label": "__MSG_steemitUser_visitAuthorRewards__",
           "subst": "https://steemit.com/@$1/author-rewards"
         },
         {
-          "label": "__MSG_steemituser_visitwallet__",
+          "label": "__MSG_steemitUser_visitWallet__",
           "subst": "https://steemit.com/@$1/transfers"
         },
         {
-          "label": "__MSG_steemituser_visitfeed__",
+          "label": "__MSG_steemitUser_visitFeed__",
           "subst": "https://steemit.com/@$1/feed"
         },
         {
-          "label": "__MSG_steemituser_visitfollowers__",
+          "label": "__MSG_steemitUser_visitFollowers__",
           "subst": "https://steemit.com/@$1/followers"
         },
         {
-          "label": "__MSG_steemituser_visitfollowing__",
+          "label": "__MSG_steemitUser_visitFollowing__",
           "subst": "https://steemit.com/@$1/followed"
         },
         {
-          "label": "__MSG_steemituser_visitsteemd__",
+          "label": "__MSG_steemitUser_visitSteemd__",
           "subst": "https://steemd.com/@$1"
         },
         {
-          "label": "__MSG_steemituser_visitsteemdb__",
+          "label": "__MSG_steemitUser_visitSteemDb__",
           "subst": "https://steemdb.com/@$1"
+        }
+      ]
+    },
+
+    {
+      "name": "__MSG_webArchiveLink__",
+      "patterns": [
+        "^https?:\\/\\/web\\.archive\\.org\\/web\\/[^/]*\\/(.*)$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_webArchive_copyCalendar__",
+          "subst": "https://web.archive.org/web/*/$1"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_webArchive_visitCalendar__",
+          "subst": "https://web.archive.org/web/*/$1"
+        }
+      ]
+    },
+
+    {
+      "name": "__MSG_duckDuckGoSearchLink__",
+      "patterns": [
+        "^https?:\\/\\/duckduckgo\\.com\\/\\?(?:.*&)?q=([^?&]+)(?:&.*)?$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_duckDuckGo_copySearch__",
+          "subst": "https://duckduckgo.com/?q=$1"
+        },
+        {
+          "label": "__MSG_duckDuckGo_copySearchQuery__",
+          "subst": "$1",
+          "decode": true
+        },
+        {
+          "label": "__MSG_duckDuckGo_copyImagesWebSearch__",
+          "subst": "https://duckduckgo.com/?q=$1&ia=images"
+        },
+        {
+          "label": "__MSG_duckDuckGo_copyImagesSearch__",
+          "subst": "https://duckduckgo.com/?q=$1&iax=images&ia=images"
+        },
+        {
+          "label": "__MSG_duckDuckGo_copyVideosWebSearch__",
+          "subst": "https://duckduckgo.com/?q=$1&ia=videos"
+        },
+        {
+          "label": "__MSG_duckDuckGo_copyVideosSearch__",
+          "subst": "https://duckduckgo.com/?q=$1&iax=videos&ia=videos"
+        },
+        {
+          "label": "__MSG_duckDuckGo_copyNewsWebSearch__",
+          "subst": "https://duckduckgo.com/?q=$1&ia=news"
+        },
+        {
+          "label": "__MSG_duckDuckGo_copyNewsSearch__",
+          "subst": "https://duckduckgo.com/?q=$1&iar=news&ia=news"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_duckDuckGo_visitSearch__",
+          "subst": "https://duckduckgo.com/?q=$1"
+        },
+        {
+          "label": "__MSG_duckDuckGo_visitImagesWebSearch__",
+          "subst": "https://duckduckgo.com/?q=$1&ia=images"
+        },
+        {
+          "label": "__MSG_duckDuckGo_visitImagesSearch__",
+          "subst": "https://duckduckgo.com/?q=$1&iax=images&ia=images"
+        },
+        {
+          "label": "__MSG_duckDuckGo_visitVideosWebSearch__",
+          "subst": "https://duckduckgo.com/?q=$1&ia=videos"
+        },
+        {
+          "label": "__MSG_duckDuckGo_visitVideosSearch__",
+          "subst": "https://duckduckgo.com/?q=$1&iax=videos&ia=videos"
+        },
+        {
+          "label": "__MSG_duckDuckGo_visitNewsWebSearch__",
+          "subst": "https://duckduckgo.com/?q=$1&ia=news"
+        },
+        {
+          "label": "__MSG_duckDuckGo_visitNewsSearch__",
+          "subst": "https://duckduckgo.com/?q=$1&iar=news&ia=news"
+        }
+      ]
+    },
+
+    {
+      "name": "__MSG_bingSearchLink__",
+      "patterns": [
+        "^https?:\\/\\/www\\.bing\\.com(?:\\/(?:(?:images)|(?:videos)|(?:maps)|(?:news)|(?:shop)))?(?:\\/search)?\\/?\\?(?:.*&)?q=([^?&]+)(?:&.*)?$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_bing_copySearch__",
+          "subst": "https://www.bing.com/search?q=$1"
+        },
+        {
+          "label": "__MSG_bing_copySearchQuery__",
+          "subst": "$1",
+          "decode": true
+        },
+        {
+          "label": "__MSG_bing_copyImagesSearch__",
+          "subst": "https://www.bing.com/images/search?q=$1"
+        },
+        {
+          "label": "__MSG_bing_copyVideosSearch__",
+          "subst": "https://www.bing.com/videos/search?q=$1"
+        },
+        {
+          "label": "__MSG_bing_copyMapsSearch__",
+          "subst": "https://www.bing.com/maps?q=$1"
+        },
+        {
+          "label": "__MSG_bing_copyNewsSearch__",
+          "subst": "https://www.bing.com/news/search?q=$1"
+        },
+        {
+          "label": "__MSG_bing_copyShoppingSearch__",
+          "subst": "https://www.bing.com/shop?q=$1"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_bing_visitSearch__",
+          "subst": "https://www.bing.com/search?q=$1"
+        },
+        {
+          "label": "__MSG_bing_visitImagesSearch__",
+          "subst": "https://www.bing.com/images/search?q=$1"
+        },
+        {
+          "label": "__MSG_bing_visitVideosSearch__",
+          "subst": "https://www.bing.com/videos/search?q=$1"
+        },
+        {
+          "label": "__MSG_bing_visitMapsSearch__",
+          "subst": "https://www.bing.com/maps?q=$1"
+        },
+        {
+          "label": "__MSG_bing_visitNewsSearch__",
+          "subst": "https://www.bing.com/news/search?q=$1"
+        },
+        {
+          "label": "__MSG_bing_visitShoppingSearch__",
+          "subst": "https://www.bing.com/shop?q=$1"
+        }
+      ]
+    },
+
+    {
+      "name": "__MSG_startpageSearch__",
+      "patterns": [
+        "^https?:\\/\\/www\\.startpage\\.com\\/do\\/search\\?(?:.*&)?query=([^?&]+)(?:&.*)?$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_startpage_copySearch__",
+          "subst": "https://www.startpage.com/do/search?query=$1"
+        },
+        {
+          "label": "__MSG_startpage_copySearchQuery__",
+          "subst": "$1",
+          "decode": true
+        },
+        {
+          "label": "__MSG_startpage_copyImagesSearch__",
+          "subst": "https://www.startpage.com/do/search?cat=pics&query=$1"
+        },
+        {
+          "label": "__MSG_startpage_copyVideosSearch__",
+          "subst": "https://www.startpage.com/do/search?cat=video&query=$1"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_startpage_visitSearch__",
+          "subst": "https://www.startpage.com/do/search?query=$1"
+        },
+        {
+          "label": "__MSG_startpage_visitImagesSearch__",
+          "subst": "https://www.startpage.com/do/search?cat=pics&query=$1"
+        },
+        {
+          "label": "__MSG_startpage_visitVideosSearch__",
+          "subst": "https://www.startpage.com/do/search?cat=video&query=$1"
         }
       ]
     }
