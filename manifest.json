@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
-  "version": "0.8.9",
+  "version": "0.8.10",
   "author": "__MSG_authorName__",
   "description": "__MSG_extensionDescription__",
   "icons": {
@@ -50,6 +50,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
+      "all_frames": true,
       "js": ["content.js", "content-we.js"],
       "run_at": "document_start"
     }

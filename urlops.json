@@ -7,7 +7,8 @@
 
   "embeddedLinkPatterns_nodecode": [
     "^https?:\\/\\/steamcommunity\\.com\\/linkfilter\\/\\?url=(.*)$",
-    "^https?:\\/\\/web\\.archive\\.org\\/web\\/[^/]*\\/(.*)$"
+    "^https?:\\/\\/web\\.archive\\.org\\/web\\/(?:(?:[0-9]+|\\*|collections|sitemap)\\/)?(http.*)$",
+    "^https?:\\/\\/web\\.archive\\.org\\/details\\/(http.*)$"
   ],
 
   "types": [
@@ -1023,18 +1024,51 @@
     {
       "name": "__MSG_webArchiveLink__",
       "patterns": [
-        "^https?:\\/\\/web\\.archive\\.org\\/web\\/[^/]*\\/(.*)$"
+        "^https?:\\/\\/web\\.archive\\.org\\/web\\/(?:(?:[0-9]+|\\*|collections\\/\\*|sitemap)\\/)?(.*)$",
+        "^https?:\\/\\/web\\.archive\\.org\\/details\\/(http.*)$"
       ],
       "copyOperations": [
         {
+          "label": "__MSG_webArchive_copyLatest__",
+          "subst": "https://web.archive.org/web/$1"
+        },
+        {
           "label": "__MSG_webArchive_copyCalendar__",
           "subst": "https://web.archive.org/web/*/$1"
+        },
+        {
+          "label": "__MSG_webArchive_copyCollections__",
+          "subst": "https://web.archive.org/web/collections/*/$1"
+        },
+        {
+          "label": "__MSG_webArchive_copySummary__",
+          "subst": "https://web.archive.org/details/$1"
+        },
+        {
+          "label": "__MSG_webArchive_copySitemap__",
+          "subst": "https://web.archive.org/web/sitemap/$1"
         }
       ],
       "visitOperations": [
         {
+          "label": "__MSG_webArchive_visitLatest__",
+          "subst": "https://web.archive.org/web/$1"
+        },
+        {
           "label": "__MSG_webArchive_visitCalendar__",
           "subst": "https://web.archive.org/web/*/$1"
+        },
+        {
+          "label": "__MSG_webArchive_visitCollections__",
+          "subst": "https://web.archive.org/web/collections/*/$1"
+        },
+        {
+          "label": "__MSG_webArchive_visitSummary__",
+          "subst": "https://web.archive.org/details/$1"
+        },
+        {
+          "label": "__MSG_webArchive_visitSitemap__",
+          "subst": "https://web.archive.org/web/sitemap/$1"
         }
       ]
     },

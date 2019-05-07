@@ -906,12 +906,44 @@
     "message": "Web Archive link"
   },
 
+  "webArchive_copyLatest": {
+    "message": "Copy Web Archive latest version link"
+  },
+
   "webArchive_copyCalendar": {
-    "message": "Copy Web Archive calendar link"
+    "message": "Copy Web Archive Calendar link"
+  },
+
+  "webArchive_copyCollections": {
+    "message": "Copy Web Archive Collections link"
+  },
+
+  "webArchive_copySummary": {
+    "message": "Copy Web Archive Summary link"
+  },
+
+  "webArchive_copySitemap": {
+    "message": "Copy Web Archive Sitemap link"
+  },
+
+  "webArchive_visitLatest": {
+    "message": "Visit Web Archive latest version"
   },
 
   "webArchive_visitCalendar": {
-    "message": "Visit Web Archive calendar page"
+    "message": "Visit Web Archive Calendar page"
+  },
+
+  "webArchive_visitCollections": {
+    "message": "Visit Web Archive Collections page"
+  },
+
+  "webArchive_visitSummary": {
+    "message": "Visit Web Archive Summary page"
+  },
+
+  "webArchive_visitSitemap": {
+    "message": "Visit Web Archive Sitemap page"
   },
 
   "duckDuckGoSearchLink": {
