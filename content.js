@@ -22,21 +22,6 @@ const POPUP_DELAY = 700;
 
 function handleMessage ({msgType, url, newTab}) {
   switch (msgType) {
-  case "copy":
-    let copyBox = document.createElement("input");
-    copyBox.type = "text";
-    copyBox.style.display = "block";
-    copyBox.style.position = "absolute";
-    copyBox.style.top = "-1000px";
-    copyBox.style.left = "-1000px";
-    copyBox.style.opacity = "0";
-    copyBox.value = url;
-    document.body.appendChild(copyBox);
-    copyBox.select();
-    document.execCommand("copy");
-    document.body.removeChild(copyBox);
-    break;
-
   case "visit":
     location = url;
     break

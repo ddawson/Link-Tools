@@ -306,6 +306,10 @@
     "message": "Copy YouTube playlist ID"
   },
 
+  "youtube_visitVideo": {
+    "message": "Visit YouTube video"
+  },
+
   "youtube_visitPlaylistPage": {
     "message": "Visit YouTube playlist page"
   },
@@ -324,6 +328,10 @@
 
   "youtube_copyMobileLink": {
     "message": "Copy YouTube mobile video link (no parameters)"
+  },
+
+  "youtube_copyEmbedLink": {
+    "message": "Copy YouTube embedded video link"
   },
 
   "youtube_copyShortLink": {

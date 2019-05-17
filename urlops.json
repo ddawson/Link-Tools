@@ -146,6 +146,7 @@
       "patterns": [
         "^https?:\\/\\/www\\.youtube\\.com\\/watch\\?(?:.*&)?v=((?:\\w|-){11})\\b.*$",
         "^https?:\\/\\/m\\.youtube\\.com\\/watch\\?(?:.*&)?v=((?:\\w|-){11})\\b.*$",
+        "^https?:\\/\\/www\\.youtube\\.com\\/embed\\/((?:\\w|-){11})\\b.*$",
         "^https?:\\/\\/youtu\\.be\\/((?:\\w|-){11})\\b.*$"
       ],
       "thumbnail": "https://i.ytimg.com/vi/$1/default.jpg",
@@ -157,6 +158,10 @@
         {
           "label": "__MSG_youtube_copyMobileLink__",
           "subst": "https://m.youtube.com/watch?v=$1"
+        },
+        {
+	  "label": "__MSG_youtube_copyEmbedLink__",
+          "subst": "https://www.youtube.com/embed/$1"
         },
         {
           "label": "__MSG_youtube_copyShortLink__",
@@ -180,6 +185,10 @@
         }
       ],
       "visitOperations": [
+        {
+          "label": "__MSG_youtube_visitVideo__",
+          "subst": "https://www.youtube.com/watch?v=$1"
+        },
         {
           "label": "__MSG_youtube_visitSmallThumbnail__",
           "subst": "https://i.ytimg.com/vi/$1/default.jpg"
@@ -232,8 +241,8 @@
       "patterns": [
         "^https?:\\/\\/www\\.youtube\\.com\\/(?:c|(?:user))\\/([^/]+)(?:\\/.*)?$",
         "^https?:\\/\\/m\\.youtube\\.com\\/(?:c|(?:user))\\/([^/]+)(?:\\/.*)?$",
-        "^https?:\\/\\/www\\.youtube\\.com\\/(?!(?:watch)|(?:playlist)|c|(?:user)|(?:channel)|(?:feed)|(?:premium)|(?:account)|(?:reporthistory)|(?:yt)|t|(?:intl)|(?:testtube)|(?:redirect)(?:\\/|\\?|$))([^/]+)(?:\\/.*)?$",
-        "^https?:\\/\\/m\\.youtube\\.com\\/(?!(?:watch)|(?:playlist)|c|(?:user)|(?:channel)|(?:feed)|(?:premium)|(?:account)|(?:reporthistory)|(?:yt)|t|(?:intl)|(?:testtube)|(?:redirect)(?:\\/|\\?|$))([^/]+)(?:\\/.*)?$"
+        "^https?:\\/\\/www\\.youtube\\.com\\/(?!(?:watch)|(?:embed)|(?:playlist)|c|(?:user)|(?:channel)|(?:feed)|(?:premium)|(?:account)|(?:reporthistory)|(?:yt)|t|(?:intl)|(?:testtube)|(?:redirect)(?:\\/|\\?|$))([^/]+)(?:\\/.*)?$",
+        "^https?:\\/\\/m\\.youtube\\.com\\/(?!(?:watch)|(?:embed)|(?:playlist)|c|(?:user)|(?:channel)|(?:feed)|(?:premium)|(?:account)|(?:reporthistory)|(?:yt)|t|(?:intl)|(?:testtube)|(?:redirect)(?:\\/|\\?|$))([^/]+)(?:\\/.*)?$"
       ],
       "copyOperations": [
         {

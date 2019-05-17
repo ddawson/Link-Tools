@@ -1,6 +1,6 @@
 /*
     Link Tools: Configurable copy and visit operations for links in Firefox
-    Copyright (C) 2018  Daniel Dawson <danielcdawson@gmail.com>
+    Copyright (C) 2019  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -51,16 +51,9 @@ function handle_click (e) {
       replaceURL_decode(op.url, op.matchedPattern, op.subst) :
       op.url.replace(op.matchedPattern, op.subst);
 
-  if (op.type == "copy") {
-    let copyBox = document.createElement("input");
-    copyBox.type = "text";
-    copyBox.style.position = "absolute";
-    copyBox.style.opacity = "0";
-    document.body.appendChild(copyBox);
-    copyBox.value = res;
-    copyBox.select();
-    document.execCommand("copy");
-  } else if (op.type == "visit") {
+  if (op.type == "copy")
+    navigator.clipboard.writeText(res);
+  else if (op.type == "visit") {
     browser.runtime.sendMessage({
       msgType: "pa-visit",
       tabId: savedTabId,

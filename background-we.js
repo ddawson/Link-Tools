@@ -1,6 +1,6 @@
 /*
     Link Tools: Configurable copy and visit operations for links in Firefox
-    Copyright (C) 2018  Daniel Dawson <danielcdawson@gmail.com>
+    Copyright (C) 2019  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -83,14 +83,19 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
         replaceURL_decode(mi.url, mi.pattern, mi.subst) :
         mi.url.replace(mi.pattern, mi.subst);
 
-    if (mi.type == "visit" && mi.newTab) {
-      browser.tabs.query({currentWindow: true, active: true}).then(([tab]) => {
-        browser.tabs.create({
-          active: false, url: res, openerTabId: tab.id, index: tab.index + 1});
-      });
+    if (mi.type == "visit") {
+      if (mi.newTab) {
+        browser.tabs.query({currentWindow: true, active: true})
+          .then(([tab]) => {
+            browser.tabs.create({
+              active: false, url: res, openerTabId: tab.id,
+              index: tab.index + 1});
+          });
+      } else
+        browser.tabs.sendMessage(
+          tab.id, {msgType: "visit", url: res, newTab: false});
     } else
-      browser.tabs.sendMessage(
-        tab.id, {msgType: mi.type, url: res, newTab: mi.newTab});
+      navigator.clipboard.writeText(res);
   } else
     console.error(
       `Got context menu click for ${id}, which is not registered.`);
