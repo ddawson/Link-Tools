@@ -354,6 +354,10 @@
     "message": "Copy YouTube video large thumbnail link"
   },
 
+  "youtube_copyGenYoutube": {
+    "message": "Copy GenYoutube link"
+  },
+
   "youtube_visitSmallThumbnail": {
     "message": "Visit YouTube video small thumbnail"
   },
@@ -364,6 +368,10 @@
 
   "youtube_visitLargeThumbnail": {
     "message": "Visit YouTube video large thumbnail"
+  },
+
+  "youtube_visitGenYoutube": {
+    "message": "Visit GenYoutube watch page"
   },
   
   "youtubePlaylist": {
@@ -466,6 +474,10 @@
     "message": "Copy YouTube channel About page link (by channel ID)"
   },
 
+  "youtube_copyGenYoutubeChannelLink": {
+    "message": "Copy GenYoutube channel link"
+  },
+
   "youtube_copyChannelID": {
     "message": "Copy YouTube channel ID"
   },
@@ -496,6 +508,10 @@
 
   "youtube_visitChannelAboutPage": {
     "message": "Visit YouTube channel About page (by channel ID)"
+  },
+
+  "youtube_visitGenYoutubeChannelPage": {
+    "message": "Visit GenYoutube channel page"
   },
 
   "redditSubredditTopicPostLink": {
@@ -1104,5 +1120,49 @@
 
   "startpage_visitVideosSearch": {
     "message": "Visit Startpage videos search"
+  },
+
+  "archiveis": {
+    "message": "Archive.is link"
+  },
+
+  "archiveis_copyAllSavedPages": {
+    "message": "Copy Archive.is all saved pages link"
+  },
+
+  "archiveis_copyTimeMap": {
+    "message": "Copy Archive.is TimeMap link"
+  },
+
+  "archiveis_visitAllSavedPages": {
+    "message": "Visit Archive.is all saved pages page"
+  },
+
+  "archiveis_visitTimeMap": {
+    "message": "Visit Archive.is TimeMap"
+  },
+
+  "webcite": {
+    "message": "WebCite link"
+  },
+
+  "webcite_copyDateless": {
+    "message": "Copy WebCite dateless link"
+  },
+
+  "webcite_visitDateless": {
+    "message": "Visit WebCite dateless page"
+  },
+
+  "archiveit": {
+    "message": "Archive-It link"
+  },
+
+  "archiveit_copyAllSavedPages": {
+    "message": "Copy Archive-It all saved pages link"
+  },
+
+  "archiveit_visitAllSavedPages": {
+    "message": "Visit Archive-It all saved pages page"
   }
 }
