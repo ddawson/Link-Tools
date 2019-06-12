@@ -26,11 +26,18 @@ document.documentElement.lang = _("@@ui_locale");
 
 browser.runtime.sendMessage({ msgType: "get-urlops" }).
   then(([elinks_builtin, elinks_builtin_nodecode,
-         elinks_custom, elinks_custom_nodecode, builtin, custom]) => {
+         elinks_custom, elinks_custom_nodecode,
+         linkembs_builtin, linkembs_builtin_ne,
+         linkembs_custom, linkembs_custom_ne,
+         builtin, custom]) => {
     builtinElinks = elinks_builtin;
     builtinElinksNodecode = elinks_builtin_nodecode;
     customElinks = elinks_custom;
     customElinksNodecode = elinks_custom_nodecode;
+    builtinLinkEmbs = linkembs_builtin;
+    builtinLinkEmbsNoencode = linkembs_builtin_ne;
+    customLinkEmbs = linkembs_custom;
+    customLinkEmbsNoencode = linkembs_custom_ne;
 
     for (let type of builtin)
       if ("patternRE" in type) delete type.patternRE;
@@ -46,6 +53,8 @@ function setCustomOps () {
     msgType: "set-customops",
     embeddedLinkPatterns: customElinks,
     embeddedLinkPatterns_nodecode: customElinksNodecode,
+    linkEmbeddings: customLinkEmbs,
+    linkEmbeddings_noencode: customLinkEmbsNoencode,
     types: customUrlops
   });
 }

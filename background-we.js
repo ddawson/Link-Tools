@@ -22,11 +22,15 @@ const _ = name => browser.i18n.getMessage(name);
 
 fetch("urlops.json").then(resp => resp.json()).then(o => procUrlops(o));
 
-browser.storage.local.get("customOps").then(o => {
+browser.storage.local.get().then(o => {
   if ("embeddedLinkPatterns" in o)
     procElinks(o.embeddedLinkPatterns, elinkCustomPats);
   if ("embeddedLinkPatterns_nodecode" in o)
     procElinks(o.embeddedLinkPatterns_nodecode, elinkCustomPats_nd);
+  if ("linkEmbeddings" in o)
+    procLinkEmbs(o.linkEmbeddings, customLinkEmbs);
+  if ("linkEmbeddings_noencode" in o) {
+    procLinkEmbs(o.linkEmbeddings_noencode, customLinkEmbs_ne);
   if ("customOps" in o) procTypes(o.customOps, customUrlops);
   if ("types" in o) procTypes(o.types, customUrlops);
 });
@@ -113,7 +117,7 @@ browser.runtime.onMessage.addListener(msg => {
 
   case "write-options":
     let { properties } = msg;
-    properties.version = 2;
+    properties.version = 3;
     browser.storage.local.set(properties);
     break;
 
@@ -128,21 +132,28 @@ browser.runtime.onMessage.addListener(msg => {
     return new Promise(resolve => resolve(
       [elinkPats.map(v => v.source), elinkPats_nd.map(v => v.source),
        elinkCustomPats.map(v => v.source),
-       elinkCustomPats_nd.map(v => v.source), builtinUrlops, customUrlops]));
+       elinkCustomPats_nd.map(v => v.source),
+       linkEmbs, linkEmbs_ne, customLinkEmbs, customLinkEmbs_ne,
+       builtinUrlops, customUrlops]));
     break;
 
   case "set-customops":
-    let { embeddedLinkPatterns, embeddedLinkPatterns_nodecode, types } = msg;
+    let { embeddedLinkPatterns, embeddedLinkPatterns_nodecode,
+          linkEmbeddings, linkEmbeddings_noencode, types } = msg;
     browser.storage.local.set({
-      version: 2,
+      version: 3,
       embeddedLinkPatterns,
       embeddedLinkPatterns_nodecode,
+      linkEmbeddings,
+      linkEmbeddings_noencode,
       types
     });
     browser.storage.local.remove("customOps");
     for (let o of types) makeRE(o);
     elinkCustomPats = embeddedLinkPatterns.map(v => new RegExp(v));
     elinkCustomPats_nd = embeddedLinkPatterns_nodecode.map(v => new RegExp(v));
+    customLinkEmbs = linkEmbeddings;
+    customLinkEmbs_ne = linkEmbeddings_noencode;
     customUrlops = types;
     break;
 

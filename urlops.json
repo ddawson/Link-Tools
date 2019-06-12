@@ -10,8 +10,24 @@
     "^https?:\\/\\/steamcommunity\\.com\\/linkfilter\\/\\?url=(.*)$",
     "^https?:\\/\\/web\\.archive\\.org\\/(?:(?:web)|(?:save))\\/(?:(?:[0-9]+|\\*|collections|sitemap)\\/)?(http.*)$",
     "^https?:\\/\\/web\\.archive\\.org\\/details\\/(http.*)$",
-    "^https?:\\/\\/archive\\.(?:(?:is)|(?:fo)|(?:md)|(?:today))\\/(?:[.-:0-9]+\\/)?(.*)$",
+    "^https?:\\/\\/archive\\.(?:(?:is)|(?:fo)|(?:md)|(?:li)|(?:today))\\/(?:[.-:0-9]+\\/)?(.*)$",
     "https?:\\/\\/wayback\\.archive-it\\.org\\/(?:[0-9]+)\\/[^/]+\\/(.*)$"
+  ],
+
+  "linkEmbeddings": [
+  ],
+
+  "linkEmbeddings_noencode": [
+    [
+      "__MSG_embed_copyWebArchive__",
+      "__MSG_embed_visitWebArchive__",
+      "https://web.archive.org/web/$1"
+    ],
+    [
+      "__MSG_embed_copyArchiveis__",
+      "__MSG_embed_visitArchiveis__",
+      "https://archive.fo/$1"
+    ]
   ],
 
   "types": [
@@ -1283,7 +1299,7 @@
     {
       "name": "__MSG_archiveis__",
       "patterns": [
-        "^https?:\\/\\/archive\\.(?:(?:is)|(?:fo)|(?:md)|(?:today))\\/(?:(?:(?:[.-:0-9]+)|(?:timegate)|(?:timemap))\\/)?(.*)$"
+        "^https?:\\/\\/archive\\.(?:(?:is)|(?:fo)|(?:md)|(?:li)|(?:today))\\/(?:(?:(?:[.-:0-9]+)|(?:timegate)|(?:timemap))\\/)?(.*)$"
       ],
       "copyOperations": [
         {

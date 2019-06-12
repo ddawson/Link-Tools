@@ -63,19 +63,43 @@ document.addEventListener(
     setTxt($("ops-clonebtn"), _("addAsNewType"));
     setTxt($("heading-embedded-links"), _("embeddedLinks"));
     setTxt($("descr-embedded-links"), _("embeddedLinks_description"));
-    setTxt($("heading-embedded-links-builtin"), _("embeddedLinks_builtin"));
-    setTxt($("elinks-builtin-reg-label"), _("embeddedLinks_reg"));
-    setTxt($("elinks-builtin-nodecode-label"), _("embeddedLinks_nodecode"));
-    setTxt($("heading-embedded-links-custom"), _("embeddedLinks_custom"));
-    setTxt($("elinks-custom-reg-label"), _("embeddedLinks_reg"));
-    setTxt($("elinks-custom-nodecode-label"), _("embeddedLinks_nodecode"));
+    setTxt($("heading-embedded-links-builtin"), _("builtin"));
+    setTxt($("elinks-builtin-reg-label"), _("regular"));
+    setTxt($("elinks-builtin-nodecode-label"), _("nodecode"));
+    setTxt($("heading-embedded-links-custom"), _("custom"));
+    setTxt($("elinks-custom-reg-label"), _("regular"));
+    setTxt($("elinks-custom-nodecode-label"), _("nodecode"));
     $("elinks-custom-reg-pat").placeholder = _("regularExpressions");
     $("elinks-custom-nodecode-pat").placeholder = _("regularExpressions");
+    setTxt($("heading-link-embeddings"), _("linkEmbeddings"));
+    setTxt($("descr-link-embeddings"), _("linkEmbeddings_description"));
+    setTxt($("heading-linkembs-builtin"), _("builtin"));
+    setTxt($("heading-linkembs-builtinreg"), _("regular"));
+    setTxt($("linkembs-builtinreg-column-copyLabel"), _("column-copyLabel"));
+    setTxt($("linkembs-builtinreg-column-visitLabel"), _("column-visitLabel"));
+    setTxt($("linkembs-builtinreg-column-template"), _("column-template"));
+    setTxt($("heading-linkembs-builtinne"), _("noencode"));
+    setTxt($("linkembs-builtinne-column-copyLabel"), _("column-copyLabel"));
+    setTxt($("linkembs-builtinne-column-visitLabel"), _("column-visitLabel"));
+    setTxt($("linkembs-builtinne-column-template"), _("column-template"));
+    setTxt($("heading-linkembs-custom"), _("custom"));
+    setTxt($("heading-linkembs-customreg"), _("regular"));
+    setTxt($("linkembs-customreg-column-copyLabel"), _("column-copyLabel"));
+    setTxt($("linkembs-customreg-column-visitLabel"), _("column-visitLabel"));
+    setTxt($("linkembs-customreg-column-template"), _("column-template"));
+    setTxt($("linkembs-customreg-addbtn"), _("add"));
+    setTxt($("heading-linkembs-customne"), _("noencode"));
+    setTxt($("linkembs-customne-column-copyLabel"), _("column-copyLabel"));
+    setTxt($("linkembs-customne-column-visitLabel"), _("column-visitLabel"));
+    setTxt($("linkembs-customne-column-template"), _("column-template"));
+    setTxt($("linkembs-customne-addbtn"), _("add"));
     document.removeEventListener("DOMContentLoaded", _dclHandler, false);
   },
   false);
 
 var builtinElinks, builtinElinksNodecode, customElinks, customElinksNodecode,
+    builtinLinkEmbs, builtinLinkEmbsNoencode,
+    customLinkEmbs, customLinkEmbsNoencode,
     builtinUrlops, customUrlops;
 
 function initData () {
@@ -84,23 +108,81 @@ function initData () {
   $("elinks-custom-reg-pat").value = customElinks.join("\n");
   $("elinks-custom-nodecode-pat").value = customElinksNodecode.join("\n");
 
-  let builtinGroup = $("builtin-group");
-  builtinGroup.label = _("builtinTypes");
+  function _fillLinkEmbs (aTbody, aAry, aPrefix) {
+    while (aTbody.hasChildNodes())
+      aTbody.removeChild(aTbody.lastChild);
 
-  while (builtinGroup.hasChildNodes())
-    builtinGroup.removeChild(builtinGroup.lastChild);
+    for (let i = 0; i < aAry.length; i++) {
+      let row = document.createElement("tr");
+      let cell = document.createElement("td");
+      let inp = document.createElement("input");
+      inp.type = "text";
+      inp.spellcheck = false;
+      inp.value = aAry[i][0];
+      if (!aPrefix) inp.readonly = true;
+      cell.appendChild(inp);
+      row.appendChild(cell);
+
+      cell = document.createElement("td");
+      inp = document.createElement("input");
+      inp.type = "text";
+      inp.spellcheck = false;
+      inp.value = aAry[i][1];
+      if (!aPrefix) inp.readonly = true;
+      cell.appendChild(inp);
+      row.appendChild(cell);
+
+      cell = document.createElement("td");
+      cell.className = "wide-col";
+      inp = document.createElement("input");
+      inp.className = "wide-input";
+      inp.type = "text";
+      inp.spellcheck = false;
+      inp.value = aAry[i][2];
+      if (aPrefix)
+        inp.placeholder = _("template-placeholder");
+      else
+        inp.readonly = true;
+      cell.appendChild(inp);
+      row.appendChild(cell);
+
+      if (aPrefix) {
+        cell = document.createElement("td");
+        let btn = document.createElement("button");
+        btn.className = "opdel-btn";
+        btn.value = `${aPrefix}-${aTbody.children.length}`;
+        setTxt(btn, _("remove"));
+        btn.addEventListener("click", removeLinkembRow, false);
+        cell.appendChild(btn);
+        row.appendChild(cell);
+      }
+
+      aTbody.appendChild(row);
+    }
+  }
+
+  _fillLinkEmbs($("linkembs-builtinreg-tbody"), builtinLinkEmbs, null);
+  _fillLinkEmbs($("linkembs-builtinne-tbody"), builtinLinkEmbsNoencode, null);
+  _fillLinkEmbs($("linkembs-customreg-tbody"), customLinkEmbs, "r");
+  _fillLinkEmbs($("linkembs-customne-tbody"), customLinkEmbsNoencode, "n");
+
+  let group = $("builtin-group");
+  group.label = _("builtinTypes");
+
+  while (group.hasChildNodes())
+    group.removeChild(group.lastChild);
 
   for (let i = 0; i < builtinUrlops.length; i++)
-    builtinGroup.appendChild(new Option(builtinUrlops[i].name, `bi-${i}`));
+    group.appendChild(new Option(builtinUrlops[i].name, `bi-${i}`));
 
-  let customGroup = $("custom-group");
-  customGroup.label = _("customTypes");
+  group = $("custom-group");
+  group.label = _("customTypes");
 
-  while (customGroup.hasChildNodes())
-    customGroup.removeChild(customGroup.lastChild);
+  while (group.hasChildNodes())
+    group.removeChild(group.lastChild);
 
   for (let i = 0; i < customUrlops.length; i++)
-    customGroup.appendChild(new Option(customUrlops[i].name, `cu-${i}`));
+    group.appendChild(new Option(customUrlops[i].name, `cu-${i}`));
 }
 
 $("ops-import-btn").addEventListener(
@@ -113,7 +195,8 @@ $("ops-import").addEventListener(
     fr.onerror = () => alert(_("fileReadFailed"));
 
     fr.onload = () => {
-      let o, customElinkPats = [], customElinkPats_nd = [], outArray = [];
+      let o, customElinkPats = [], customElinkPats_nd = [],
+          newCustomLinkEmbs = [], newCustomLinkEmbs_ne = [], outArray = [];
 
       try {
         o = JSON.parse(fr.result);
@@ -123,6 +206,12 @@ $("ops-import").addEventListener(
         else if (o.version == 2) {
           customElinkPats = o.embeddedLinks;
           customElinkPats_nd = o.embeddedLinks_nodecode;
+          types = o.types;
+        } else if (o.version == 3) {
+          customElinkPats = o.embeddedLinks;
+          customElinkPats_nd = o.embeddedLinks_nodecode;
+          newCustomLinkEmbs = o.linkEmbeddings;
+          newCustomLinkEmbs_ne = o.linkEmbeddings_noencode;
           types = o.types;
         } else
           throw new Error;
@@ -179,6 +268,9 @@ $("ops-import").addEventListener(
       }
       customElinksNodecode.push(...appendList);
 
+      customLinkEmbs.push(...newCustomLinkEmbs);
+      customLinkEmbsNoencode.push(...newCustomLinkEmbs_ne);
+
       appendList = [];
       for (let type of outArray) {
         let idx = customUrlops.findIndex(ct => ct.name == type.name);
@@ -217,8 +309,10 @@ $("ops-export-btn").addEventListener(
 
     let url = URL.createObjectURL(
       new Blob(
-        [JSON.stringify({version: 2, embeddedLinks: customElinks,
+        [JSON.stringify({version: 3, embeddedLinks: customElinks,
                          embeddedLinks_nodecode: customElinksNodecode,
+                         linkEmbeddings: customLinkEmbs,
+                         linkEmbeddings_noencode: customLinkEmbsNoencode,
                          types: exportList})],
         {type: "application/json"}));
 
@@ -280,6 +374,99 @@ function elinksChanged () {
 $("elinks-custom-reg-pat").addEventListener("change", elinksChanged, false);
 $("elinks-custom-nodecode-pat").addEventListener(
   "change", elinksChanged, false);
+
+function linkembsChanged () {
+  let ary = [];
+  let tbody = $("linkembs-customreg-tbody");
+
+  for (let row of tbody.childNodes) {
+    let cLbl = row.childNodes[0].firstChild.value;
+    let vLbl = row.childNodes[1].firstChild.value;
+    let tmpl = row.childNodes[2].firstChild.value;
+    ary.push([cLbl, vLbl, tmpl]);
+  }
+
+  customLinkEmbs = ary;
+  ary = [];
+  tbody = $("linkembs-customne-tbody");
+
+  for (let row of tbody.childNodes) {
+    let cLbl = row.childNodes[0].firstChild.value;
+    let vLbl = row.childNodes[1].firstChild.value;
+    let tmpl = row.childNodes[2].firstChild.value;
+    ary.push([cLbl, vLbl, tmpl]);
+  }
+
+  customLinkEmbsNoencode = ary;
+  setCustomOps();
+}
+
+$("linkembs-customreg-tbody").addEventListener(
+  "input", linkembsChanged, false);
+$("linkembs-customne-tbody").addEventListener(
+  "input", linkembsChanged, false);
+
+function removeLinkembRow (e) {
+  let val = e.target.value;
+  let prefix = val[0];
+  let idx = Number(val.slice(2));
+  let tbody = $(prefix == "r" ? "linkembs-customreg-tbody"
+                : "linkembs-customne-tbody");
+  tbody.removeChild(tbody.children[idx]);
+
+  for (let i = 0; i < tbody.children.length; i++)
+    tbody.children[i].children[3].firstChild.value = `${prefix}-${i}`;
+  setCustomOps();
+}
+
+function addLinkembRow (aTbody, aPrefix) {
+  let row = document.createElement("tr");
+  let cell = document.createElement("td");
+  let inp = document.createElement("input");
+  inp.type = "text";
+  inp.spellcheck = false;
+  inp.placeholder = _("copyvisitlabel-placeholder");
+  cell.appendChild(inp);
+  row.appendChild(cell);
+
+  cell = document.createElement("td");
+  inp = document.createElement("input");
+  inp.type = "text";
+  inp.spellcheck = false;
+  inp.placeholder = _("copyvisitlabel-placeholder");
+  cell.appendChild(inp);
+  row.appendChild(cell);
+
+  cell = document.createElement("td");
+  cell.className = "wide-col";
+  inp = document.createElement("input");
+  inp.className = "wide-input";
+  inp.type = "text";
+  inp.spellcheck = false;
+  inp.placeholder = _("template-placeholder");
+  cell.appendChild(inp);
+  row.appendChild(cell);
+
+  cell = document.createElement("td");
+  let btn = document.createElement("button");
+  btn.className = "opdel-btn";
+  btn.value = `${aPrefix}-${aTbody.children.length}`;
+  setTxt(btn, _("remove"));
+  btn.addEventListener("click", removeLinkembRow, false);
+  cell.appendChild(btn);
+  row.appendChild(cell);
+
+  aTbody.appendChild(row);
+}
+
+$("linkembs-customreg-addbtn").addEventListener(
+  "click",
+  () => { addLinkembRow($("linkembs-customreg-tbody"), "r"); },
+  false);
+$("linkembs-customne-addbtn").addEventListener(
+  "click",
+  () => { addLinkembRow($("linkembs-customne-tbody"), "n"); },
+  false);
 
 $("types-sel").addEventListener(
   "change",

@@ -27,7 +27,7 @@
   },
 
   "customOps_description": {
-    "message": "Here you may view the predefined embedded link patterns and link types, and define your own. Contributions to either set are welcome. Please see $link$ for details.",
+    "message": "Here you may view the predefined link types, patterns for recognizing embedded links, and templates for making embedded links, as well as define your own. Contributions to either set are welcome. Please see $link$ for details.",
     "placeholders": {
       "link": {
         "content": "$1"
@@ -173,20 +173,52 @@
     "message": "Here you can see the built-in patterns for recognizing embedded links, and add your own. \"Regular\" patterns are for encoded links (e.g. \"https://www.google.com/\" becomes \"https%3A%2F%2Fwww.google.com%2F\", which must be decoded again), while \"no-decode\" patterns are for links that appear as-is."
   },
 
-  "embeddedLinks_builtin": {
+  "builtin": {
     "message": "Built-in"
   },
 
-  "embeddedLinks_reg": {
+  "regular": {
     "message": "Regular:"
   },
 
-  "embeddedLinks_nodecode": {
+  "nodecode": {
     "message": "No-decode:"
   },
 
-  "embeddedLinks_custom": {
+  "custom": {
     "message": "Custom"
+  },
+
+  "linkEmbeddings": {
+    "message": "Link embeddings"
+  },
+
+  "linkEmbeddings_description": {
+    "message": "Here you can see the built-in templates for making embedded links, and add your own. \"Regular\" templates cause links to be encoded (e.g. \"https://www.google.com/\" will become \"https%3A%2F%2Fwww.google.com%2F\"), while \"no-encode\" templates will cause links to be embedded without such encoding."
+  },
+
+  "column-copyLabel": {
+    "message": "Copy label"
+  },
+
+  "column-visitLabel": {
+    "message": "Visit label"
+  },
+
+  "column-template": {
+    "message": "Template"
+  },
+
+  "copyvisitlabel-placeholder": {
+    "message": "$$1 replaced by URL"
+  },
+
+  "template-placeholder": {
+    "message": "$$1 replaced by embedded link"
+  },
+
+  "noencode": {
+    "message": "No-encode:"
   },
 
   "noOpsAvail": {
@@ -194,12 +226,28 @@
   },
 
   "copyEmbeddedLink": {
-    "message": "Copy embedded link: %u"
+    "message": "Copy embedded link: $$1"
   },
 
   "newTab": {
     "message": " (new tab)",
     "description": "Appended to visit operations to form new visit operations that open a new tab instead of sending the current tab to the address."
+  },
+
+  "embed_copyWebArchive": {
+    "message": "Copy Web Archive version of $$1"
+  },
+
+  "embed_visitWebArchive": {
+    "message": "Visit Web Archive version of $$1"
+  },
+
+  "embed_copyArchiveis": {
+    "message": "Copy Archive.is version of $$1"
+  },
+
+  "embed_visitArchiveis": {
+    "message": "Visit Archive.is version of $$1"
   },
 
   "googleSearchLink": {

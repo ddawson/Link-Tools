@@ -1,6 +1,6 @@
 /*
     Link Tools: Configurable copy and visit operations for links in Firefox
-    Copyright (C) 2018  Daniel Dawson <danielcdawson@gmail.com>
+    Copyright (C) 2019  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,6 +20,8 @@
 
 var elinkPats = [], elinkPats_nd = [],
     elinkCustomPats = [], elinkCustomPats_nd = [],
+    linkEmbs = [], linkEmbs_ne = [],
+    customLinkEmbs = [], customLinkEmbs_ne = [],
     builtinUrlops = [], customUrlops = [];
 
 function makeRE (spec) {
@@ -60,14 +62,32 @@ function procElinks (o, list) {
     list.push(new RegExp(patStr));
 }
 
+function procLinkEmbs (o, list) {
+  const msgPat = /^__MSG_(.*?)__$/;
+
+  for (let t of o) {
+    let match = t[0].match(msgPat);
+    if (match) t[0] = _(match[1]);
+    match = t[1].match(msgPat);
+    if (match) t[1] = _(match[1]);
+    list.push(t);
+  }
+}
+
 function procUrlops (o) {
   procElinks(o.embeddedLinkPatterns, elinkPats);
   procElinks(o.embeddedLinkPatterns_nodecode, elinkPats_nd);
+  procLinkEmbs(o.linkEmbeddings, linkEmbs);
+  procLinkEmbs(o.linkEmbeddings_noencode, linkEmbs_ne);
   procTypes(o.types, builtinUrlops);
 }
 
 function checkPatterns (aUrl, aFindAllMatches) {
-  let union = builtinUrlops.concat(customUrlops);
+  let elinkPatsUnion = elinkPats.concat(elinkCustomPats);
+  let elinkPatsUnion_nd = elinkPats_nd.concat(elinkCustomPats_nd);
+  let linkEmbsUnion = linkEmbs.concat(customLinkEmbs);
+  let linkEmbsUnion_ne = linkEmbs_ne.concat(customLinkEmbs_ne);
+  let urlopsUnion = builtinUrlops.concat(customUrlops);
   let ops = [];
   let urls = [aUrl];
 
@@ -78,48 +98,99 @@ function checkPatterns (aUrl, aFindAllMatches) {
       newTab: false,
       matchedPattern: "",
       label: browser.i18n.getMessage("copyEmbeddedLink").
-        replace("%u", aUrl.substr(0, 25)) + "…",
+        replace("$1", aUrl.substr(0, 25)) + "…",
       subst: "",
       decode: false
     });
   }
 
-  for (let p of elinkPats) {
-    let match = aUrl.match(p);
-    if (match) {
-      let decoded = decodeURIComponent(match[1]);
-      addEmbedCopyOp(decoded);
-      urls.push(decoded);
+  for (let i = 0; i < urls.length; i++) {
+    for (let p of elinkPatsUnion) {
+      let match = urls[i].match(p);
+      if (match) {
+        let decoded = decodeURIComponent(match[1]);
+        addEmbedCopyOp(decoded);
+        urls.push(decoded);
+      }
+    }
+
+    for (let p of elinkPatsUnion_nd) {
+      let match = urls[i].match(p);
+      if (match) {
+        addEmbedCopyOp(match[1]);
+        urls.push(match[1]);
+      }
     }
   }
 
-  for (let p of elinkPats_nd) {
-    let match = aUrl.match(p);
-    if (match) {
-      addEmbedCopyOp(match[1]);
-      urls.push(match[1]);
+  for (let t of linkEmbsUnion) {
+    for (let url of urls) {
+      ops.push({
+        type: "copy",
+        url: t[2].replace("$1", encodeURIComponent(url)),
+        newTab: false,
+        matchedPattern: "",
+        label: t[0].replace("$1", url.substr(0, 25)) + "…",
+        subst: "",
+        decode: false
+      });
+      ops.push({
+        type: "visit",
+        url: t[2].replace("$1", encodeURIComponent(url)),
+        newTab: false,
+        matchedPattern: "",
+        label: t[1].replace("$1", url.substr(0, 25)) + "…",
+        subst: "",
+        decode: false
+      });
+      ops.push({
+        type: "visit",
+        url: t[2].replace("$1", encodeURIComponent(url)),
+        newTab: true,
+        matchedPattern: "",
+        label: t[1].replace("$1", url.substr(0, 25)) + "…"
+          + browser.i18n.getMessage("newTab"),
+        subst: "",
+        decode: false
+      });
     }
   }
 
-  for (let p of elinkCustomPats) {
-    let match = aUrl.match(p);
-    if (match) {
-      let decoded = decodeURIComponent(match[1]);
-      addEmbedCopyOp(decoded);
-      urls.push(decoded);
+  for (let t of linkEmbsUnion_ne) {
+    for (let url of urls) {
+      ops.push({
+        type: "copy",
+        url: t[2].replace("$1", url),
+        newTab: false,
+        matchedPattern: "",
+        label: t[0].replace("$1", url.substr(0, 25)) + "…",
+        subst: "",
+        decode: false
+      });
+      ops.push({
+        type: "visit",
+        url: t[2].replace("$1", url),
+        newTab: false,
+        matchedPattern: "",
+        label: t[1].replace("$1", url.substr(0, 25)) + "…",
+        subst: "",
+        decode: false
+      });
+      ops.push({
+        type: "visit",
+        url: t[2].replace("$1", url),
+        newTab: true,
+        matchedPattern: "",
+        label: t[1].replace("$1", url.substr(0, 25)) + "…"
+          + browser.i18n.getMessage("newTab"),
+        subst: "",
+        decode: false
+      });
     }
   }
 
-  for (let p of elinkCustomPats_nd) {
-    let match = aUrl.match(p);
-    if (match) {
-      addEmbedCopyOp(match[1]);
-      urls.push(match[1]);
-    }
-  }
-
-  for (let i = 0; i < union.length; i++) {
-    let spec = union[i];
+  for (let i = 0; i < urlopsUnion.length; i++) {
+    let spec = urlopsUnion[i];
 
     for (let p of spec.patternRE) {
       let matched = false;
@@ -176,10 +247,10 @@ function checkPatterns (aUrl, aFindAllMatches) {
 }
 
 function getThumbnailUrl (aUrl) {
-  let union = builtinUrlops.concat(customUrlops);
+  let urlopsUnion = builtinUrlops.concat(customUrlops);
 
-  for (let i = 0; i < union.length; i++) {
-    let spec = union[i];
+  for (let i = 0; i < urlopsUnion.length; i++) {
+    let spec = urlopsUnion[i];
     if (!("thumbnail" in spec)) continue;
 
     for (let p of spec.patternRE) {
