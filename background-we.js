@@ -29,7 +29,7 @@ browser.storage.local.get().then(o => {
     procElinks(o.embeddedLinkPatterns_nodecode, elinkCustomPats_nd);
   if ("linkEmbeddings" in o)
     procLinkEmbs(o.linkEmbeddings, customLinkEmbs);
-  if ("linkEmbeddings_noencode" in o) {
+  if ("linkEmbeddings_noencode" in o)
     procLinkEmbs(o.linkEmbeddings_noencode, customLinkEmbs_ne);
   if ("customOps" in o) procTypes(o.customOps, customUrlops);
   if ("types" in o) procTypes(o.types, customUrlops);
