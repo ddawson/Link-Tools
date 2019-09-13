@@ -97,8 +97,7 @@ function checkPatterns (aUrl, aFindAllMatches) {
       url: aUrl,
       newTab: false,
       matchedPattern: "",
-      label: browser.i18n.getMessage("copyEmbeddedLink").
-        replace("$1", aUrl.substr(0, 25)) + "…",
+      label: _("copyEmbeddedLink").replace("$1", aUrl.substr(0, 25)) + "…",
       subst: "",
       decode: false
     });
@@ -148,8 +147,7 @@ function checkPatterns (aUrl, aFindAllMatches) {
         url: t[2].replace("$1", encodeURIComponent(url)),
         newTab: true,
         matchedPattern: "",
-        label: t[1].replace("$1", url.substr(0, 25)) + "…"
-          + browser.i18n.getMessage("newTab"),
+        label: t[1].replace("$1", url.substr(0, 25)) + "…" + _("newTab"),
         subst: "",
         decode: false
       });
@@ -181,8 +179,7 @@ function checkPatterns (aUrl, aFindAllMatches) {
         url: t[2].replace("$1", url),
         newTab: true,
         matchedPattern: "",
-        label: t[1].replace("$1", url.substr(0, 25)) + "…"
-          + browser.i18n.getMessage("newTab"),
+        label: t[1].replace("$1", url.substr(0, 25)) + "…" + _("newTab"),
         subst: "",
         decode: false
       });
@@ -229,7 +226,7 @@ function checkPatterns (aUrl, aFindAllMatches) {
                 url,
                 newTab: true,
                 matchedPattern: p,
-                label: op.label + browser.i18n.getMessage("newTab"),
+                label: op.label + _("newTab"),
                 subst: op.subst,
                 decode: "decode" in op && op.decode
               });

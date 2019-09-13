@@ -42,22 +42,22 @@ document.addEventListener(
     setTxt($("descr-link-types"), _("linkTypes_description"));
     setTxt($("btn-rem"), _("remove"));
     setTxt($("btn-new"), _("new"));
-    setTxt($("opgroup-name-lbl"), _("customops-name-lbl"));
-    setTxt($("opgroup-pat-lbl"), _("customops-pat-lbl"));
+    setTxt($("opgroup-name-lbl"), _("customops_name_lbl"));
+    setTxt($("opgroup-pat-lbl"), _("customops_pat_lbl"));
     $("opgroup-pat").placeholder = _("regularExpressions");
-    setTxt($("opgroup-thumb-lbl"), _("customops-thumb-lbl"));
-    $("opgroup-thumb").placeholder = _("optional-replacedByMatches");
-    setTxt($("heading-copyops"), _("heading-copyops"));
-    setTxt($("descr-copyops"), _("descr-copyops"));
-    setTxt($("copyops-column-label"), _("column-label"));
-    setTxt($("copyops-column-subst"), _("column-subst"));
-    setTxt($("copyops-column-decode"), _("column-decode"));
+    setTxt($("opgroup-thumb-lbl"), _("customops_thumb_lbl"));
+    $("opgroup-thumb").placeholder = _("optional_replacedByMatches");
+    setTxt($("heading-copyops"), _("heading_copyops"));
+    setTxt($("descr-copyops"), _("descr_copyops"));
+    setTxt($("copyops-column-label"), _("column_label"));
+    setTxt($("copyops-column-subst"), _("column_subst"));
+    setTxt($("copyops-column-decode"), _("column_decode"));
     setTxt($("copyops-addbtn"), _("add"));
-    setTxt($("heading-visitops"), _("heading-visitops"));
-    setTxt($("descr-visitops"), _("descr-visitops"));
-    setTxt($("visitops-column-label"), _("column-label"));
-    setTxt($("visitops-column-subst"), _("column-subst"));
-    setTxt($("visitops-column-decode"), _("column-decode"));
+    setTxt($("heading-visitops"), _("heading_visitops"));
+    setTxt($("descr-visitops"), _("descr_visitops"));
+    setTxt($("visitops-column-label"), _("column_label"));
+    setTxt($("visitops-column-subst"), _("column_subst"));
+    setTxt($("visitops-column-decode"), _("column_decode"));
     setTxt($("visitops-addbtn"), _("add"));
     setTxt($("ops-changebtn"), _("applyChanges"));
     setTxt($("ops-clonebtn"), _("addAsNewType"));
@@ -75,23 +75,23 @@ document.addEventListener(
     setTxt($("descr-link-embeddings"), _("linkEmbeddings_description"));
     setTxt($("heading-linkembs-builtin"), _("builtin"));
     setTxt($("heading-linkembs-builtinreg"), _("regular"));
-    setTxt($("linkembs-builtinreg-column-copyLabel"), _("column-copyLabel"));
-    setTxt($("linkembs-builtinreg-column-visitLabel"), _("column-visitLabel"));
-    setTxt($("linkembs-builtinreg-column-template"), _("column-template"));
+    setTxt($("linkembs-builtinreg-column-copyLabel"), _("column_copyLabel"));
+    setTxt($("linkembs-builtinreg-column-visitLabel"), _("column_visitLabel"));
+    setTxt($("linkembs-builtinreg-column-template"), _("column_template"));
     setTxt($("heading-linkembs-builtinne"), _("noencode"));
-    setTxt($("linkembs-builtinne-column-copyLabel"), _("column-copyLabel"));
-    setTxt($("linkembs-builtinne-column-visitLabel"), _("column-visitLabel"));
-    setTxt($("linkembs-builtinne-column-template"), _("column-template"));
+    setTxt($("linkembs-builtinne-column-copyLabel"), _("column_copyLabel"));
+    setTxt($("linkembs-builtinne-column-visitLabel"), _("column_visitLabel"));
+    setTxt($("linkembs-builtinne-column-template"), _("column_template"));
     setTxt($("heading-linkembs-custom"), _("custom"));
     setTxt($("heading-linkembs-customreg"), _("regular"));
-    setTxt($("linkembs-customreg-column-copyLabel"), _("column-copyLabel"));
-    setTxt($("linkembs-customreg-column-visitLabel"), _("column-visitLabel"));
-    setTxt($("linkembs-customreg-column-template"), _("column-template"));
+    setTxt($("linkembs-customreg-column-copyLabel"), _("column_copyLabel"));
+    setTxt($("linkembs-customreg-column-visitLabel"), _("column_visitLabel"));
+    setTxt($("linkembs-customreg-column-template"), _("column_template"));
     setTxt($("linkembs-customreg-addbtn"), _("add"));
     setTxt($("heading-linkembs-customne"), _("noencode"));
-    setTxt($("linkembs-customne-column-copyLabel"), _("column-copyLabel"));
-    setTxt($("linkembs-customne-column-visitLabel"), _("column-visitLabel"));
-    setTxt($("linkembs-customne-column-template"), _("column-template"));
+    setTxt($("linkembs-customne-column-copyLabel"), _("column_copyLabel"));
+    setTxt($("linkembs-customne-column-visitLabel"), _("column_visitLabel"));
+    setTxt($("linkembs-customne-column-template"), _("column_template"));
     setTxt($("linkembs-customne-addbtn"), _("add"));
     document.removeEventListener("DOMContentLoaded", _dclHandler, false);
   },
@@ -140,7 +140,7 @@ function initData () {
       inp.spellcheck = false;
       inp.value = aAry[i][2];
       if (aPrefix)
-        inp.placeholder = _("template-placeholder");
+        inp.placeholder = _("template_placeholder");
       else
         inp.readonly = true;
       cell.appendChild(inp);
@@ -425,7 +425,7 @@ function addLinkembRow (aTbody, aPrefix) {
   let inp = document.createElement("input");
   inp.type = "text";
   inp.spellcheck = false;
-  inp.placeholder = _("copyvisitlabel-placeholder");
+  inp.placeholder = _("copyvisitlabel_placeholder");
   cell.appendChild(inp);
   row.appendChild(cell);
 
@@ -433,7 +433,7 @@ function addLinkembRow (aTbody, aPrefix) {
   inp = document.createElement("input");
   inp.type = "text";
   inp.spellcheck = false;
-  inp.placeholder = _("copyvisitlabel-placeholder");
+  inp.placeholder = _("copyvisitlabel_placeholder");
   cell.appendChild(inp);
   row.appendChild(cell);
 
@@ -443,7 +443,7 @@ function addLinkembRow (aTbody, aPrefix) {
   inp.className = "wide-input";
   inp.type = "text";
   inp.spellcheck = false;
-  inp.placeholder = _("template-placeholder");
+  inp.placeholder = _("template_placeholder");
   cell.appendChild(inp);
   row.appendChild(cell);
 

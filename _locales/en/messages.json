@@ -89,11 +89,11 @@
     "message": "New"
   },
 
-  "customops-name-lbl": {
+  "customops_name_lbl": {
     "message": "Name: "
   },
 
-  "customops-pat-lbl": {
+  "customops_pat_lbl": {
     "message": "Patterns: "
   },
 
@@ -101,31 +101,31 @@
     "message": "Regular expressions, one per line"
   },
 
-  "customops-thumb-lbl": {
+  "customops_thumb_lbl": {
     "message": "Thumbnail: "
   },
 
-  "optional-replacedByMatches": {
+  "optional_replacedByMatches": {
     "message": "(Optional) $$1, $$2, … replaced by matches in patterns"
   },
 
-  "heading-copyops": {
+  "heading_copyops": {
     "message": "Copy operations"
   },
 
-  "descr-copyops": {
+  "descr_copyops": {
     "message": "These will copy something into the clipboard."
   },
 
-  "column-label": {
+  "column_label": {
     "message": "Label"
   },
 
-  "column-subst": {
+  "column_subst": {
     "message": "Substitution"
   },
 
-  "column-decode": {
+  "column_decode": {
     "message": "Decode parameters"
   },
 
@@ -137,11 +137,11 @@
     "message": "Add"
   },
   
-  "heading-visitops": {
+  "heading_visitops": {
     "message": "Visit operations"
   },
 
-  "descr-visitops": {
+  "descr_visitops": {
     "message": "These will take you to some address."
   },
 
@@ -197,23 +197,23 @@
     "message": "Here you can see the built-in templates for making embedded links, and add your own. \"Regular\" templates cause links to be encoded (e.g. \"https://www.google.com/\" will become \"https%3A%2F%2Fwww.google.com%2F\"), while \"no-encode\" templates will cause links to be embedded without such encoding."
   },
 
-  "column-copyLabel": {
+  "column_copyLabel": {
     "message": "Copy label"
   },
 
-  "column-visitLabel": {
+  "column_visitLabel": {
     "message": "Visit label"
   },
 
-  "column-template": {
+  "column_template": {
     "message": "Template"
   },
 
-  "copyvisitlabel-placeholder": {
+  "copyvisitlabel_placeholder": {
     "message": "$$1 replaced by URL"
   },
 
-  "template-placeholder": {
+  "template_placeholder": {
     "message": "$$1 replaced by embedded link"
   },
 
