@@ -46,7 +46,10 @@ function replaceURL_decode (aUrl, aPattern, aSubst) {
 function handle_click (e) {
   if (e.button == 2) return;
 
-  let op = savedOps[e.target.value];
+  let [gn, idx] = e.target.value.split(",");
+  gn = Number(gn);
+  idx = Number(idx);
+  let op = savedOps[gn].ops[idx];
   let res = "decode" in op && op.decode ?
       replaceURL_decode(op.url, op.matchedPattern, op.subst) :
       op.url.replace(op.matchedPattern, op.subst);
@@ -79,12 +82,21 @@ browser.runtime.sendMessage({msgType: "get-ops"}).then(([tabId, ops]) => {
   }
 
   for (let i = 0; i < ops.length; i++) {
+    let group = ops[i];
     let item = document.createElement("data");
-    item.classList.add("item");
-    item.value = String(i);
-    let txt = document.createTextNode(ops[i].label);
+    item.classList.add("grouphead");
+    let txt = document.createTextNode(group.label);
     item.appendChild(txt);
-    item.addEventListener("mouseup", handle_click, false);
     pc.appendChild(item);
+
+    for (let j = 0; j < group.ops.length; j++) {
+      item = document.createElement("data");
+      item.classList.add("item");
+      item.value = `${i},${j}`;
+      txt = document.createTextNode(group.ops[j].label);
+      item.appendChild(txt);
+      item.addEventListener("mouseup", handle_click, false);
+      pc.appendChild(item);
+    }
   }
 });

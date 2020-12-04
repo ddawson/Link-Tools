@@ -170,7 +170,7 @@
   },
 
   "embeddedLinks_description": {
-    "message": "Here you can see the built-in patterns for recognizing embedded links, and add your own. \"Regular\" patterns are for encoded links (e.g. \"https://www.google.com/\" becomes \"https%3A%2F%2Fwww.google.com%2F\", which must be decoded again), while \"no-decode\" patterns are for links that appear as-is."
+    "message": "Here you can see the built-in patterns for recognizing embedded links, and add your own. A recognized embedded link will be extracted and, if it matches one of the link types, operations for it will be made available as if it were an unembedded link. \"Regular\" patterns are for encoded links (e.g. \"https://www.google.com/\" becomes \"https%3A%2F%2Fwww.google.com%2F\", which must be decoded again), while \"no-decode\" patterns are for links that appear as-is."
   },
 
   "builtin": {
@@ -223,6 +223,14 @@
 
   "noOpsAvail": {
     "message": "No operations available"
+  },
+
+  "embeddedLinksGroup": {
+    "message": "Embedded links"
+  },
+
+  "embeddingCopyGroup": {
+    "message": "Embedding copy"
   },
 
   "copyEmbeddedLink": {
@@ -343,27 +351,27 @@
   },
 
   "youtube_copyPlaylistLink": {
-    "message": "Copy YouTube playlist link"
+    "message": "Copy playlist link"
   },
 
   "youtube_copyMobilePlaylistLink": {
-    "message": "Copy YouTube mobile playlist link"
+    "message": "Copy mobile playlist link"
   },
 
   "youtube_copyPlaylistID": {
-    "message": "Copy YouTube playlist ID"
+    "message": "Copy playlist ID"
   },
 
   "youtube_visitVideo": {
-    "message": "Visit YouTube video"
+    "message": "Visit video"
   },
 
   "youtube_visitPlaylistPage": {
-    "message": "Visit YouTube playlist page"
+    "message": "Visit playlist page"
   },
 
   "youtube_visitMobilePlaylistPage": {
-    "message": "Visit YouTube playlist page (mobile)"
+    "message": "Visit playlist page (mobile)"
   },
 
   "youtubeVideo": {
@@ -371,35 +379,35 @@
   },
 
   "youtube_copyLongLink": {
-    "message": "Copy YouTube long video link (no parameters)"
+    "message": "Copy long video link (no parameters)"
   },
 
   "youtube_copyMobileLink": {
-    "message": "Copy YouTube mobile video link (no parameters)"
+    "message": "Copy mobile video link (no parameters)"
   },
 
   "youtube_copyEmbedLink": {
-    "message": "Copy YouTube embedded video link"
+    "message": "Copy embedded video link"
   },
 
   "youtube_copyShortLink": {
-    "message": "Copy YouTube short video link"
+    "message": "Copy short video link"
   },
 
   "youtube_copyVID": {
-    "message": "Copy YouTube video ID"
+    "message": "Copy video ID"
   },
 
   "youtube_copySmallThumbnail": {
-    "message": "Copy YouTube video small thumbnail link"
+    "message": "Copy small thumbnail link"
   },
 
   "youtube_copyMedThumbnail": {
-    "message": "Copy YouTube video medium thumbnail link"
+    "message": "Copy medium thumbnail link"
   },
 
   "youtube_copyLargeThumbnail": {
-    "message": "Copy YouTube video large thumbnail link"
+    "message": "Copy large thumbnail link"
   },
 
   "youtube_copyGenYoutube": {
@@ -407,15 +415,15 @@
   },
 
   "youtube_visitSmallThumbnail": {
-    "message": "Visit YouTube video small thumbnail"
+    "message": "Visit small thumbnail"
   },
 
   "youtube_visitMedThumbnail": {
-    "message": "Visit YouTube video medium thumbnail"
+    "message": "Visit medium thumbnail"
   },
 
   "youtube_visitLargeThumbnail": {
-    "message": "Visit YouTube video large thumbnail"
+    "message": "Visit large thumbnail"
   },
 
   "youtube_visitGenYoutube": {
@@ -427,99 +435,99 @@
   },
 
   "youtubeUser": {
-    "message": "YouTube user"
+    "message": "YouTube channel (name)"
   },
 
   "youtube_copyUsersChannelHomePageLink": {
-    "message": "Copy YouTube channel Home page link (by name)"
+    "message": "Copy Home page link"
   },
 
   "youtube_copyUsersChannelVideosPageLink": {
-    "message": "Copy YouTube channel Videos page link (by name)"
+    "message": "Copy Videos page link"
   },
 
   "youtube_copyUsersChannelPlaylistsPageLink": {
-    "message": "Copy YouTube channel Playlists page link (by name)"
+    "message": "Copy Playlists page link"
   },
 
   "youtube_copyUsersChannelCommunityPageLink": {
-    "message": "Copy YouTube channel Community page link (by name)"
+    "message": "Copy Community page link"
   },
 
   "youtube_copyUsersChannelChannelsPageLink": {
-    "message": "Copy YouTube channel Channels page link (by name)"
+    "message": "Copy Channels page link"
   },
 
   "youtube_copyUsersChannelDiscussionPageLink": {
-    "message": "Copy YouTube channel Discussion page link (by name)"
+    "message": "Copy Discussion page link"
   },
 
   "youtube_copyUsersChannelAboutPageLink": {
-    "message": "Copy YouTube channel About page link (by name)"
+    "message": "Copy About page link"
   },
 
   "youtube_copyUsersChannelName": {
-    "message": "Copy YouTube channel name"
+    "message": "Copy channel name"
   },
 
   "youtube_visitUsersChannelHomePage": {
-    "message": "Visit YouTube channel Home page (by name)"
+    "message": "Visit Home page"
   },
 
   "youtube_visitUsersChannelVideosPage": {
-    "message": "Visit YouTube channel Videos page (by name)"
+    "message": "Visit Videos page"
   },
 
   "youtube_visitUsersChannelPlaylistsPage": {
-    "message": "Visit YouTube channel Playlists page (by name)"
+    "message": "Visit Playlists page"
   },
 
   "youtube_visitUsersChannelCommunityPage": {
-    "message": "Visit YouTube channel Community page (by name)"
+    "message": "Visit Community page"
   },
 
   "youtube_visitUsersChannelChannelsPage": {
-    "message": "Visit YouTube channel Channels page (by name)"
+    "message": "Visit Channels page"
   },
 
   "youtube_visitUsersChannelDiscussionPage": {
-    "message": "Visit YouTube channel Discussion page (by name)"
+    "message": "Visit Discussion page"
   },
 
   "youtube_visitUsersChannelAboutPage": {
-    "message": "Visit YouTube channel About page (by name)"
+    "message": "Visit About page"
   },
 
   "youtubeChannel": {
-    "message": "YouTube channel"
+    "message": "YouTube channel (ID)"
   },
 
   "youtube_copyChannelHomePageLink": {
-    "message": "Copy YouTube channel Home page link (by channel ID)"
+    "message": "Copy Home page link"
   },
 
   "youtube_copyChannelVideosPageLink": {
-    "message": "Copy YouTube channel Videos page link (by channel ID)"
+    "message": "Copy Videos page link"
   },
 
   "youtube_copyChannelPlaylistsPageLink": {
-    "message": "Copy YouTube channel Playlists page link (by channel ID)"
+    "message": "Copy Playlists page link"
   },
 
   "youtube_copyChannelCommunityPageLink": {
-    "message": "Copy YouTube channel Community page link (by channel ID)"
+    "message": "Copy Community page link"
   },
 
   "youtube_copyChannelChannelsPageLink": {
-    "message": "Copy YouTube channel Channels page link (by channel ID)"
+    "message": "Copy Channels page link"
   },
 
   "youtube_copyChannelDiscussionPageLink": {
-    "message": "Copy YouTube channel Discussion page link (by channel ID)"
+    "message": "Copy Discussion page link"
   },
 
   "youtube_copyChannelAboutPageLink": {
-    "message": "Copy YouTube channel About page link (by channel ID)"
+    "message": "Copy About page link"
   },
 
   "youtube_copyGenYoutubeChannelLink": {
@@ -531,31 +539,31 @@
   },
 
   "youtube_visitChannelHomePage": {
-    "message": "Visit YouTube channel Home page (by channel ID)"
+    "message": "Visit Home page"
   },
 
   "youtube_visitChannelVideosPage": {
-    "message": "Visit YouTube channel Videos page (by channel ID)"
+    "message": "Visit Videos page"
   },
 
   "youtube_visitChannelPlaylistsPage": {
-    "message": "Visit YouTube channel Playlists page (by channel ID)"
+    "message": "Visit Playlists page"
   },
 
   "youtube_visitChannelCommunityPage": {
-    "message": "Visit YouTube channel Community page (by channel ID)"
+    "message": "Visit Community page"
   },
 
   "youtube_visitChannelChannelsPage": {
-    "message": "Visit YouTube channel Channels page (by channel ID)"
+    "message": "Visit Channels page"
   },
 
   "youtube_visitChannelDiscussionPage": {
-    "message": "Visit YouTube channel Discussion page (by channel ID)"
+    "message": "Visit Discussion page"
   },
 
   "youtube_visitChannelAboutPage": {
-    "message": "Visit YouTube channel About page (by channel ID)"
+    "message": "Visit About page"
   },
 
   "youtube_visitGenYoutubeChannelPage": {
@@ -567,7 +575,7 @@
   },
 
   "reddit_copyNPLink": {
-    "message": "Copy Reddit no participation (NP) link"
+    "message": "Copy no participation (NP) link"
   },
 
   "mozilla_localeSpecificLink": {
@@ -575,7 +583,7 @@
   },
 
   "mozilla_copyLinkNoLocale": {
-    "message": "Copy Mozilla link (no locale)"
+    "message": "Copy link (no locale)"
   },
 
   "steamGameLink": {
@@ -583,19 +591,19 @@
   },
 
   "steamGame_copyStore": {
-    "message": "Copy Steam Store link"
+    "message": "Copy Store link"
   },
 
   "steamGame_copyCapsuleThumbnail": {
-    "message": "Copy Steam Store capsule thumbnail link"
+    "message": "Copy capsule thumbnail link"
   },
 
   "steamGame_copyMedThumbnail": {
-    "message": "Copy Steam Store medium thumbnail link"
+    "message": "Copy medium thumbnail link"
   },
 
   "steamGame_copyLargeThumbnail": {
-    "message": "Copy Steam Store large thumbnail link"
+    "message": "Copy large thumbnail link"
   },
 
   "steamGame_copyCommunityHub": {
@@ -611,19 +619,19 @@
   },
 
   "steamGame_visitStore": {
-    "message": "Visit Steam Store page"
+    "message": "Visit Store page"
   },
 
   "steamGame_visitCapsuleThumbnail": {
-    "message": "Visit Steam store capsule thumbnail"
+    "message": "Visit capsule thumbnail"
   },
 
   "steamGame_visitMedThumbnail": {
-    "message": "Visit Steam store medium thumbnail"
+    "message": "Visit medium thumbnail"
   },
 
   "steamGame_visitLargeThumbnail": {
-    "message": "Visit Steam store large thumbnail"
+    "message": "Visit large thumbnail"
   },
 
   "steamGame_visitCommunity": {
@@ -643,39 +651,39 @@
   },
 
   "steamDeveloper_copyName": {
-    "message": "Copy Steam developer name"
+    "message": "Copy developer name"
   },
 
   "steamDeveloper_copyMainPage": {
-    "message": "Copy Steam developer main page link"
+    "message": "Copy main page link"
   },
 
   "steamDeveloper_copyLists": {
-    "message": "Copy Steam developer lists link"
+    "message": "Copy lists link"
   },
 
   "steamDeveloper_copyBrowse": {
-    "message": "Copy Steam developer browse link"
+    "message": "Copy browse link"
   },
 
   "steamDeveloper_copyAbout": {
-    "message": "Copy Steam developer about link"
+    "message": "Copy about link"
   },
 
   "steamDeveloper_visitMainPage": {
-    "message": "Visit Steam developer main page page"
+    "message": "Visit main page"
   },
 
   "steamDeveloper_visitLists": {
-    "message": "Visit Steam developer lists page"
+    "message": "Visit lists page"
   },
 
   "steamDeveloper_visitBrowse": {
-    "message": "Visit Steam developer browse page"
+    "message": "Visit browse page"
   },
 
   "steamDeveloper_visitAbout": {
-    "message": "Visit Steam developer about page"
+    "message": "Visit about page"
   },
 
   "steamUsernameLink": {
@@ -683,183 +691,183 @@
   },
 
   "steamMember_copyUsername": {
-    "message": "Copy Steam member username"
+    "message": "Copy username"
   },
 
   "steamMember_copyMainPage": {
-    "message": "Copy Steam member main page link"
+    "message": "Copy main page link"
   },
 
   "steamMember_copyGames": {
-    "message": "Copy Steam member games link"
+    "message": "Copy games link"
   },
 
   "steamMember_copyAllGames": {
-    "message": "Copy Steam member all games link"
+    "message": "Copy all games link"
   },
 
   "steamMember_copyFollowedGames": {
-    "message": "Copy Steam member followed games link"
+    "message": "Copy followed games link"
   },
 
   "steamMember_copyGamesWishlist": {
-    "message": "Copy Steam member games wishlist link"
+    "message": "Copy games wishlist link"
   },
 
   "steamMember_copyGamesReviews": {
-    "message": "Copy Steam member games reviews link"
+    "message": "Copy games reviews link"
   },
 
   "steamMember_copyInventory": {
-    "message": "Copy Steam member inventory link"
+    "message": "Copy inventory link"
   },
 
   "steamMember_copyScreenshots": {
-    "message": "Copy Steam member screenshots link"
+    "message": "Copy screenshots link"
   },
 
   "steamMember_copyFavoriteScreenshots": {
-    "message": "Copy Steam member favorite screenshots link"
+    "message": "Copy favorite screenshots link"
   },
 
   "steamMember_copyArtwork": {
-    "message": "Copy Steam member artwork link"
+    "message": "Copy artwork link"
   },
 
   "steamMember_copyFavoriteArtwork": {
-    "message": "Copy Steam member favorite artwork link"
+    "message": "Copy favorite artwork link"
   },
 
   "steamMember_copyVideos": {
-    "message": "Copy Steam member videos link"
+    "message": "Copy videos link"
   },
 
   "steamMember_copyFavoriteVideos": {
-    "message": "Copy Steam member favorite videos link"
+    "message": "Copy favorite videos link"
   },
 
   "steamMember_copyWorkshopItems": {
-    "message": "Copy Steam member workshop items link"
+    "message": "Copy workshop items link"
   },
 
   "steamMember_copyFavoriteWorkshopItems": {
-    "message": "Copy Steam member favorite workshop items link"
+    "message": "Copy favorite workshop items link"
   },
 
   "steamMember_copyMerchandise": {
-    "message": "Copy Steam member merchandise link"
+    "message": "Copy merchandise link"
   },
 
   "steamMember_copyFavoriteMerchandise": {
-    "message": "Copy Steam member favorite merchandise link"
+    "message": "Copy favorite merchandise link"
   },
 
   "steamMember_copyCollections": {
-    "message": "Copy Steam member collections link"
+    "message": "Copy collections link"
   },
 
   "steamMember_copyFavoriteCollections": {
-    "message": "Copy Steam member favorite collections link"
+    "message": "Copy favorite collections link"
   },
 
   "steamMember_copyGuides": {
-    "message": "Copy Steam member guides link"
+    "message": "Copy guides link"
   },
 
   "steamMember_copyFavoriteGuides": {
-    "message": "Copy Steam member favorite guides link"
+    "message": "Copy favorite guides link"
   },
 
   "steamMember_copyGroups": {
-    "message": "Copy Steam member groups link"
+    "message": "Copy groups link"
   },
 
   "steamMember_visitMainPage": {
-    "message": "Visit Steam member main page page"
+    "message": "Visit main page"
   },
 
   "steamMember_visitGames": {
-    "message": "Visit Steam member games page"
+    "message": "Visit games page"
   },
 
   "steamMember_visitAllGames": {
-    "message": "Visit Steam member all games page"
+    "message": "Visit all games page"
   },
 
   "steamMember_visitFollowedGames": {
-    "message": "Visit Steam member followed games page"
+    "message": "Visit followed games page"
   },
 
   "steamMember_visitGamesWishlist": {
-    "message": "Visit Steam member games wishlist page"
+    "message": "Visit games wishlist page"
   },
 
   "steamMember_visitGamesReviews": {
-    "message": "Visit Steam member games reviews page"
+    "message": "Visit games reviews page"
   },
 
   "steamMember_visitInventory": {
-    "message": "Visit Steam member inventory page"
+    "message": "Visit inventory page"
   },
 
   "steamMember_visitScreenshots": {
-    "message": "Visit Steam member screenshots page"
+    "message": "Visit screenshots page"
   },
 
   "steamMember_visitFavoriteScreenshots": {
-    "message": "Visit Steam member favorite screenshots page"
+    "message": "Visit favorite screenshots page"
   },
 
   "steamMember_visitArtwork": {
-    "message": "Visit Steam member artwork page"
+    "message": "Visit artwork page"
   },
 
   "steamMember_visitFavoriteArtwork": {
-    "message": "Visit Steam member favorite artwork page"
+    "message": "Visit favorite artwork page"
   },
 
   "steamMember_visitVideos": {
-    "message": "Visit Steam member videos page"
+    "message": "Visit videos page"
   },
 
   "steamMember_visitFavoriteVideos": {
-    "message": "Visit Steam member favorite videos page"
+    "message": "Visit favorite videos page"
   },
 
   "steamMember_visitWorkshopItems": {
-    "message": "Visit Steam member workshop items page"
+    "message": "Visit workshop items page"
   },
 
   "steamMember_visitFavoriteWorkshopItems": {
-    "message": "Visit Steam member favorite workshop items page"
+    "message": "Visit favorite workshop items page"
   },
 
   "steamMember_visitMerchandise": {
-    "message": "Visit Steam member merchandise page"
+    "message": "Visit merchandise page"
   },
 
   "steamMember_visitFavoriteMerchandise": {
-    "message": "Visit Steam member favorite merchandise page"
+    "message": "Visit favorite merchandise page"
   },
 
   "steamMember_visitCollections": {
-    "message": "Visit Steam member collections page"
+    "message": "Visit collections page"
   },
 
   "steamMember_visitFavoriteCollections": {
-    "message": "Visit Steam member favorite collections page"
+    "message": "Visit favorite collections page"
   },
 
   "steamMember_visitGuides": {
-    "message": "Visit Steam member guides page"
+    "message": "Visit guides page"
   },
 
   "steamMember_visitFavoriteGuides": {
-    "message": "Visit Steam member favorite guides page"
+    "message": "Visit favorite guides page"
   },
 
   "steamMember_visitGroups": {
-    "message": "Visit Steam member groups page"
+    "message": "Visit groups page"
   },
 
   "steamProfileIDLink": {
@@ -867,7 +875,7 @@
   },
 
   "steamMember_copyProfileID": {
-    "message": "Copy Steam member profile ID"
+    "message": "Copy profile ID"
   },
 
   "dTubeVideo": {
@@ -875,7 +883,7 @@
   },
 
   "dTubeVideo_copyVideoID": {
-    "message": "Copy D.Tube video ID"
+    "message": "Copy video ID"
   },
 
   "steemitUser": {
@@ -883,95 +891,95 @@
   },
 
   "steemitUser_copyName": {
-    "message": "Copy Steemit user name"
+    "message": "Copy user name"
   },
 
   "steemitUser_copyBlog": {
-    "message": "Copy Steemit user blog link"
+    "message": "Copy blog link"
   },
 
   "steemitUser_copyComments": {
-    "message": "Copy Steemit user comments link"
+    "message": "Copy comments link"
   },
 
   "steemitUser_copyReplies": {
-    "message": "Copy Steemit user replies link"
+    "message": "Copy replies link"
   },
 
   "steemitUser_copyCurationRewards": {
-    "message": "Copy Steemit user curation rewards link"
+    "message": "Copy curation rewards link"
   },
 
   "steemitUser_copyAuthorRewards": {
-    "message": "Copy Steemit user author rewards link"
+    "message": "Copy author rewards link"
   },
 
   "steemitUser_copyWallet": {
-    "message": "Copy Steemit user wallet link"
+    "message": "Copy wallet link"
   },
 
   "steemitUser_copyFeed": {
-    "message": "Copy Steemit user feed link"
+    "message": "Copy feed link"
   },
 
   "steemitUser_copyFollowers": {
-    "message": "Copy Steemit user followers link"
+    "message": "Copy followers link"
   },
 
   "steemitUser_copyFollowing": {
-    "message": "Copy Steemit user following link"
+    "message": "Copy following link"
   },
 
   "steemitUser_copySteemd": {
-    "message": "Copy Steemit user steemd link"
+    "message": "Copy steemd link"
   },
 
   "steemitUser_copySteemDb": {
-    "message": "Copy Steemit user steemdb link"
+    "message": "Copy steemdb link"
   },
 
   "steemitUser_visitBlog": {
-    "message": "Visit Steemit user blog page"
+    "message": "Visit blog page"
   },
 
   "steemitUser_visitComments": {
-    "message": "Visit Steemit user comments page"
+    "message": "Visit comments page"
   },
 
   "steemitUser_visitReplies": {
-    "message": "Visit Steemit user replies page"
+    "message": "Visit replies page"
   },
 
   "steemitUser_visitCurationRewards": {
-    "message": "Visit Steemit user curation rewards page"
+    "message": "Visit curation rewards page"
   },
 
   "steemitUser_visitAuthorRewards": {
-    "message": "Visit Steemit user author rewards page"
+    "message": "Visit author rewards page"
   },
 
   "steemitUser_visitWallet": {
-    "message": "Visit Steemit user wallet page"
+    "message": "Visit wallet page"
   },
 
   "steemitUser_visitFeed": {
-    "message": "Visit Steemit user feed page"
+    "message": "Visit feed page"
   },
 
   "steemitUser_visitFollowers": {
-    "message": "Visit Steemit user followers page"
+    "message": "Visit followers page"
   },
 
   "steemitUser_visitFollowing": {
-    "message": "Visit Steemit user following page"
+    "message": "Visit following page"
   },
 
   "steemitUser_visitSteemd": {
-    "message": "Visit Steemit user on steemd"
+    "message": "Visit user on steemd"
   },
 
   "steemitUser_visitSteemDb": {
-    "message": "Visit Steemit user on steemdb"
+    "message": "Visit user on steemdb"
   },
 
   "webArchiveLink": {
@@ -979,43 +987,43 @@
   },
 
   "webArchive_copyLatest": {
-    "message": "Copy Web Archive latest version link"
+    "message": "Copy latest version link"
   },
 
   "webArchive_copyCalendar": {
-    "message": "Copy Web Archive Calendar link"
+    "message": "Copy Calendar link"
   },
 
   "webArchive_copyCollections": {
-    "message": "Copy Web Archive Collections link"
+    "message": "Copy Collections link"
   },
 
   "webArchive_copySummary": {
-    "message": "Copy Web Archive Summary link"
+    "message": "Copy Summary link"
   },
 
   "webArchive_copySitemap": {
-    "message": "Copy Web Archive Sitemap link"
+    "message": "Copy Sitemap link"
   },
 
   "webArchive_visitLatest": {
-    "message": "Visit Web Archive latest version"
+    "message": "Visit latest version"
   },
 
   "webArchive_visitCalendar": {
-    "message": "Visit Web Archive Calendar page"
+    "message": "Visit Calendar page"
   },
 
   "webArchive_visitCollections": {
-    "message": "Visit Web Archive Collections page"
+    "message": "Visit Collections page"
   },
 
   "webArchive_visitSummary": {
-    "message": "Visit Web Archive Summary page"
+    "message": "Visit Summary page"
   },
 
   "webArchive_visitSitemap": {
-    "message": "Visit Web Archive Sitemap page"
+    "message": "Visit Sitemap page"
   },
 
   "duckDuckGoSearchLink": {
@@ -1023,63 +1031,63 @@
   },
 
   "duckDuckGo_copySearch": {
-    "message": "Copy DuckDuckGo search link (no parameters)"
+    "message": "Copy search link (no parameters)"
   },
 
   "duckDuckGo_copySearchQuery": {
-    "message": "Copy DuckDuckGo search query"
+    "message": "Copy search query"
   },
 
   "duckDuckGo_copyImagesWebSearch": {
-    "message": "Copy DuckDuckGo images+Web search link"
+    "message": "Copy images+Web search link"
   },
 
   "duckDuckGo_copyImagesSearch": {
-    "message": "Copy DuckDuckGo images search link"
+    "message": "Copy images search link"
   },
 
   "duckDuckGo_copyVideosWebSearch": {
-    "message": "Copy DuckDuckGo videos+Web search link"
+    "message": "Copy videos+Web search link"
   },
 
   "duckDuckGo_copyVideosSearch": {
-    "message": "Copy DuckDuckGo videos search link"
+    "message": "Copy videos search link"
   },
 
   "duckDuckGo_copyNewsWebSearch": {
-    "message": "Copy DuckDuckGo news+Web search link"
+    "message": "Copy news+Web search link"
   },
 
   "duckDuckGo_copyNewsSearch": {
-    "message": "Copy DuckDuckGo news search link"
+    "message": "Copy news search link"
   },
 
   "duckDuckGo_visitSearch": {
-    "message": "Visit DuckDuckGo search (no parameters)"
+    "message": "Visit search (no parameters)"
   },
 
   "duckDuckGo_visitImagesWebSearch": {
-    "message": "Visit DuckDuckGo images+Web search"
+    "message": "Visit images+Web search"
   },
 
   "duckDuckGo_visitImagesSearch": {
-    "message": "Visit DuckDuckGo images search"
+    "message": "Visit images search"
   },
 
   "duckDuckGo_visitVideosWebSearch": {
-    "message": "Visit DuckDuckGo videos+Web search"
+    "message": "Visit videos+Web search"
   },
 
   "duckDuckGo_visitVideosSearch": {
-    "message": "Visit DuckDuckGo videos search"
+    "message": "Visit videos search"
   },
 
   "duckDuckGo_visitNewsWebSearch": {
-    "message": "Visit DuckDuckGo news+Web search"
+    "message": "Visit news+Web search"
   },
 
   "duckDuckGo_visitNewsSearch": {
-    "message": "Visit DuckDuckGo news search"
+    "message": "Visit news search"
   },
 
   "bingSearchLink": {
@@ -1087,55 +1095,55 @@
   },
 
   "bing_copySearch": {
-    "message": "Copy Bing search link (no parameters)"
+    "message": "Copy search link (no parameters)"
   },
 
   "bing_copySearchQuery": {
-    "message": "Copy Bing search query"
+    "message": "Copy search query"
   },
 
   "bing_copyImagesSearch": {
-    "message": "Copy Bing images search link"
+    "message": "Copy images search link"
   },
 
   "bing_copyVideosSearch": {
-    "message": "Copy Bing videos search link"
+    "message": "Copy videos search link"
   },
 
   "bing_copyMapsSearch": {
-    "message": "Copy Bing maps search link"
+    "message": "Copy maps search link"
   },
 
   "bing_copyNewsSearch": {
-    "message": "Copy Bing news search link"
+    "message": "Copy news search link"
   },
 
   "bing_copyShoppingSearch": {
-    "message": "Copy Bing shopping search link"
+    "message": "Copy shopping search link"
   },
 
   "bing_visitSearch": {
-    "message": "Visit Bing search (no parameters)"
+    "message": "Visit search (no parameters)"
   },
 
   "bing_visitImagesSearch": {
-    "message": "Visit Bing images search"
+    "message": "Visit images search"
   },
 
   "bing_visitVideosSearch": {
-    "message": "Visit Bing videos search"
+    "message": "Visit videos search"
   },
 
   "bing_visitMapsSearch": {
-    "message": "Visit Bing maps search"
+    "message": "Visit maps search"
   },
 
   "bing_visitNewsSearch": {
-    "message": "Visit Bing news search"
+    "message": "Visit news search"
   },
 
   "bing_visitShoppingSearch": {
-    "message": "Visit Bing shopping search"
+    "message": "Visit shopping search"
   },
 
   "startpageSearch": {
@@ -1143,31 +1151,31 @@
   },
 
   "startpage_copySearch": {
-    "message": "Copy Startpage search link"
+    "message": "Copy search link"
   },
 
   "startpage_copySearchQuery": {
-    "message": "Copy Startpage search query"
+    "message": "Copy search query"
   },
 
   "startpage_copyImagesSearch": {
-    "message": "Copy Startpage images search"
+    "message": "Copy images search"
   },
 
   "startpage_copyVideosSearch": {
-    "message": "Copy Startpage videos search"
+    "message": "Copy videos search"
   },
 
   "startpage_visitSearch": {
-    "message": "Visit Startpage search link"
+    "message": "Visit search link"
   },
 
   "startpage_visitImagesSearch": {
-    "message": "Visit Startpage images search"
+    "message": "Visit images search"
   },
 
   "startpage_visitVideosSearch": {
-    "message": "Visit Startpage videos search"
+    "message": "Visit videos search"
   },
 
   "archiveis": {
@@ -1175,19 +1183,19 @@
   },
 
   "archiveis_copyAllSavedPages": {
-    "message": "Copy Archive.is all saved pages link"
+    "message": "Copy all saved pages link"
   },
 
   "archiveis_copyTimeMap": {
-    "message": "Copy Archive.is TimeMap link"
+    "message": "Copy TimeMap link"
   },
 
   "archiveis_visitAllSavedPages": {
-    "message": "Visit Archive.is all saved pages page"
+    "message": "Visit all saved pages page"
   },
 
   "archiveis_visitTimeMap": {
-    "message": "Visit Archive.is TimeMap"
+    "message": "Visit TimeMap"
   },
 
   "webcite": {
@@ -1195,11 +1203,11 @@
   },
 
   "webcite_copyDateless": {
-    "message": "Copy WebCite dateless link"
+    "message": "Copy dateless link"
   },
 
   "webcite_visitDateless": {
-    "message": "Visit WebCite dateless page"
+    "message": "Visit dateless page"
   },
 
   "archiveit": {
@@ -1207,10 +1215,10 @@
   },
 
   "archiveit_copyAllSavedPages": {
-    "message": "Copy Archive-It all saved pages link"
+    "message": "Copy all saved pages link"
   },
 
   "archiveit_visitAllSavedPages": {
-    "message": "Visit Archive-It all saved pages page"
+    "message": "Visit all saved pages page"
   }
 }

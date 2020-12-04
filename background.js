@@ -88,11 +88,12 @@ function checkPatterns (aUrl, aFindAllMatches) {
   let linkEmbsUnion = linkEmbs.concat(customLinkEmbs);
   let linkEmbsUnion_ne = linkEmbs_ne.concat(customLinkEmbs_ne);
   let urlopsUnion = builtinUrlops.concat(customUrlops);
-  let ops = [];
+  let ops = [], group;
   let urls = [aUrl];
 
+  group = {label: `[ ${_("embeddedLinksGroup")} ]`, ops: []};
   function addEmbedCopyOp (aUrl) {
-    ops.push({
+    group.ops.push({
       type: "copy",
       url: aUrl,
       newTab: false,
@@ -103,10 +104,12 @@ function checkPatterns (aUrl, aFindAllMatches) {
     });
   }
 
+  let matched = false;
   for (let i = 0; i < urls.length; i++) {
     for (let p of elinkPatsUnion) {
       let match = urls[i].match(p);
       if (match) {
+        matched = true;
         let decoded = decodeURIComponent(match[1]);
         addEmbedCopyOp(decoded);
         urls.push(decoded);
@@ -116,15 +119,19 @@ function checkPatterns (aUrl, aFindAllMatches) {
     for (let p of elinkPatsUnion_nd) {
       let match = urls[i].match(p);
       if (match) {
+        matched = true;
         addEmbedCopyOp(match[1]);
         urls.push(match[1]);
       }
     }
   }
+  if (matched) ops.push(group);
 
+  group = {label: `[ ${_("embeddingCopyGroup")} ]`, ops: []};
+  ops.push(group);
   for (let t of linkEmbsUnion) {
     for (let url of urls) {
-      ops.push({
+      group.ops.push({
         type: "copy",
         url: t[2].replace("$1", encodeURIComponent(url)),
         newTab: false,
@@ -133,7 +140,7 @@ function checkPatterns (aUrl, aFindAllMatches) {
         subst: "",
         decode: false
       });
-      ops.push({
+      group.ops.push({
         type: "visit",
         url: t[2].replace("$1", encodeURIComponent(url)),
         newTab: false,
@@ -142,7 +149,7 @@ function checkPatterns (aUrl, aFindAllMatches) {
         subst: "",
         decode: false
       });
-      ops.push({
+      group.ops.push({
         type: "visit",
         url: t[2].replace("$1", encodeURIComponent(url)),
         newTab: true,
@@ -156,7 +163,7 @@ function checkPatterns (aUrl, aFindAllMatches) {
 
   for (let t of linkEmbsUnion_ne) {
     for (let url of urls) {
-      ops.push({
+      group.ops.push({
         type: "copy",
         url: t[2].replace("$1", url),
         newTab: false,
@@ -165,7 +172,7 @@ function checkPatterns (aUrl, aFindAllMatches) {
         subst: "",
         decode: false
       });
-      ops.push({
+      group.ops.push({
         type: "visit",
         url: t[2].replace("$1", url),
         newTab: false,
@@ -174,7 +181,7 @@ function checkPatterns (aUrl, aFindAllMatches) {
         subst: "",
         decode: false
       });
-      ops.push({
+      group.ops.push({
         type: "visit",
         url: t[2].replace("$1", url),
         newTab: true,
@@ -188,6 +195,7 @@ function checkPatterns (aUrl, aFindAllMatches) {
 
   for (let i = 0; i < urlopsUnion.length; i++) {
     let spec = urlopsUnion[i];
+    group = {label: `[ ${spec.name} ]`, ops: []};
 
     for (let p of spec.patternRE) {
       let matched = false;
@@ -198,7 +206,7 @@ function checkPatterns (aUrl, aFindAllMatches) {
 
 	  if ("copyOperations" in spec)
             for (let op of spec.copyOperations)
-              ops.push({
+              group.ops.push({
                 type: "copy",
                 url,
                 newTab: false,
@@ -210,7 +218,7 @@ function checkPatterns (aUrl, aFindAllMatches) {
 
           if ("visitOperations" in spec) {
             for (let op of spec.visitOperations)
-              ops.push({
+              group.ops.push({
                 type: "visit",
                 url,
                 newTab: false,
@@ -221,7 +229,7 @@ function checkPatterns (aUrl, aFindAllMatches) {
               });
 
             for (let op of spec.visitOperations)
-              ops.push({
+              group.ops.push({
                 type: "visit",
                 url,
                 newTab: true,
@@ -234,7 +242,10 @@ function checkPatterns (aUrl, aFindAllMatches) {
         }
       }
 
-      if (matched) break;
+      if (matched) {
+        ops.push(group);
+        break;
+      }
     }
 
     if (!aFindAllMatches) break;

@@ -276,31 +276,31 @@
       "copyOperations": [
         {
           "label": "__MSG_youtube_copyUsersChannelHomePageLink__",
-	  "subst": "https://www.youtube.com/user/$1"
+	  "subst": "https://www.youtube.com/c/$1"
 	},
         {
           "label": "__MSG_youtube_copyUsersChannelVideosPageLink__",
-          "subst": "https://www.youtube.com/user/$1/videos"
+          "subst": "https://www.youtube.com/c/$1/videos"
         },
         {
           "label": "__MSG_youtube_copyUsersChannelPlaylistsPageLink__",
-          "subst": "https://www.youtube.com/user/$1/playlists"
+          "subst": "https://www.youtube.com/c/$1/playlists"
         },
         {
           "label": "__MSG_youtube_copyUsersChannelCommunityPageLink__",
-          "subst": "https://www.youtube.com/user/$1/community"
+          "subst": "https://www.youtube.com/c/$1/community"
         },
         {
           "label": "__MSG_youtube_copyUsersChannelChannelsPageLink__",
-          "subst": "https://www.youtube.com/user/$1/channels"
+          "subst": "https://www.youtube.com/c/$1/channels"
         },
         {
           "label": "__MSG_youtube_copyUsersChannelDiscussionPageLink__",
-          "subst": "https://www.youtube.com/user/$1/discussion"
+          "subst": "https://www.youtube.com/c/$1/discussion"
         },
         {
           "label": "__MSG_youtube_copyUsersChannelAboutPageLink__",
-          "subst": "https://www.youtube.com/user/$1/about"
+          "subst": "https://www.youtube.com/c/$1/about"
         },
         {
           "label": "__MSG_youtube_copyUsersChannelName__",
@@ -310,31 +310,31 @@
       "visitOperations": [
         {
           "label": "__MSG_youtube_visitUsersChannelHomePage__",
-          "subst": "https://www.youtube.com/user/$1"
+          "subst": "https://www.youtube.com/c/$1"
         },
         {
           "label": "__MSG_youtube_visitUsersChannelVideosPage__",
-          "subst": "https://www.youtube.com/user/$1/videos"
+          "subst": "https://www.youtube.com/c/$1/videos"
         },
         {
           "label": "__MSG_youtube_visitUsersChannelPlaylistsPage__",
-          "subst": "https://www.youtube.com/user/$1/playlists"
+          "subst": "https://www.youtube.com/c/$1/playlists"
         },
         {
           "label": "__MSG_youtube_visitUsersChannelCommunityPage__",
-          "subst": "https://www.youtube.com/user/$1/community"
+          "subst": "https://www.youtube.com/c/$1/community"
         },
         {
           "label": "__MSG_youtube_visitUsersChannelChannelsPage__",
-          "subst": "https://www.youtube.com/user/$1/channels"
+          "subst": "https://www.youtube.com/c/$1/channels"
         },
         {
           "label": "__MSG_youtube_visitUsersChannelDiscussionPage__",
-          "subst": "https://www.youtube.com/user/$1/discussion"
+          "subst": "https://www.youtube.com/c/$1/discussion"
         },
         {
           "label": "__MSG_youtube_visitUsersChannelAboutPage__",
-          "subst": "https://www.youtube.com/user/$1/about"
+          "subst": "https://www.youtube.com/c/$1/about"
         }
       ]
     },

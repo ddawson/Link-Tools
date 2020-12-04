@@ -35,7 +35,7 @@ browser.storage.local.get().then(o => {
   if ("types" in o) procTypes(o.types, customUrlops);
 });
 
-browser.contextMenus.create({
+browser.menus.create({
   title: _("extensionName"),
   id: "linktools-menu",
   contexts: ["link"],
@@ -44,41 +44,53 @@ browser.contextMenus.create({
 
 let menuMap;
 
-browser.contextMenus.onShown.addListener((info, tab) => {
+browser.menus.onShown.addListener((info, tab) => {
   let ops = checkPatterns(new URL(info.linkUrl, info.pageUrl).href, true);
   if (!ops) return;
-  browser.contextMenus.update("linktools-menu", { enabled: true });
+  browser.menus.update("linktools-menu", { enabled: true });
   menuMap = {};
 
   for (let i = 0; i < ops.length; i++) {
-    let op = ops[i];
-    let id = `linktools-ctx${i}`;
-
-    browser.contextMenus.create({
-      title: op.label,
+    let group = ops[i];
+    let id = `linktools-ctx-grp${i}`;
+    browser.menus.create({
+      title: group.label,
       id,
-      parentId: "linktools-menu"
+      parentId: "linktools-menu",
+      enabled: false
     });
-    menuMap[id] = {
-      type: op.type,
-      url: op.url,
-      newTab: op.newTab,
-      pattern: op.matchedPattern,
-      subst: op.subst,
-      decode: op.decode
-    };
+    menuMap[id] = {};
+
+    for (let j = 0; j < group.ops.length; j++) {
+      let op = group.ops[j];
+      let id = `linktools-ctx-grp${i}-${j}`;
+
+      browser.menus.create({
+        title: op.label,
+        id,
+        parentId: "linktools-menu"
+      });
+      menuMap[id] = {
+        type: op.type,
+        url: op.url,
+        newTab: op.newTab,
+        pattern: op.matchedPattern,
+        subst: op.subst,
+        decode: op.decode
+      };
+    }
   }
 
-  browser.contextMenus.refresh();
+  browser.menus.refresh();
 });
 
-browser.contextMenus.onHidden.addListener(() => {
+browser.menus.onHidden.addListener(() => {
   for (let id in menuMap)
-    browser.contextMenus.remove(id);
-  browser.contextMenus.update("linktools-menu", {enabled: false});
+    browser.menus.remove(id);
+  browser.menus.update("linktools-menu", {enabled: false});
 });
 
-browser.contextMenus.onClicked.addListener((info, tab) => {
+browser.menus.onClicked.addListener((info, tab) => {
   let id = info.menuItemId;
 
   if (id in menuMap) {

@@ -20,11 +20,15 @@ body {
   background-color: Background;
 }
 
-.item {
+.grouphead, .item {
   display: block;
   padding: 0.5em;
   color: MenuText;
   background-color: Menu;
+}
+
+.grouphead {
+  font-weight: bold;
 }
 
 .item:not(.disabled):hover {
