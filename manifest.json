@@ -8,7 +8,6 @@
     "48": "linktools.svg",
     "96": "linktools.svg"
   },
-  "homepage_url": "https://addons.mozilla.org/addon/link-tools/",
   "default_locale": "en",
   "applications": {
     "gecko": {
