@@ -170,7 +170,7 @@
   },
 
   "embeddedLinks_description": {
-    "message": "Here you can see the built-in patterns for recognizing embedded links, and add your own. A recognized embedded link will be extracted and, if it matches one of the link types, operations for it will be made available as if it were an unembedded link. \"Regular\" patterns are for encoded links (e.g. \"https://www.google.com/\" becomes \"https%3A%2F%2Fwww.google.com%2F\", which must be decoded again), while \"no-decode\" patterns are for links that appear as-is."
+    "message": "Here you can see the built-in patterns for recognizing embedded links, and add your own. A recognized embedded link will be extracted and, if it matches one of the link types, operations for it will be made available as if it were an unembedded link. It will also itself be matched against embedded link patterns, so that links can be embedded within embedded links, to any depth. \"Regular\" patterns are for encoded links (e.g. \"https://www.google.com/\" becomes \"https%3A%2F%2Fwww.google.com%2F\", which must be decoded again), while \"no-decode\" patterns are for links that appear as-is."
   },
 
   "builtin": {
@@ -229,8 +229,8 @@
     "message": "Embedded links"
   },
 
-  "embeddingCopyGroup": {
-    "message": "Embedding copy"
+  "embeddingsGroup": {
+    "message": "Embeddings"
   },
 
   "copyEmbeddedLink": {
@@ -1220,5 +1220,221 @@
 
   "archiveit_visitAllSavedPages": {
     "message": "Visit all saved pages page"
+  },
+
+  "vndb_vn": {
+    "message": "VNDB VN"
+  },
+
+  "vndb_vn_copymain": {
+    "message": "Copy main link"
+  },
+
+  "vndb_vn_copyrelations": {
+    "message": "Copy relations link"
+  },
+
+  "vndb_vn_copyreleases": {
+    "message": "Copy releases link"
+  },
+
+  "vndb_vn_copydiscussions": {
+    "message": "Copy discussions link"
+  },
+
+  "vndb_vn_copyhistory": {
+    "message": "Copy history link"
+  },
+
+  "vndb_vn_copytags": {
+    "message": "Copy tags link"
+  },
+
+  "vndb_vn_copycharacters": {
+    "message": "Copy characters link"
+  },
+
+  "vndb_vn_copyid": {
+    "message": "Copy VN ID"
+  },
+
+  "vndb_vn_visitmain": {
+    "message": "Visit main page"
+  },
+
+  "vndb_vn_visitrelations": {
+    "message": "Visit relations page"
+  },
+
+  "vndb_vn_visitreleases": {
+    "message": "Visit releases page"
+  },
+
+  "vndb_vn_visitdiscussions": {
+    "message": "Visit discussions page"
+  },
+
+  "vndb_vn_visithistory": {
+    "message": "Visit history page"
+  },
+
+  "vndb_vn_visittags": {
+    "message": "Visit tags page"
+  },
+
+  "vndb_vn_visitcharacters": {
+    "message": "Visit characters page"
+  },
+
+  "vndb_tag": {
+    "message": "VNDB tag"
+  },
+
+  "vndb_tag_copylink": {
+    "message": "Copy tag link"
+  },
+
+  "vndb_tag_copyrecentlytagged": {
+    "message": "Copy recently tagged link"
+  },
+
+  "vndb_tag_copyid": {
+    "message": "Copy tag ID"
+  },
+
+  "vndb_tag_visitpage": {
+    "message": "Visit tag page"
+  },
+
+  "vndb_tag_visitrecentlytagged": {
+    "message": "Visit recently tagged page"
+  },
+
+  "vndb_char": {
+    "message": "VNDB character"
+  },
+
+  "vndb_char_copylink": {
+    "message": "Copy character link"
+  },
+
+  "vndb_char_copyhistory": {
+    "message": "Copy history link"
+  },
+
+  "vndb_char_copyid": {
+    "message": "Copy character ID"
+  },
+
+  "vndb_char_visitpage": {
+    "message": "Visit character page"
+  },
+
+  "vndb_char_visithistory": {
+    "message": "Visit history page"
+  },
+
+  "vndb_trait": {
+    "message": "VNDB trait"
+  },
+
+  "vndb_trait_copylink": {
+    "message": "Copy trait link"
+  },
+
+  "vndb_trait_copyid": {
+    "message": "Copy trait ID"
+  },
+
+  "vndb_trait_visitpage": {
+    "message": "Visit trait page"
+  },
+
+  "vndb_user": {
+    "message": "VNDB user"
+  },
+
+  "vndb_user_copylink": {
+    "message": "Copy user link"
+  },
+
+  "vndb_user_copylist": {
+    "message": "Copy VN list link"
+  },
+
+  "vndb_user_copyvotes": {
+    "message": "Copy votes link"
+  },
+
+  "vndb_user_copywishlist": {
+    "message": "Copy wishlist link"
+  },
+
+  "vndb_user_copyreviews": {
+    "message": "Copy reviews link"
+  },
+
+  "vndb_user_copyposts": {
+    "message": "Copy posts link"
+  },
+
+  "vndb_user_copydiscussions": {
+    "message": "Copy discussions link"
+  },
+
+  "vndb_user_copyhistory": {
+    "message": "Copy history link"
+  },
+
+  "vndb_user_copyid": {
+    "message": "Copy user ID"
+  },
+
+  "vndb_user_visitpage": {
+    "message": "Visit user page"
+  },
+
+  "vndb_user_visitlist": {
+    "message": "Visit VN list page"
+  },
+
+  "vndb_user_visitvotes": {
+    "message": "Visit votes page"
+  },
+
+  "vndb_user_visitwishlist": {
+    "message": "Visit wishlist page"
+  },
+
+  "vndb_user_visitreviews": {
+    "message": "Visit reviews page"
+  },
+
+  "vndb_user_visitposts": {
+    "message": "Visit posts page"
+  },
+
+  "vndb_user_visitdiscussions": {
+    "message": "Visit discussions page"
+  },
+
+  "vndb_user_visithistory": {
+    "message": "Visit history page"
+  },
+
+  "vndb_discussion": {
+    "message": "VNDB discussion"
+  },
+
+  "vndb_discussion_copylink": {
+    "message": "Copy thread link"
+  },
+
+  "vndb_discussion_copyid": {
+    "message": "Copy thread ID"
+  },
+
+  "vndb_discussion_visitpage": {
+    "message": "Visit thread page"
   }
 }

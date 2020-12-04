@@ -127,7 +127,7 @@ function checkPatterns (aUrl, aFindAllMatches) {
   }
   if (matched) ops.push(group);
 
-  group = {label: `[ ${_("embeddingCopyGroup")} ]`, ops: []};
+  group = {label: `[ ${_("embeddingsGroup")} ]`, ops: []};
   ops.push(group);
   for (let t of linkEmbsUnion) {
     for (let url of urls) {
