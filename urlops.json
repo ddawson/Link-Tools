@@ -1397,6 +1397,10 @@
           "subst": "https://vndb.org/v$1/chars"
         },
         {
+          "label": "__MSG_vndb_vn_copyreviews__",
+          "subst": "https://vndb.org/v$1/reviews"
+        },
+        {
           "label": "__MSG_vndb_vn_copyid__",
           "subst": "v$1"
         }
@@ -1429,6 +1433,133 @@
         {
           "label": "__MSG_vndb_vn_visitcharacters__",
           "subst": "https://vndb.org/v$1/chars"
+        },
+        {
+          "label": "__MSG_vndb_vn_visitreviews__",
+          "subst": "https://vndb.org/v$1/reviews"
+        }
+      ]
+    },
+    {
+      "name": "__MSG_vndb_release__",
+      "patterns": [
+        "^https:\\/\\/vndb\\.org\\/r(\\d+).*$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_vndb_release_copylink__",
+          "subst": "https://vndb.org/r$1"
+        },
+        {
+          "label": "__MSG_vndb_release_copyhistory__",
+          "subst": "https://vndb.org/r$1/hist"
+        },
+        {
+          "label": "__MSG_vndb_release_copyid__",
+          "subst": "r$1"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_vndb_release_visitpage__",
+          "subst": "https://vndb.org/r$1"
+        },
+        {
+          "label": "__MSG_vndb_release_visithistory__",
+          "subst": "https://vndb.org/r$1/hist"
+        }
+      ]
+    },
+    {
+      "name": "__MSG_vndb_producer__",
+      "patterns": [
+        "^https:\\/\\/vndb\\.org\\/p(\\d+).*$",
+        "^https:\\/\\/vndb\\.org\\/t\\/p(\\d+).*$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_vndb_producer_copylink__",
+          "subst": "https://vndb.org/p$1"
+        },
+        {
+          "label": "__MSG_vndb_producer_copyvns__",
+          "subst": "https://vndb.org/p$1/vn"
+        },
+        {
+          "label": "__MSG_vndb_producer_copyreleases__",
+          "subst": "https://vndb.org/p$1/rel"
+        },
+        {
+          "label": "__MSG_vndb_producer_copyrelations__",
+          "subst": "https://vndb.org/p$1/rg"
+        },
+        {
+          "label": "__MSG_vndb_producer_copydiscussions__",
+          "subst": "https://vndb.org/t/p$1"
+        },
+        {
+          "label": "__MSG_vndb_producer_copyhistory__",
+          "subst": "https://vndb.org/p$1/hist"
+        },
+        {
+          "label": "__MSG_vndb_producer_copyid__",
+          "subst": "p$1"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_vndb_producer_visitpage__",
+          "subst": "https://vndb.org/p$1"
+        },
+        {
+          "label": "__MSG_vndb_producer_visitvns__",
+          "subst": "https://vndb.org/p$1/vn"
+        },
+        {
+          "label": "__MSG_vndb_producer_visitreleases__",
+          "subst": "https://vndb.org/p$1/rel"
+        },
+        {
+          "label": "__MSG_vndb_producer_visitrelations__",
+          "subst": "https://vndb.org/p$1/rg"
+        },
+        {
+          "label": "__MSG_vndb_producer_visitdiscussions__",
+          "subst": "https://vndb.org/t/p$1"
+        },
+        {
+          "label": "__MSG_vndb_producer_visithistory__",
+          "subst": "https://vndb.org/p$1/hist"
+        }
+      ]
+    },
+    {
+      "name": "__MSG_vndb_staff__",
+      "patterns": [
+        "^https:\\/\\/vndb\\.org\\/s(\\d+).*$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_vndb_staff_copylink__",
+          "subst": "https://vndb.org/s$1"
+        },
+        {
+          "label": "__MSG_vndb_staff_copyhistory__",
+          "subst": "https://vndb.org/s$1/hist"
+        },
+        {
+          "label": "__MSG_vndb_staff_copyid__",
+          "subst": "s$1"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_vndb_staff_visitpage__",
+          "subst": "https://vndb.org/s$1"
+        },
+        {
+          "label": "__MSG_vndb_staff_visithistory__",
+          "subst": "https://vndb.org/s$1/hist"
         }
       ]
     },

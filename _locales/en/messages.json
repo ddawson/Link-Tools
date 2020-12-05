@@ -136,7 +136,7 @@
   "add": {
     "message": "Add"
   },
-  
+
   "heading_visitops": {
     "message": "Visit operations"
   },
@@ -152,7 +152,7 @@
   "addAsNewType": {
     "message": "Add as new type"
   },
-  
+
   "mustHaveName": {
     "message": "You must enter a name for this type."
   },
@@ -429,7 +429,7 @@
   "youtube_visitGenYoutube": {
     "message": "Visit GenYoutube watch page"
   },
-  
+
   "youtubePlaylist": {
     "message": "YouTube playlist"
   },
@@ -1227,7 +1227,7 @@
   },
 
   "vndb_vn_copymain": {
-    "message": "Copy main link"
+    "message": "Copy VN link"
   },
 
   "vndb_vn_copyrelations": {
@@ -1254,12 +1254,16 @@
     "message": "Copy characters link"
   },
 
+  "vndb_vn_copyreviews": {
+    "message": "Copy reviews link"
+  },
+
   "vndb_vn_copyid": {
     "message": "Copy VN ID"
   },
 
   "vndb_vn_visitmain": {
-    "message": "Visit main page"
+    "message": "Visit VN page"
   },
 
   "vndb_vn_visitrelations": {
@@ -1284,6 +1288,114 @@
 
   "vndb_vn_visitcharacters": {
     "message": "Visit characters page"
+  },
+
+  "vndb_vn_visitreviews": {
+    "message": "Visit reviews page"
+  },
+
+  "vndb_release": {
+    "message": "VNDB release"
+  },
+
+  "vndb_release_copylink": {
+    "message": "Copy release link"
+  },
+
+  "vndb_release_copyhistory": {
+    "message": "Copy history link"
+  },
+
+  "vndb_release_copyid": {
+    "message": "Copy release ID"
+  },
+
+  "vndb_release_visitpage": {
+    "message": "Visit release page"
+  },
+
+  "vndb_release_visithistory": {
+    "message": "Visit history page"
+  },
+
+  "vndb_producer": {
+    "message": "VNDB producer"
+  },
+
+  "vndb_producer_copylink": {
+    "message": "Copy producer link"
+  },
+
+  "vndb_producer_copyvns": {
+    "message": "Copy produced VNs link"
+  },
+
+  "vndb_producer_copyreleases": {
+    "message": "Copy produced releases link"
+  },
+
+  "vndb_producer_copyrelations": {
+    "message": "Copy relations link"
+  },
+
+  "vndb_producer_copydiscussions": {
+    "message": "Copy discussions link"
+  },
+
+  "vndb_producer_copyhistory": {
+    "message": "Copy history link"
+  },
+
+  "vndb_producer_copyid": {
+    "message": "Copy producer ID"
+  },
+
+  "vndb_producer_visitpage": {
+    "message": "Visit producer page"
+  },
+
+  "vndb_producer_visitvns": {
+    "message": "Visit produced VNs page"
+  },
+
+  "vndb_producer_visitreleases": {
+    "message": "Visit produced releases page"
+  },
+
+  "vndb_producer_visitrelations": {
+    "message": "Visit relations page"
+  },
+
+  "vndb_producer_visitdiscussions": {
+    "message": "Visit discussions page"
+  },
+
+  "vndb_producer_visithistory": {
+    "message": "Visit history page"
+  },
+
+  "vndb_staff": {
+    "message": "VNDB staff"
+  },
+
+  "vndb_staff_copylink": {
+    "message": "Copy staff link"
+  },
+
+  "vndb_staff_copyhistory": {
+    "message": "Copy history link"
+  },
+
+  "vndb_staff_copyid": {
+    "message": "Copy staff ID"
+  },
+
+  "vndb_staff_visitpage": {
+    "message": "Visit staff page"
+  },
+
+  "vndb_staff_visithistory": {
+    "message": "Visit history page"
   },
 
   "vndb_tag": {
