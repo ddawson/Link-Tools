@@ -498,6 +498,14 @@
     "message": "Visit About page"
   },
 
+  "youtubeAtUser": {
+    "message": "YouTube @user"
+  },
+
+  "youtube_copyAtUserName": {
+    "message": "Copy @user name"
+  },
+
   "youtubeChannel": {
     "message": "YouTube channel (ID)"
   },

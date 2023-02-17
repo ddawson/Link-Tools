@@ -3,7 +3,9 @@
     "^https?:\\/\\/www\\.google\\.com\\/url\\?(?:.*&)?url=([^&]+)(?:&.*)?$",
     "^https?:\\/\\/www\\.youtube\\.com\\/redirect\\?(?:.*&)?q=([^&]+)(?:&.*)?$",
     "^https?:\\/\\/outgoing\\.prod\\.mozaws\\.net\\/[^\\/]+\\/[^\\/]+\\/(.*)$",
-    "^https?:\\/\\/(?:www\\.)?webcitation\\.org\\/query(?:\\.php)?\\?(?:.*&)?url=([^&]+)(?:&.*)?$"
+    "^https?:\\/\\/(?:www\\.)?webcitation\\.org\\/query(?:\\.php)?\\?(?:.*&)?url=([^&]+)(?:&.*)?$",
+    "^https:\\/\\/click\\.redditmail\\.com\\/[0-9A-Za-z]+\\/([^/$&]+)",
+    "^https?:\\/\\/disq\\.us\\/url\\?url=([a-z]+(?:%3A[^&]*)+)%3A[^%&]*&.*$"
   ],
 
   "embeddedLinkPatterns_nodecode": [
@@ -131,8 +133,8 @@
     {
       "name": "__MSG_youtubePlaylistedVideo__",
       "patterns": [
-        "^https?:\\/\\/www\\.youtube\\.com\\/watch\\?(?:.*&)?list=([^&]+)(?:&.*)?$",
-        "^https?:\\/\\/m\\.youtube\\.com\\/watch\\?(?:.*&)?list=([^&]+)(?:&.*)?$"
+        "^https?:\\/\\/www\\.youtube\\.com\\/(?:(?:watch)|(?:live))\\?(?:.*&)?list=([^&]+)(?:&.*)?$",
+        "^https?:\\/\\/m\\.youtube\\.com\\/(?:(?:watch)|(?:live))\\?(?:.*&)?list=([^&]+)(?:&.*)?$"
       ],
       "copyOperations": [
         {
@@ -163,9 +165,9 @@
     {
       "name": "__MSG_youtubeVideo__",
       "patterns": [
-        "^https?:\\/\\/www\\.youtube\\.com\\/watch\\?(?:.*&)?v=((?:\\w|-){11})\\b.*$",
-        "^https?:\\/\\/m\\.youtube\\.com\\/watch\\?(?:.*&)?v=((?:\\w|-){11})\\b.*$",
-        "^https?:\\/\\/www\\.youtube\\.com\\/embed\\/((?:\\w|-){11})\\b.*$",
+        "^https?:\\/\\/www\\.youtube\\.com\\/(?:(?:watch)|(?:live))\\?(?:.*&)?v=((?:\\w|-){11})\\b.*$",
+        "^https?:\\/\\/m\\.youtube\\.com\\/(?:(?:watch)|(?:live))\\?(?:.*&)?v=((?:\\w|-){11})\\b.*$",
+        "^https?:\\/\\/www\\.youtube\\.com\\/(?:(?:embed)|(?:shorts)|(?:watch))\\/((?:\\w|-){11})\\b.*$",
         "^https?:\\/\\/youtu\\.be\\/((?:\\w|-){11})\\b.*$",
         "^https?:\\/\\/(?:www\\.)?genyoutube\\.(?:(?:net)|(?:com))\\/watch\\?v=((?:\\w|-){11})(?:&.*)?$",
         "^https?:\\/\\/(?:(?:video\\.)|(?:www\\.))?genyoutube\\.(?:(?:net)|(?:com))\\/((?:\\w|-){11})$"
@@ -270,8 +272,8 @@
       "patterns": [
         "^https?:\\/\\/www\\.youtube\\.com\\/(?:c|(?:user))\\/([^/?]+)(?:(?:\\/|\\?).*)?$",
         "^https?:\\/\\/m\\.youtube\\.com\\/(?:c|(?:user))\\/([^/?]+)(?:(?:\\/|\\?).*)?$",
-        "^https?:\\/\\/www\\.youtube\\.com\\/(?!(?:watch)|(?:embed)|(?:playlist)|c|(?:user)|(?:channel)|(?:feed)|(?:premium)|(?:account)|(?:reporthistory)|(?:yt)|t|(?:intl)|(?:testtube)|(?:redirect)(?:\\/|\\?|$))([^/?]+)(?:(?:\\/|\\?).*)?$",
-        "^https?:\\/\\/m\\.youtube\\.com\\/(?!(?:watch)|(?:embed)|(?:playlist)|c|(?:user)|(?:channel)|(?:feed)|(?:premium)|(?:account)|(?:reporthistory)|(?:yt)|t|(?:intl)|(?:testtube)|(?:redirect)(?:\\/|\\?|$))([^/?]+)(?:(?:\\/|\\?).*)?$"
+        "^https?:\\/\\/www\\.youtube\\.com\\/(?!(?:watch)|(?:embed)|(?:playlist)|c|(?:user)|(?:channel)|(?:feed)|(?:premium)|(?:account)|(?:reporthistory)|(?:yt)|t|(?:intl)|(?:testtube)|(?:redirect)|(?:shorts)|(?:live)|(?:@[^/?].*)(?:\\/|\\?|$))([^/?]+)(?:(?:\\/|\\?).*)?$",
+        "^https?:\\/\\/m\\.youtube\\.com\\/(?!(?:watch)|(?:embed)|(?:playlist)|c|(?:user)|(?:channel)|(?:feed)|(?:premium)|(?:account)|(?:reporthistory)|(?:yt)|t|(?:intl)|(?:testtube)|(?:redirect)|(?:shorts)|(?:live)|(?:@[^/?].*)(?:\\/|\\?|$))([^/?]+)(?:(?:\\/|\\?).*)?$"
       ],
       "copyOperations": [
         {
@@ -335,6 +337,78 @@
         {
           "label": "__MSG_youtube_visitUsersChannelAboutPage__",
           "subst": "https://www.youtube.com/c/$1/about"
+        }
+      ]
+    },
+
+    {
+      "name": "__MSG_youtubeAtUser__",
+      "patterns": [
+        "^https?:\\/\\/www\\.youtube\\.com\\/(@[^/?]+)(?:(?:\\/|\\?).*)?$",
+        "^https?:\\/\\/m\\.youtube\\.com\\/(@[^/?]+)(?:(?:\\/|\\?).*)?$"
+      ],
+      "copyOperations": [
+        {
+          "label": "__MSG_youtube_copyUsersChannelHomePageLink__",
+	  "subst": "https://www.youtube.com/$1"
+	},
+        {
+          "label": "__MSG_youtube_copyUsersChannelVideosPageLink__",
+          "subst": "https://www.youtube.com/$1/videos"
+        },
+        {
+          "label": "__MSG_youtube_copyUsersChannelPlaylistsPageLink__",
+          "subst": "https://www.youtube.com/$1/playlists"
+        },
+        {
+          "label": "__MSG_youtube_copyUsersChannelCommunityPageLink__",
+          "subst": "https://www.youtube.com/$1/community"
+        },
+        {
+          "label": "__MSG_youtube_copyUsersChannelChannelsPageLink__",
+          "subst": "https://www.youtube.com/$1/channels"
+        },
+        {
+          "label": "__MSG_youtube_copyUsersChannelDiscussionPageLink__",
+          "subst": "https://www.youtube.com/$1/discussion"
+        },
+        {
+          "label": "__MSG_youtube_copyUsersChannelAboutPageLink__",
+          "subst": "https://www.youtube.com/$1/about"
+        },
+        {
+          "label": "__MSG_youtube_copyAtUserName__",
+          "subst": "$1"
+        }
+      ],
+      "visitOperations": [
+        {
+          "label": "__MSG_youtube_visitUsersChannelHomePage__",
+          "subst": "https://www.youtube.com/$1"
+        },
+        {
+          "label": "__MSG_youtube_visitUsersChannelVideosPage__",
+          "subst": "https://www.youtube.com/$1/videos"
+        },
+        {
+          "label": "__MSG_youtube_visitUsersChannelPlaylistsPage__",
+          "subst": "https://www.youtube.com/$1/playlists"
+        },
+        {
+          "label": "__MSG_youtube_visitUsersChannelCommunityPage__",
+          "subst": "https://www.youtube.com/$1/community"
+        },
+        {
+          "label": "__MSG_youtube_visitUsersChannelChannelsPage__",
+          "subst": "https://www.youtube.com/$1/channels"
+        },
+        {
+          "label": "__MSG_youtube_visitUsersChannelDiscussionPage__",
+          "subst": "https://www.youtube.com/$1/discussion"
+        },
+        {
+          "label": "__MSG_youtube_visitUsersChannelAboutPage__",
+          "subst": "https://www.youtube.com/$1/about"
         }
       ]
     },
