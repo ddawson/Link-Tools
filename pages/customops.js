@@ -1,6 +1,6 @@
 /*
     Link Tools: Configurable copy and visit operations for links in Firefox
-    Copyright (C) 2019  Daniel Dawson <danielcdawson@gmail.com>
+    Copyright (C) 2025  Daniel Dawson <danielcdawson@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -119,7 +119,7 @@ function initData () {
       inp.type = "text";
       inp.spellcheck = false;
       inp.value = aAry[i][0];
-      if (!aPrefix) inp.readonly = true;
+      if (!aPrefix) inp.readOnly = true;
       cell.appendChild(inp);
       row.appendChild(cell);
 
@@ -128,7 +128,7 @@ function initData () {
       inp.type = "text";
       inp.spellcheck = false;
       inp.value = aAry[i][1];
-      if (!aPrefix) inp.readonly = true;
+      if (!aPrefix) inp.readOnly = true;
       cell.appendChild(inp);
       row.appendChild(cell);
 
@@ -142,7 +142,7 @@ function initData () {
       if (aPrefix)
         inp.placeholder = _("template_placeholder");
       else
-        inp.readonly = true;
+        inp.readOnly = true;
       cell.appendChild(inp);
       row.appendChild(cell);
 
@@ -329,6 +329,23 @@ function enableRem () {
     $("btn-rem").disabled = true;
 }
 
+function enableAdd () {
+  let ts = $("types-sel");
+  if ((ts.selectedIndex >= 0 && ts.selectedOptions[0].value.startsWith("cu-"))
+      || ts.selectedIndex < 0) {
+    $("copyops-addbtn").disabled = false;
+    $("visitops-addbtn").disabled = false;
+  } else {
+    $("copyops-addbtn").disabled = true;
+    $("visitops-addbtn").disabled = true;
+  }
+}
+
+function enableForm () {
+  for (let id of ["opgroup-name", "opgroup-pat", "opgroup-thumb"])
+    $(id).readOnly = false;
+}
+
 function enableChanges () {
   let ts = $("types-sel");
   if (ts.selectedOptions.length == 1
@@ -338,8 +355,28 @@ function enableChanges () {
     $("ops-changebtn").disabled = true;
 }
 
+function enableClone () {
+  let ts = $("types-sel");
+  if ((ts.selectedOptions.length == 1
+       && ts.selectedOptions[0].value.startsWith("cu-"))
+      || ts.selectedIndex == -1)
+    $("ops-clonebtn").disabled = false;
+  else
+    $("ops-clonebtn").disabled = true;
+}
+
 function disableRem () {
   $("btn-rem").disabled = true;
+}
+
+function disableAdd () {
+  $("copyops-addbtn").disabled = true;
+  $("visitops-addbtn").disabled = true;
+}
+
+function disableForm () {
+  for (let id of ["opgroup-name", "opgroup-pat", "opgroup-thumb"])
+    $(id).readOnly = true;
 }
 
 function disableChanges () {
@@ -353,6 +390,8 @@ function wipeTable (aTbody) {
 
 function wipeEditor () {
   enableRem();
+  enableAdd();
+  enableForm();
   disableChanges();
 
   for (let id of ["opgroup-name", "opgroup-pat", "opgroup-thumb"])
@@ -478,15 +517,15 @@ $("types-sel").addEventListener(
       let isCustom = val.startsWith("cu-");
       let idx = Number(val.slice(3));
       let type = isCustom ? customUrlops[idx] : builtinUrlops[idx];
-      enableRem();
-      disableChanges();
 
+      enableForm();
       $("opgroup-name").value = type.name;
-      $("opgroup-name").addEventListener("input", enableChanges, false);
       $("opgroup-pat").value = type.patterns.join("\n");
-      $("opgroup-pat").addEventListener("input", enableChanges, false);
       $("opgroup-thumb").value = "thumbnail" in type ? type.thumbnail : "";
-      $("opgroup-thumb").addEventListener("input", enableChanges, false);
+      for (let id of ["opgroup-name", "opgroup-pat", "opgroup-thumb"])
+        if (isCustom)
+          $(id).addEventListener("input", enableChanges, false);
+      if (!isCustom) disableForm();
 
       function _fillOpsList (aParent, aOps, aPrefix) {
         for (let op of aOps) {
@@ -496,7 +535,10 @@ $("types-sel").addEventListener(
           inp.type = "text";
           inp.spellcheck = false;
           inp.value = op.label;
-          inp.addEventListener("input", enableChanges, false);
+          if (isCustom)
+            inp.addEventListener("input", enableChanges, false);
+          else
+            inp.readOnly = true;
           cell.appendChild(inp);
           row.appendChild(cell);
 
@@ -507,8 +549,11 @@ $("types-sel").addEventListener(
           inp.type = "text";
           inp.spellcheck = false;
           inp.value = op.subst;
-          inp.placeholder = _("replacedByMatches");
-          inp.addEventListener("input", enableChanges, false);
+          if (isCustom) {
+            inp.placeholder = _("replacedByMatches");
+            inp.addEventListener("input", enableChanges, false);
+          } else
+            inp.readOnly = true;
           cell.appendChild(inp);
           row.appendChild(cell);
 
@@ -516,18 +561,23 @@ $("types-sel").addEventListener(
           inp = document.createElement("input");
           inp.type = "checkbox";
           inp.checked = "decode" in op && op.decode;
-          inp.addEventListener("input", enableChanges, false);
+          if (isCustom)
+            inp.addEventListener("input", enableChanges, false);
+          else
+            inp.disabled = true;
           cell.appendChild(inp);
           row.appendChild(cell);
 
-          cell = document.createElement("td");
-          let btn = document.createElement("button");
-          btn.className = "opdel-btn";
-          btn.value = `${aPrefix}-${aParent.children.length}`;
-          setTxt(btn, _("remove"));
-          btn.addEventListener("click", removeRow, false);
-          cell.appendChild(btn);
-          row.appendChild(cell);
+          if (isCustom) {
+            cell = document.createElement("td");
+            let btn = document.createElement("button");
+            btn.className = "opdel-btn";
+            btn.value = `${aPrefix}-${aParent.children.length}`;
+            setTxt(btn, _("remove"));
+            btn.addEventListener("click", removeRow, false);
+            cell.appendChild(btn);
+            row.appendChild(cell);
+          }
 
           aParent.appendChild(row);
         }
@@ -545,13 +595,12 @@ $("types-sel").addEventListener(
       if ("visitOperations" in type)
         _fillOpsList(tbody, type.visitOperations, "v");
 
-      if (isCustom)
-        enableRem();
-      else
-        disableRem();
+      enableRem();
+      enableAdd();
       disableChanges();
     } else
       wipeEditor();
+    enableClone();
   },
   false);
 
@@ -596,6 +645,8 @@ $("btn-new").addEventListener(
   () => {
     $("types-sel").selectedIndex = -1;
     wipeEditor();
+    enableForm();
+    enableClone();
     $("opgroup-name").focus();
   },
   false);
